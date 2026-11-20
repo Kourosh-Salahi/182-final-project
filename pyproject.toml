@@ -1,0 +1,28 @@
+[project]
+name = "toolguard"
+version = "0.1.0"
+description = "Classifying tool-output prompt injections in an open-weight robot agent (Qwen3-VL + OpenVLA on LIBERO-Goal)"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+# Span classifier training / inference and the Prompt Guard 2 baseline.
+train = ["torch>=2.2", "transformers>=4.44"]
+# Camera frames for the orchestrator and the OpenVLA executor (GPU box only).
+# LIBERO and its robosuite/MuJoCo stack are installed from source, see README.
+sim = ["torch>=2.2", "transformers>=4.44", "numpy", "pillow", "timm", "accelerate", "bitsandbytes"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+toolguard = "toolguard.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["toolguard*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: trains a tiny model (needs torch + transformers and a model download)"]
