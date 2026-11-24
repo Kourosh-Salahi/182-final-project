@@ -1,0 +1,35 @@
+\begin{tabular}{llrrr}
+\toprule
+Test split & Defense & Injected chars removed & Benign chars kept & False alarms \\
+\midrule
+Original: seen families & Span classifier (ours) & 0.992 & 1.000 & 0.000 \\
+ & ProtectAI, per sentence & 0.334 & 0.996 & 0.003 \\
+ & ProtectAI, whole output & 0.059 & 0.968 & 0.006 \\
+ & Keyword filter & 0.000 & 0.978 & 0.087 \\
+\midrule
+Original: held-out families & Span classifier (ours) & 0.916 & 1.000 & 0.000 \\
+ & ProtectAI, per sentence & 0.370 & 0.992 & 0.003 \\
+ & ProtectAI, whole output & 0.141 & 0.928 & 0.000 \\
+ & Keyword filter & 0.514 & 0.978 & 0.054 \\
+\midrule
+New attack shapes, original harmless text & Span classifier (ours) & 0.952 & 1.000 & 0.000 \\
+ & ProtectAI, per sentence & 0.132 & 0.997 & 0.003 \\
+ & ProtectAI, whole output & 0.090 & 0.955 & 0.000 \\
+ & Keyword filter & 0.221 & 0.977 & 0.070 \\
+\midrule
+Original attacks, new harmless writing & Span classifier (ours) & 0.880 & 0.867 & 0.640 \\
+ & ProtectAI, per sentence & 0.468 & 0.989 & 0.077 \\
+ & ProtectAI, whole output & 0.070 & 0.965 & 0.000 \\
+ & Keyword filter & 0.209 & 0.983 & 0.057 \\
+\midrule
+New attack shapes, new harmless writing & Span classifier (ours) & 0.947 & 0.861 & 0.700 \\
+ & ProtectAI, per sentence & 0.127 & 0.989 & 0.070 \\
+ & ProtectAI, whole output & 0.060 & 0.965 & 0.010 \\
+ & Keyword filter & 0.233 & 0.985 & 0.057 \\
+\midrule
+Task-contrast test & Span classifier (ours) & 0.818 & 0.906 & 0.827 \\
+ & ProtectAI, per sentence & 0.040 & 0.988 & 0.047 \\
+ & ProtectAI, whole output & 0.050 & 0.945 & 0.060 \\
+ & Keyword filter & 0.000 & 0.983 & 0.057 \\
+\bottomrule
+\end{tabular}

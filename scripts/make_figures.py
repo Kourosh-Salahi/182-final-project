@@ -10,6 +10,9 @@ Inputs (each produced by the command in the README):
     runs/classifier_study.json       training curves, seeds, task-conditioning ablation
     runs/span_eval.json              span metrics and threshold sweep
     runs/template_asr.json           undefended success of every attack wording
+    runs/ood_eval.json               span metrics on the harder (OOD) splits
+    runs/contrast_study.json         task-contrast training study
+    runs/ood_screen, runs/ood_e2     new attack wordings on the robot
 Missing inputs are skipped with a note, so partial results still build.
 """
 
@@ -342,6 +345,117 @@ def adaptive(records, replay):
     write("tab_adaptive.tex", "\n".join(lines) + "\n")
 
 
+# ---------------------------------------------------------------- harder data
+OOD_SPLITS = [("test_seen", "Original: seen families"), ("test_heldout", "Original: held-out families"),
+              ("ood_attack", "New attack shapes, original harmless text"),
+              ("ood_benign", "Original attacks, new harmless writing"),
+              ("ood_both", "New attack shapes, new harmless writing")]
+
+
+def harder_text(ood):
+    """Span metrics of the E2 checkpoint and baselines on the original and the harder splits."""
+    fig, axes = plt.subplots(1, 2, figsize=(6.8, 2.6), sharey=True)
+    ys = list(range(len(OOD_SPLITS)))
+    series = (("classifier", "Span classifier (ours)", "#2c5f8a"), ("protectai_sent", "ProtectAI, per sentence", "#999999"))
+    for ax, key, count, title in ((axes[0], "removed_fraction", "n_injected", "Injected text removed (%)"),
+                                  (axes[1], "false_alarm_rate", "n_clean", "Clean outputs flagged (%)")):
+        for j, (d, label, colour) in enumerate(series):
+            for y, (split, _) in zip(ys, OOD_SPLITS):
+                r = ood[split][d]
+                v, n = r[key], r[count]
+                ax.barh(y + (j - 0.5) * 0.38, 100 * v, height=0.36, color=colour, label=label if y == 0 else None)
+                if key == "false_alarm_rate":  # a per-example rate, so a binomial interval applies
+                    lo, hi = wilson(round(v * n), n)
+                    ax.errorbar(100 * v, y + (j - 0.5) * 0.38, xerr=[[100 * (v - lo)], [100 * (hi - v)]], color="k",
+                                capsize=1.5, lw=0.7)
+                ax.text(100 * v + 4, y + (j - 0.5) * 0.38, f"{100 * v:.0f}", va="center", fontsize=6.5)
+        ax.set_xlim(0, 112)
+        ax.set_xticks([0, 25, 50, 75, 100])
+        ax.set_xlabel(title)
+    axes[0].set_yticks(ys)
+    axes[0].set_yticklabels([label for _, label in OOD_SPLITS])
+    axes[0].invert_yaxis()
+    axes[0].legend(fontsize=6.5, frameon=False, loc="lower left", bbox_to_anchor=(-1.25, -0.42), ncol=2)
+    fig.tight_layout()
+    fig.savefig(FIG / "harder.pdf", bbox_inches="tight")
+    plt.close(fig)
+    print("wrote", FIG / "harder.pdf")
+
+    lines = ["\\begin{tabular}{ll" + "r" * 3 + "}", "\\toprule",
+             "Test split & Defense & Injected chars removed & Benign chars kept & False alarms \\\\", "\\midrule"]
+    for split, label in OOD_SPLITS + [("contrast_test", "Task-contrast test")]:
+        for d, dl in (("classifier", "Span classifier (ours)"), ("protectai_sent", "ProtectAI, per sentence"),
+                      ("protectai", "ProtectAI, whole output"), ("heuristic", "Keyword filter")):
+            r = ood[split][d]
+            lines.append(f"{label if d == 'classifier' else ''} & {dl} & {r['removed_fraction']:.3f} & "
+                         f"{r['benign_kept']:.3f} & {r['false_alarm_rate']:.3f} \\\\")
+        lines.append("\\midrule")
+    lines[-1] = "\\bottomrule"
+    lines.append("\\end{tabular}")
+    write("tab_ood.tex", "\n".join(lines) + "\n")
+
+
+def contrast(study):
+    setups = (("A", "original", "shown"), ("B", "original + contrast", "shown"),
+              ("C", "original", "hidden"), ("D", "original + contrast", "hidden"))
+    runs = {k: [r for r in study["runs"] if r["setup"] == k] for k, _, _ in setups}
+    kinds = (("swap", "Swap"), ("near_miss", "Near miss"), ("add_on", "Add-on"))
+    fig, ax = plt.subplots(figsize=(5.0, 2.6))
+    colours = {"A": "#bbbbbb", "B": "#2c5f8a", "C": "#e3c9a0", "D": "#c98a3a"}
+    for j, (k, data, task) in enumerate(setups):
+        for x, (kind, _) in enumerate(kinds):
+            vals = [100 * r["metrics"]["contrast_test"]["pairs"][kind]["pair_accuracy"] for r in runs[k]]
+            m = statistics.fmean(vals)
+            ax.bar(x + (j - 1.5) * 0.2, m, width=0.19, color=colours[k],
+                   label=f"{k}: {data}, task {task}" if x == 0 else None)
+            ax.errorbar(x + (j - 1.5) * 0.2, m, yerr=[[m - min(vals)], [max(vals) - m]], color="k", capsize=2, lw=0.7)
+    ax.set_xticks(range(len(kinds)))
+    ax.set_xticklabels([label for _, label in kinds])
+    ax.set_ylabel("Pair accuracy (%)")
+    ax.set_ylim(0, 105)
+    ax.legend(fontsize=6.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.32), ncol=2)
+    fig.tight_layout()
+    fig.savefig(FIG / "contrast.pdf", bbox_inches="tight")
+    plt.close(fig)
+    print("wrote", FIG / "contrast.pdf")
+
+    def m(k, split, key):
+        return ms([r["metrics"][split][key] for r in runs[k]])
+
+    def pa(k, kind):
+        return ms([r["metrics"]["contrast_test"]["pairs"][kind]["pair_accuracy"] for r in runs[k]])
+
+    lines = ["\\begin{tabular}{lll" + "r" * 6 + "}", "\\toprule",
+             " & & & \\multicolumn{3}{c}{Contrast pair accuracy} & Seen & Held-out & New harmless \\\\",
+             "Setup & Training data & Task & Swap & Near miss & Add-on & F1 & F1 & false alarms \\\\", "\\midrule"]
+    for k, data, task in setups:
+        lines.append(f"{k} & {data} & {task} & {pa(k, 'swap')} & {pa(k, 'near_miss')} & {pa(k, 'add_on')} & "
+                     f"{m(k, 'test_seen', 'f1')} & {m(k, 'test_heldout', 'f1')} & {m(k, 'ood_benign', 'false_alarm_rate')} \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}"]
+    write("tab_contrast.tex", "\n".join(lines) + "\n")
+
+
+def ood_robot(screen, e2):
+    fams = [f for f in FAMILIES]
+    lines = ["\\begin{tabular}{lrr}", "\\toprule", "Family & Wordings screened & Hijack the undefended agent \\\\", "\\midrule"]
+    tk = tn = 0
+    for f in fams:
+        rs = [t for t in screen if t["family"] == f]
+        k = sum(t["attack_at_call"] for t in rs)
+        tk, tn = tk + k, tn + len(rs)
+        lines.append(f"{FAMILY_LABEL[f].replace('*', '')} & {len(rs)} & {k} \\\\")
+    lines += ["\\midrule", f"All & {tn} & {tk} ({pct(tk, tn)}\\%) \\\\", "\\bottomrule", "\\end{tabular}"]
+    write("tab_ood_screen.tex", "\n".join(lines) + "\n")
+    lines = ["\\begin{tabular}{lrr}", "\\toprule", "Defense & Hijacks & Trials \\\\", "\\midrule"]
+    for d in ("none", "protectai", "protectai_sent", "sandwich", "classifier"):
+        rs = [t for t in e2 if t["defense"] == d]
+        if rs:
+            lines.append(f"{DEFENSE_LABEL[d]} & {sum(t['attack_at_call'] for t in rs)} & {len(rs)} \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}"]
+    write("tab_ood_robot.tex", "\n".join(lines) + "\n")
+
+
+
 def main():
     FIG.mkdir(parents=True, exist_ok=True)
     GEN.mkdir(parents=True, exist_ok=True)
@@ -361,6 +475,15 @@ def main():
     rows = load_json("runs/template_asr.json")
     if rows:
         fig_wording(rows)
+    ood = load_json("runs/ood_eval.json")
+    if ood:
+        harder_text(ood)
+    cstudy = load_json("runs/contrast_study.json")
+    if cstudy:
+        contrast(cstudy)
+    screen, ood_e2 = load_trials("runs/ood_screen/trials.jsonl"), load_trials("runs/ood_e2/trials.jsonl")
+    if screen and ood_e2:
+        ood_robot(screen, ood_e2)
     records = load_trials("runs/e3/adaptive.jsonl")
     if records:
         adaptive(records, load_trials("runs/e3_replay/trials.jsonl"))
