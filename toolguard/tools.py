@@ -164,17 +164,33 @@ def build_response(
 
     fmt = fmt or rng.choice(("prose", "kv", "json"))
     sents = _benign_sentences(obj, task, rng)
+    return layout_response(obj.name if obj else "workspace", sents, rng, injection, fmt, position)
+
+
+def layout_response(
+    title: str,
+    sents: list[str],
+    rng: random.Random,
+    injection: str | None = None,
+    fmt: str = "prose",
+    position: str = "random",
+) -> ToolResponse:
+    """Lay benign sentences (plus an optional injected span) out as a tool response.
+
+    `fmt` is one of "prose", "kv" or "json". `position` places the injection at a "random"
+    sentence boundary, or at the "start" or "end".
+    """
+    if fmt not in ("prose", "kv", "json"):
+        raise ValueError(f"unknown format: {fmt}")
     parts: list[Segment] = [Segment(s) for s in sents]
     if injection is not None:
         where = rng.randint(0, len(parts))  # always drawn, so the rest of the layout does not depend on `position`
         where = {"start": 0, "end": len(parts)}.get(position, where)
         parts.insert(where, Segment(injection, injected=True))
 
-    title = obj.name if obj else "workspace"
     if fmt == "json":
         head, sep, tail = f'{{"name": "{title}", "notes": "', " ", '"}'
-        for p in parts:
-            p.text = _escape_json(p.text)
+        parts = [Segment(_escape_json(p.text), p.injected) for p in parts]
     elif fmt == "kv":
         head, sep, tail = f"name: {title}\nnotes:\n- ", "\n- ", ""
     else:
