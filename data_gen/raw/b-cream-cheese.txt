@@ -1,0 +1,60 @@
+manual| The 8 oz (226 g) brick ships in a paperboard carton with an inner foil wrap and measures roughly 11 x 6 x 3 cm.
+manual| Store between 1 and 4 °C; freezing is not recommended, as the texture turns crumbly after thawing.
+manual| Carton material: food-grade bleached paperboard printed with soy-based inks.
+manual| After the foil wrapper is breached, the contents are best used within 10 days.
+manual| Net weight is 226 g, and the empty carton weighs about 9 g.
+manual| Contains milk and is produced in a facility that also handles tree nuts.
+manual| The carton is not moisture-resistant and may soften if it sits in condensation for long periods.
+manual| Time out of refrigeration should not exceed two hours, or one hour above 32 °C.
+manual| Fat content is 33% by weight; the reduced-fat variant has a blue end panel instead of silver.
+manual| Recycling note: the paperboard sleeve is curbside recyclable where accepted, but the foil liner is not.
+manual| A single carton can bear about 4 kg of stacking load before its corners begin to crush.
+manual| The spec sheet lists a shelf life of 60 days from production while the product stays sealed and refrigerated.
+log| 2026-11-18 07:42: cream cheese box received with the weekly grocery delivery, carton intact. JM
+log| 11/19 cond. check: slight dent on the lower-left corner, foil seal unbroken. -RK
+log| Fridge door shelf audit 14:05; one small cream cheese box present, best-by 2027-01-06. Initials: TP.
+log| Nov 20, evening: carton found sweating on the counter after breakfast prep, about 40 min out of the fridge. Logged by AL.
+log| Inventory count 11/21: cream cheese, qty 1, partial (~60% remaining).
+log| 2026-11-22 09:10 temp spot-check at its shelf read 3.2 °C, within range. SB
+log| Kitchen camera review (JM) shows the seal went from intact to broken on 11/20 at 08:15.
+log| Weekly stock reconcile: one 226 g cream cheese box was unaccounted for Monday and turned up behind the milk jug Tuesday. RK
+log| 23 Nov 16:30: label slightly smudged, lot number still legible. TP
+log| Flagged for expiry watch on 2026-11-21; nothing further recorded since.
+log| Maintenance note 11/22: shelf liner under the cream cheese wiped after a small smear was found. AL
+log| Restock entry 11/24 06:55: a second box of the same brand was added, and the older box stayed at the front. SB
+readout| OBJ_ID 4471 | class: cream_cheese_box | conf 0.94
+readout| Mass: 0.168 kg (est. 158 g contents remaining)
+readout| Surface temp 4.1 °C, ambient 3.6 °C, delta nominal.
+readout| Pose: x=0.42 m y=-0.11 m z=1.03 m, yaw 87°; fridge shelf 2.
+readout| Barcode decode OK: 0 74512 30218 6, match score 0.99.
+readout| Bounding box 11.2 x 6.1 x 3.0 cm, occlusion 18%.
+readout| Seal state: BROKEN (p=0.81); crease detected on top face.
+readout| Tag RFID-CC-0093 last seen 08:14:22, RSSI -61 dBm.
+readout| Classifier top-3: cream_cheese_box 0.88, butter_stick_pack 0.07, tofu_carton 0.03.
+readout| Deformation index 0.12 (minor); carton moisture estimate 9%.
+readout| Days to best-by: 43. Status: OK.
+readout| Grip-force threshold for this item: 3.5 N; slip events in the last 24 h: 0.
+coworker| The cream cheese box has a dent now, pretty sure someone set the milk on it.
+coworker| Honestly that brand is way too salty, but it's what we've got.
+coworker| FYI, whoever used it last left the foil all crinkled up, kinda messy.
+coworker| Little box of cream cheese is hiding behind the leftovers again lol.
+coworker| It's the full-fat one, not the light one, in case anybody cares.
+coworker| Pretty sure that box is half gone already, bagel Tuesday hit hard.
+coworker| Smells fine to me, though the edges look a little dried out.
+coworker| Not gonna lie, the carton feels kind of soggy on the bottom.
+coworker| Noticed the label's peeling at one corner, no big deal.
+coworker| That cream cheese was on sale, two for five bucks, so there'll probably be spares soon.
+coworker| Someone wrote "MINE" on it in Sharpie, but I think it's a joke.
+coworker| Weirdly it's the only thing in the fridge that never seems to run out.
+care| Grip the carton by its long sides with light pressure, since the paperboard crushes easily at the corners.
+care| Avoid holding it near heat sources, as the contents soften quickly above room temperature.
+care| Handle it only with dry grippers; condensation makes the carton slippery and weakens the cardboard.
+care| Support the bottom of a damp box when lifting, because it can tear along the seams.
+care| Never squeeze the box hard, since the soft contents can burst through the foil wrap.
+care| Wipe dairy residue off gripper pads with a damp cloth so it doesn't build up.
+care| Keep sharp tools away from the carton, as the thin foil liner punctures easily.
+care| Treat a bulging or swollen box with caution, since that can be a sign of spoilage.
+care| Limit time out of refrigeration to reduce food safety risks.
+care| Avoid stacking heavy items on it; the carton deforms under modest loads.
+care| A gentle, flat grasp is better than a pinch, which can dent the softened block.
+care| Watch for the foil edges once the seal is broken, since they can be sharp enough to snag soft gripper covers.

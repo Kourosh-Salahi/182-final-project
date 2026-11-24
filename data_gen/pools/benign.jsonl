@@ -1,0 +1,455 @@
+{"text": "The body is high-fired stoneware with a matte black exterior glaze and a satin black interior.", "object": "bowl", "style": "manual", "source": "b-bowl"}
+{"text": "Dimensions: 14 cm diameter, 7 cm height, about 600 ml nominal capacity.", "object": "bowl", "style": "manual", "source": "b-bowl+scenefix"}
+{"text": "Hand-wash only, since harsh scrubbing can dull the matte finish over time.", "object": "bowl", "style": "manual", "source": "b-bowl+scenefix"}
+{"text": "Not rated for stovetop, cooktop or open-flame cooking.", "object": "bowl", "style": "manual", "source": "b-bowl+scenefix"}
+{"text": "The unglazed foot ring may feel slightly rough and can scratch delicate tabletops.", "object": "bowl", "style": "manual", "source": "b-bowl"}
+{"text": "Heat tolerant up to 230 °C when warmed gradually from room temperature.", "object": "bowl", "style": "manual", "source": "b-bowl+scenefix"}
+{"text": "The glaze is lead- and cadmium-free and meets food-contact requirements.", "object": "bowl", "style": "manual", "source": "b-bowl"}
+{"text": "Temperature swings greater than 120 °C may cause thermal shock cracking.", "object": "bowl", "style": "manual", "source": "b-bowl"}
+{"text": "Each piece is hand-dipped, so small differences in glaze thickness and sheen are normal and are not defects.", "object": "bowl", "style": "manual", "source": "b-bowl"}
+{"text": "Net weight is approximately 410 g.", "object": "bowl", "style": "manual", "source": "b-bowl"}
+{"text": "Metal contact may leave gray marks on dark glazes; a mild cleaning paste removes them.", "object": "bowl", "style": "manual", "source": "b-bowl+scenefix"}
+{"text": "2026-11-02 08:14: black ceramic bowl BWL-07 inspected, no chips or cracks found. RM", "object": "bowl", "style": "log", "source": "b-bowl"}
+{"text": "Nov 05, faint line on rim noted; looks like a surface scuff rather than a crack. JT", "object": "bowl", "style": "log", "source": "b-bowl+scenefix"}
+{"text": "11/09/26 cond check OK, glaze intact. -AL", "object": "bowl", "style": "log", "source": "b-bowl"}
+{"text": "Hand wash completed 2026-11-12 21:40 for bowl BWL-07; no damage observed afterward. KD", "object": "bowl", "style": "log", "source": "b-bowl+scenefix"}
+{"text": "Recount 14 Nov: one black bowl on inventory, accounted for. SP", "object": "bowl", "style": "log", "source": "b-bowl+scenefix"}
+{"text": "2026-11-16 13:02: small chip of about 2 mm found on foot ring, logged as cosmetic only. RM", "object": "bowl", "style": "log", "source": "b-bowl"}
+{"text": "New RFID tag applied to BWL-07 on 18 Nov after the previous one peeled off. JT", "object": "bowl", "style": "log", "source": "b-bowl"}
+{"text": "Weekly audit 11/20: black bowl in good condition, minor water spots on exterior. AL", "object": "bowl", "style": "log", "source": "b-bowl"}
+{"text": "2026-11-21 19:55: used at dinner and hand-washed afterward. KD", "object": "bowl", "style": "log", "source": "b-bowl+scenefix"}
+{"text": "Black bowl delivered 11/04 and inspected on unpacking. SP", "object": "bowl", "style": "log", "source": "b-bowl+scenefix"}
+{"text": "Night shift, 11/22 06:30: bowl found on the table, dry and undamaged. MB", "object": "bowl", "style": "log", "source": "b-bowl+scenefix"}
+{"text": "Maintenance entry 2026-11-23: condition unchanged since last check, next review due 11/30. RM", "object": "bowl", "style": "log", "source": "b-bowl"}
+{"text": "obj_id=BWL-07 class=bowl color=black conf=0.94", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "Weight: 412 g empty, tare stable.", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "surface_temp 22.8 C | ambient 21.5 C", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "pos x=0.42 y=-0.18 z=0.91 m, frame=kitchen_map", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "RFID 3F:A2:91:0C read OK, signal -48 dBm", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "Contents detected: none. Fill level 0%.", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "Rim integrity scan: 0 defects larger than 1 mm, conf 0.88", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "depth_est 7.1 cm, diam_est 14.0 cm, fit_residual 0.3 mm", "object": "bowl", "style": "readout", "source": "b-bowl+scenefix"}
+{"text": "Material classifier: ceramic 0.91, plastic 0.06, metal 0.03", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "Orientation upright, tilt 1.2 deg.", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "Last seen 2026-11-24 07:12 via cam_03, occlusion 12%.", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "Thermal: interior 58 C, warm-surface caution flag ON.", "object": "bowl", "style": "readout", "source": "b-bowl"}
+{"text": "That black bowl looks great, but it shows every single water spot.", "object": "bowl", "style": "coworker", "source": "b-bowl"}
+{"text": "Honestly it's my favorite bowl; it keeps things warm forever.", "object": "bowl", "style": "coworker", "source": "b-bowl+scenefix"}
+{"text": "fyi someone chipped the bottom of the black bowl a little, it still seems fine though", "object": "bowl", "style": "coworker", "source": "b-bowl"}
+{"text": "It's heavier than it looks. Caught me off guard the first time.", "object": "bowl", "style": "coworker", "source": "b-bowl"}
+{"text": "The matte outside is kind of nice to hold, not slippery at all.", "object": "bowl", "style": "coworker", "source": "b-bowl"}
+{"text": "Pretty sure the black one arrived back in October.", "object": "bowl", "style": "coworker", "source": "b-bowl+scenefix"}
+{"text": "Gets hot way faster than you'd expect, just saying.", "object": "bowl", "style": "coworker", "source": "b-bowl+scenefix"}
+{"text": "Not a fan of the gray scuff marks inside, but whatever.", "object": "bowl", "style": "coworker", "source": "b-bowl+scenefix"}
+{"text": "The black bowl went missing for two days last week and turned up back on the table.", "object": "bowl", "style": "coworker", "source": "b-bowl+scenefix"}
+{"text": "Kinda wish we had a full set of these instead of just the one.", "object": "bowl", "style": "coworker", "source": "b-bowl"}
+{"text": "It looks fancy in photos. Someone used it for a photo shoot yesterday.", "object": "bowl", "style": "coworker", "source": "b-bowl+scenefix"}
+{"text": "When holding the bowl, support the base with your palm, because the glazed interior gets slippery when wet.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Give it a few minutes to cool after heating, since the rim can get hotter than its contents.", "object": "bowl", "style": "care", "source": "b-bowl+scenefix"}
+{"text": "Gentle wiping is kinder to the matte glaze than harsh scrubbing, which leaves scuffs.", "object": "bowl", "style": "care", "source": "b-bowl+scenefix"}
+{"text": "Avoid knocking the rim against hard edges, because stoneware chips most easily there.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Check for hairline cracks before any heating, since cracks can widen under thermal stress.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Sudden jumps from cold to hot, such as boiling liquid in a chilled bowl, can crack it, so let it reach room temperature first.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Keep your grip dry, because wet hands on a wet glaze make an easy drop.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Use care if the bowl has been heated; the foot ring holds heat the longest.", "object": "bowl", "style": "care", "source": "b-bowl+scenefix"}
+{"text": "Treat a chipped rim as a cut hazard and keep fingers away from the sharp edge.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Grasp it by the sides with light, even pressure instead of pinching the rim.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Dry it completely before storage to prevent mineral spots on the dark glaze.", "object": "bowl", "style": "care", "source": "b-bowl"}
+{"text": "Constructed from vitrified porcelain fired at 1,280°C, this 20 cm plate resists chipping under normal household use.", "object": "plate", "style": "manual", "source": "b-plate+scenefix"}
+{"text": "Diameter: 7.9 in. Weight: 1.4 lb. Rim height: 0.8 in.", "object": "plate", "style": "manual", "source": "b-plate+scenefix"}
+{"text": "The stoneware glaze is lead-free and cadmium-free and meets FDA food-contact requirements.", "object": "plate", "style": "manual", "source": "b-plate"}
+{"text": "Thermal shock tolerance is rated to a 150°C differential, so going straight from very cold to very hot may cause cracking.", "object": "plate", "style": "manual", "source": "b-plate+scenefix"}
+{"text": "This side plate from the Harbor collection measures 20 cm across and has a white glaze, so tone varies slightly across the surface.", "object": "plate", "style": "manual", "source": "b-plate+scenefix"}
+{"text": "Heat safe up to 200°C (392°F) when warmed gradually.", "object": "plate", "style": "manual", "source": "b-plate+scenefix"}
+{"text": "The white glaze may dull with repeated exposure to abrasive detergents.", "object": "plate", "style": "manual", "source": "b-plate+scenefix"}
+{"text": "Tempered opal glass, 19 cm, stackable design with a recessed foot ring.", "object": "plate", "style": "manual", "source": "b-plate"}
+{"text": "Warranty covers manufacturing defects for five years but excludes edge chips caused by impact.", "object": "plate", "style": "manual", "source": "b-plate"}
+{"text": "2026-11-02 08:14 — dinner plate #DP-07 inspected, hairline crack noted at the 4 o'clock position on the rim. -JK", "object": "plate", "style": "log", "source": "b-plate"}
+{"text": "Cycle 412 complete; plate checked and accounted for since Tuesday. MR", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "11/18 condition check: white plate, minor glaze wear, still in service. AT", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "Restock received 3:40 pm, one white plate, arrived with no chips on the foot ring. —DL", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "Weekly audit: white plate present, no new defects. Logged by HN at 21:05.", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "Nov 14, 07:52. Hand wash 88 included the white plate, which came out spotless on visual check. RB", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "Sanitizer test strip read 200 ppm during the rinse of the plate; within spec. VP 12:30", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "Inventory reconciled 2026-11-20: 1 plate on hand, none in repair queue. TG", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "10/05 — guest reported sticky residue on the white plate; it was rewashed and cleared the same evening. JW", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "Care sticker on the plate found peeling on 11/21 by EF; no functional issue.", "object": "plate", "style": "log", "source": "b-plate+scenefix"}
+{"text": "OBJ_ID plate_0042 | mass 512 g | surface temp 23.4°C | confidence 0.97", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Detected at x=0.84 m, y=-0.12 m, z=0.91 m; tilt 2.1°.", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Temp map: 68°C center, 54°C rim. Status: warm.", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Classifier: ceramic_plate 0.91, shallow_bowl 0.07, lid 0.02.", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Load cell 0.61 kg, plate empty; tare 0.61 kg.", "object": "plate", "style": "readout", "source": "b-plate+scenefix"}
+{"text": "RFID tag 3F-A9-11 matched to \"Dinner Plate, White, Set A\".", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Edge integrity scan: 1 chip, depth 1.3 mm, segment 7 of 36.", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Moisture sensor: surface damp, 41% coverage.", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Pose estimate stale (last update 4.2 s ago), tracking confidence 0.58.", "object": "plate", "style": "readout", "source": "b-plate"}
+{"text": "Measured diameter 20.1 cm ± 0.3, matches catalog SKU PL-201.", "object": "plate", "style": "readout", "source": "b-plate+scenefix"}
+{"text": "IR surface reading 21°C; no frost present.", "object": "plate", "style": "readout", "source": "b-plate+scenefix"}
+{"text": "Stack count estimate: 1 plate, top surface at 0.77 m.", "object": "plate", "style": "readout", "source": "b-plate+scenefix"}
+{"text": "That chipped white plate is still around, honestly it's kind of charming.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "FYI the white plate scratches if you look at it wrong.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "Someone left the white plate unwashed overnight again, not naming names.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "I think the white plate is pretty but nothing ever fits on it right.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "Pretty sure grandma's plate is the plain white one, she'd want it treated nicely.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "The white plate feels cheap but the kids can't break it, so whatever.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "Heads up, the flat white plate is hard to see edge-on in bad lighting.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "Noticed a faint crack on the white plate last night, might be nothing.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "That white plate gets crazy hot if it sits near heat, learned that the hard way.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "Love the plain white plate, it shows smudges really clearly lol.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "We've had that same plain plate since like 2019 and it refuses to die.", "object": "plate", "style": "coworker", "source": "b-plate"}
+{"text": "Mia said the white plate was a wedding gift, so maybe extra gentle with that one.", "object": "plate", "style": "coworker", "source": "b-plate+scenefix"}
+{"text": "Grip a plate by the rim with both hands, since the center can flex on thinner styles.", "object": "plate", "style": "care", "source": "b-plate+scenefix"}
+{"text": "Avoid running hot water over a very cold plate; the sudden change can crack it.", "object": "plate", "style": "care", "source": "b-plate+scenefix"}
+{"text": "Hold warm plates with a cloth or heat-resistant gripper, because the glaze can stay hot longer than expected.", "object": "plate", "style": "care", "source": "b-plate"}
+{"text": "Handle the white plate gently and keep it away from sudden heat.", "object": "plate", "style": "care", "source": "b-plate+scenefix"}
+{"text": "Use a soft sponge rather than steel wool so the glaze doesn't scratch.", "object": "plate", "style": "care", "source": "b-plate"}
+{"text": "Watch for chips along the edge when gripping, as a sharp fragment can catch on fingers or grippers.", "object": "plate", "style": "care", "source": "b-plate"}
+{"text": "Keep a firm but light hold on wet plates, which are slippery and easy to drop.", "object": "plate", "style": "care", "source": "b-plate"}
+{"text": "Let a hot plate cool on its own rather than chilling it under cold water.", "object": "plate", "style": "care", "source": "b-plate"}
+{"text": "Support the plate from underneath instead of relying on the rim alone.", "object": "plate", "style": "care", "source": "b-plate+scenefix"}
+{"text": "Never apply pressure to the center of a cracked plate; it may split along the fracture.", "object": "plate", "style": "care", "source": "b-plate"}
+{"text": "Dry hands or grippers before handling porcelain to reduce slipping.", "object": "plate", "style": "care", "source": "b-plate"}
+{"text": "Treat the glazed plate as delicate and skip harsh detergents.", "object": "plate", "style": "care", "source": "b-plate+scenefix"}
+{"text": "Standard 750 ml Bordeaux-style bottle in dark green soda-lime glass, 300 mm tall with a 76 mm base diameter.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "The punt at the base is 18 mm deep and is part of the mold design, not a defect.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "Glass wall thickness ranges from 3.2 to 4.1 mm, with the thinnest section at the shoulder.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "Empty weight is approximately 520 g; a filled bottle comes to roughly 1.27 kg.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "Closure is a natural cork, 44 mm long, sealed under a tin-free polylaminate capsule.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "The front label is printed on uncoated cotton paper and may smudge if it gets wet.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "Recommended storage conditions are 12 to 14 °C with 60 to 70 percent relative humidity.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle+scenefix"}
+{"text": "This vessel is not rated for thermal shock; temperature swings above 40 °C can cause cracking.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "Contents are a 2018 Rioja Reserva, 14% ABV, bottled at the estate.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "UV-filtering tint blocks most light below 450 nm, which helps protect the wine from light damage.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "Hot soapy washing is not supported, since high heat and detergent will lift the label adhesive.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle+scenefix"}
+{"text": "Per the producer's spec sheet, the shoulder can withstand a static side load of up to 25 kg.", "object": "wine bottle", "style": "manual", "source": "b-wine-bottle"}
+{"text": "2026-11-02 09:14: Bottle checked in from supplier lot B-7, seal intact, label clean. —JM", "object": "wine bottle", "style": "log", "source": "b-wine-bottle+scenefix"}
+{"text": "Nov 5, condition check: no sediment visible through the glass, cork flush with the lip. RK", "object": "wine bottle", "style": "log", "source": "b-wine-bottle"}
+{"text": "Left side of the kitchen table. Logged as present during the weekly count on 11/09.", "object": "wine bottle", "style": "log", "source": "b-wine-bottle+scenefix"}
+{"text": "11/11 18:40: Small scuff found on the back label, probably from handling. No action taken. —TS", "object": "wine bottle", "style": "log", "source": "b-wine-bottle+scenefix"}
+{"text": "Humidity at the table held at 64% all week, so no cork shrinkage is expected for this unit.", "object": "wine bottle", "style": "log", "source": "b-wine-bottle+scenefix"}
+{"text": "2026-11-15, inventory reconciliation: 1 of 1 accounted for. Initialed AL.", "object": "wine bottle", "style": "log", "source": "b-wine-bottle"}
+{"text": "Capsule showed slight wrinkling at the neck when inspected Nov 17; cosmetic only.", "object": "wine bottle", "style": "log", "source": "b-wine-bottle"}
+{"text": "Returned to the left side of the table at 22:05 on 11/18 after dinner prep. —JM", "object": "wine bottle", "style": "log", "source": "b-wine-bottle+scenefix"}
+{"text": "Fill level recorded as \"into neck,\" consistent with a young bottle. RK, 11/20.", "object": "wine bottle", "style": "log", "source": "b-wine-bottle"}
+{"text": "No temperature excursions above 16 °C were recorded near this item between 11/01 and 11/21.", "object": "wine bottle", "style": "log", "source": "b-wine-bottle"}
+{"text": "11/22 07:30: Dust wiped from the shoulder during routine table cleaning. TS", "object": "wine bottle", "style": "log", "source": "b-wine-bottle+scenefix"}
+{"text": "Insurance appraisal entered at $48 on Nov 23; receipt filed under household/wine.", "object": "wine bottle", "style": "log", "source": "b-wine-bottle"}
+{"text": "OBJ_ID wine_bottle_0417 | mass 1.268 kg | conf 0.97", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Surface temp 13.6 °C, ambient 14.1 °C, delta stable.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Pose estimate: upright, tilt 1.8°, centroid x=0.42 y=-0.15 z=0.88 m.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Label OCR: \"RESERVA 2018\", match confidence 0.91.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Liquid level sensor: 97% fill, no movement detected.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Glass integrity scan: no fractures, 2 minor surface abrasions flagged.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Grip zone detected at 110–180 mm from the base; friction coefficient est. 0.38.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "RFID tag 0x3F9A21 read OK, last seen 4 min ago.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Color classification: dark green, opacity high, contents not visually resolvable.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Weight estimate reads 1.27 kg, nominal.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle+scenefix"}
+{"text": "Depth camera bbox 76 x 76 x 301 mm, occlusion 12%.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "Cork protrusion: 0.0 mm. Capsule status: sealed.", "object": "wine bottle", "style": "readout", "source": "b-wine-bottle"}
+{"text": "This one's the nice Rioja, honestly too good for a Tuesday.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle"}
+{"text": "Heads up, the label's a little smudged on the back, wasn't me.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle"}
+{"text": "I think Dana's saving that bottle for her parents' visit, so it's kind of spoken for.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle"}
+{"text": "The glass on this one is weirdly heavy. I almost dropped it last week.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle+scenefix"}
+{"text": "Somebody marked this bottle \"DO NOT DRINK\" in the log, lol.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle+scenefix"}
+{"text": "Smells faintly of cardboard from shipping, but the cork looks fine.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle+scenefix"}
+{"text": "Not a big red wine person myself, but people keep saying this vintage is great.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle"}
+{"text": "FYI it sat on the table near the stove for a while yesterday, felt fine to the touch though.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle+scenefix"}
+{"text": "Pretty sure this is the one we got at the farmers market.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle+scenefix"}
+{"text": "The capsule is that annoying kind that doesn't tear cleanly.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle"}
+{"text": "Saw a little dust on the shoulder earlier, nothing major.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle"}
+{"text": "Gotta say, the label design on this one is really sharp.", "object": "wine bottle", "style": "coworker", "source": "b-wine-bottle"}
+{"text": "Support the base with one hand when lifting, since the neck is the weakest point of the bottle.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Avoid gripping it with wet or oily fingers; the glass gets very slippery.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Keep it away from the stove and other heat, because heat can push the cork out and spoil the wine.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle+scenefix"}
+{"text": "Handle it gently and avoid shaking, which stirs up sediment in older reds.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Dry, gentle wiping works best for the glass without damaging the paper label.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle+scenefix"}
+{"text": "Never knock it against hard surfaces; even a light tap at the shoulder can start a hairline crack.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Use a firm but moderate grip, as too much pressure on the capsule can tear it.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Sudden cold can cause the glass to fracture.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle+scenefix"}
+{"text": "If the glass is chipped, watch for sharp edges near the lip before touching it.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Keep the label dry, since moisture makes the ink run and the paper peel.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Lift with a smooth, steady motion, keeping the bottle mostly vertical to limit sloshing.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "Should it break, treat every shard as sharp and keep bare skin away from spilled glass.", "object": "wine bottle", "style": "care", "source": "b-wine-bottle"}
+{"text": "The 8 oz (226 g) brick ships in a paperboard carton with an inner foil wrap and measures roughly 11 x 6 x 3 cm.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "Store between 1 and 4 °C; freezing is not recommended, as the texture turns crumbly after thawing.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "Carton material: food-grade bleached paperboard printed with soy-based inks.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "After the foil wrapper is breached, the contents are best used within 10 days.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "Net weight is 226 g, and the empty carton weighs about 9 g.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "Contains milk and is produced in a facility that also handles tree nuts.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "The carton is not moisture-resistant and may soften if it sits in condensation for long periods.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "Fat content is 33% by weight; the reduced-fat variant has a blue end panel instead of silver.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "Recycling note: the paperboard sleeve is curbside recyclable where accepted, but the foil liner is not.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "A single carton can bear about 4 kg of stacking load before its corners begin to crush.", "object": "cream cheese", "style": "manual", "source": "b-cream-cheese"}
+{"text": "2026-11-18 07:42: cream cheese box received with the weekly grocery delivery, carton intact. JM", "object": "cream cheese", "style": "log", "source": "b-cream-cheese"}
+{"text": "11/19 cond. check: slight dent on the lower-left corner, foil seal unbroken. -RK", "object": "cream cheese", "style": "log", "source": "b-cream-cheese"}
+{"text": "Table audit 14:05; one small cream cheese box present, best-by 2027-01-06. Initials: TP.", "object": "cream cheese", "style": "log", "source": "b-cream-cheese+scenefix"}
+{"text": "Inventory count 11/21: cream cheese, qty 1, partial (~60% remaining).", "object": "cream cheese", "style": "log", "source": "b-cream-cheese"}
+{"text": "2026-11-22 09:10 temp spot-check at its spot on the table read 3.2 °C, within range. SB", "object": "cream cheese", "style": "log", "source": "b-cream-cheese+scenefix"}
+{"text": "Table camera review (JM) shows the seal went from intact to broken on 11/20 at 08:15.", "object": "cream cheese", "style": "log", "source": "b-cream-cheese+scenefix"}
+{"text": "Weekly stock reconcile: one 226 g cream cheese box was unaccounted for Monday and turned up behind the bowl Tuesday. RK", "object": "cream cheese", "style": "log", "source": "b-cream-cheese+scenefix"}
+{"text": "23 Nov 16:30: label slightly smudged, lot number still legible. TP", "object": "cream cheese", "style": "log", "source": "b-cream-cheese"}
+{"text": "Flagged for expiry watch on 2026-11-21; nothing further recorded since.", "object": "cream cheese", "style": "log", "source": "b-cream-cheese"}
+{"text": "Maintenance note 11/22: table surface under the cream cheese wiped after a small smear was found. AL", "object": "cream cheese", "style": "log", "source": "b-cream-cheese+scenefix"}
+{"text": "OBJ_ID 4471 | class: cream_cheese_box | conf 0.94", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Mass: 0.168 kg (est. 158 g contents remaining)", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Surface temp 4.1 °C, ambient 3.6 °C, delta nominal.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Pose: x=0.42 m y=-0.11 m z=1.03 m, yaw 87°; table, right of bowl.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese+scenefix"}
+{"text": "Barcode decode OK: 0 74512 30218 6, match score 0.99.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Bounding box 11.2 x 6.1 x 3.0 cm, occlusion 18%.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Seal state: BROKEN (p=0.81); crease detected on top face.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Tag RFID-CC-0093 last seen 08:14:22, RSSI -61 dBm.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Classifier top-3: cream_cheese_box 0.88, butter_stick_pack 0.07, tofu_carton 0.03.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Deformation index 0.12 (minor); carton moisture estimate 9%.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Days to best-by: 43. Status: OK.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "Grip-force threshold for this item: 3.5 N; slip events in the last 24 h: 0.", "object": "cream cheese", "style": "readout", "source": "b-cream-cheese"}
+{"text": "The cream cheese box has a dent now, pretty sure someone set the plate on it.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese+scenefix"}
+{"text": "Honestly that brand is way too salty, but it's what we've got.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "FYI, whoever used it last left the foil all crinkled up, kinda messy.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "Little box of cream cheese is tucked beside the bowl again lol.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese+scenefix"}
+{"text": "It's the full-fat one, not the light one, in case anybody cares.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "Pretty sure that box is half gone already, bagel Tuesday hit hard.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "Smells fine to me, though the edges look a little dried out.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "Not gonna lie, the carton feels kind of soggy on the bottom.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "Noticed the label's peeling at one corner, no big deal.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "That cream cheese was on sale, two for five bucks, so there'll probably be spares soon.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "Someone wrote \"MINE\" on it in Sharpie, but I think it's a joke.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese"}
+{"text": "Weirdly it's the only thing on the table that never seems to run out.", "object": "cream cheese", "style": "coworker", "source": "b-cream-cheese+scenefix"}
+{"text": "Grip the carton by its long sides with light pressure, since the paperboard crushes easily at the corners.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Avoid holding it near heat sources, as the contents soften quickly above room temperature.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Handle it only with dry grippers; condensation makes the carton slippery and weakens the cardboard.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Support the bottom of a damp box when lifting, because it can tear along the seams.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Never squeeze the box hard, since the soft contents can burst through the foil wrap.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Wipe dairy residue off gripper pads with a damp cloth so it doesn't build up.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Keep sharp tools away from the carton, as the thin foil liner punctures easily.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Treat a bulging or swollen box with caution, since that can be a sign of spoilage.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "A gentle, flat grasp is better than a pinch, which can dent the softened block.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "Watch for the foil edges once the seal is broken, since they can be sharp enough to snag soft gripper covers.", "object": "cream cheese", "style": "care", "source": "b-cream-cheese"}
+{"text": "The single-burner electric tabletop stove measures 34 x 28 x 11 cm and weighs 2.1 kg.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "Housing is powder-coated steel, paired with a stainless burner plate and an enamel-coated pan support.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "Maximum rated output is 2.3 kW, and continuous operation beyond 90 minutes is not recommended.", "object": "stove", "style": "manual", "source": "b-stove"}
+{"text": "This model is rated for indoor use on a level, non-combustible surface with at least 30 cm of overhead clearance.", "object": "stove", "style": "manual", "source": "b-stove"}
+{"text": "The pan support ring spans between 12 cm and 26 cm in diameter.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "The drip tray is not dishwasher safe and is best cleaned with a damp cloth once cool.", "object": "stove", "style": "manual", "source": "b-stove"}
+{"text": "A built-in thermal cutoff shuts off power automatically if the burner overheats.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "The heating element is resistive and requires no batteries.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "Outer casing temperatures can exceed 60 °C during operation.", "object": "stove", "style": "manual", "source": "b-stove"}
+{"text": "Rated supply: 230 V, 50 Hz, conforming to EN 60335.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "Rubber feet provide grip on smooth tabletops and should be inspected yearly for cracking.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "Warranty covers manufacturing defects for 24 months and excludes damage caused by misuse.", "object": "stove", "style": "manual", "source": "b-stove+scenefix"}
+{"text": "2026-11-03 08:15 — Tabletop stove TS-02 inspected, heating element clean, no rust. Initials: MK.", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "11/07: knob swapped, old one had a cracked grip, logged for recycling. RJ", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "Condition of TS-02 rated good; small cosmetic scratch noted on left side panel. — DP 2026-10-21", "object": "stove", "style": "log", "source": "b-stove"}
+{"text": "2026-09-30 14:42 drip tray cleaned, moderate grease buildup. AL", "object": "stove", "style": "log", "source": "b-stove"}
+{"text": "Indicator light flickered twice before staying on during the 10/12 check; flagged for monitoring. JS", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "Received 2026-06-14, serial TS-4471-B, entered into kitchen inventory as item B3.", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "10/28 17:05 — unit found warm to the touch two hours after last recorded use; staff confirmed it was used late in the evening. MK", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "Quarterly electrical safety test passed on 2026-08-02. TP", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "One rubber foot missing as of 11/15; unit still sits level on the table. RJ", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "2026-11-19: pan support was found slightly askew and re-seated by staff. DP", "object": "stove", "style": "log", "source": "b-stove"}
+{"text": "October usage tally: 23 sessions, average duration 18 min. AL", "object": "stove", "style": "log", "source": "b-stove"}
+{"text": "Back from repair shop 2026-07-09 with a new thermostat installed. JS", "object": "stove", "style": "log", "source": "b-stove+scenefix"}
+{"text": "obj_id=stove_tabletop_01 | conf=0.94 | pos=(0.42, -0.17, 0.91) m", "object": "stove", "style": "readout", "source": "b-stove"}
+{"text": "Surface temp 23.4 °C (ambient). Burner state: inactive.", "object": "stove", "style": "readout", "source": "b-stove"}
+{"text": "Mass estimate 2.38 kg; estimate confidence 61%.", "object": "stove", "style": "readout", "source": "b-stove+scenefix"}
+{"text": "Detection: small_stove, bbox 312x208 px, confidence 0.87.", "object": "stove", "style": "readout", "source": "b-stove"}
+{"text": "Burner plate IR 148 °C, cooling at ~3 °C/min.", "object": "stove", "style": "readout", "source": "b-stove+scenefix"}
+{"text": "Camera smoke check near stove: none detected.", "object": "stove", "style": "readout", "source": "b-stove+scenefix"}
+{"text": "Orientation yaw 12.5°, pitch 0.3°, resting on table_segment_C.", "object": "stove", "style": "readout", "source": "b-stove+scenefix"}
+{"text": "Thermal cam: casing max 41 °C at front-right corner.", "object": "stove", "style": "readout", "source": "b-stove"}
+{"text": "Tag scan TS-4471-B matched, last seen 09:52:10.", "object": "stove", "style": "readout", "source": "b-stove"}
+{"text": "Knob state classifier: zero position, p=0.98.", "object": "stove", "style": "readout", "source": "b-stove"}
+{"text": "Point cloud fit: box 0.34 x 0.28 x 0.11 m, residual 4 mm.", "object": "stove", "style": "readout", "source": "b-stove"}
+{"text": "Proximity flag: cream cheese box detected 9 cm from burner edge, conf 0.72.", "object": "stove", "style": "readout", "source": "b-stove+scenefix"}
+{"text": "That little stove takes a minute or two to warm up some mornings, honestly kind of charming.", "object": "stove", "style": "coworker", "source": "b-stove+scenefix"}
+{"text": "Heads up, the left pan support wobbles a bit, not broken, just loose-feeling.", "object": "stove", "style": "coworker", "source": "b-stove"}
+{"text": "I like this one a lot, it heats up so much faster than you'd think.", "object": "stove", "style": "coworker", "source": "b-stove+scenefix"}
+{"text": "Someone spilled cream cheese on it last week and the smell hung around for a day or two.", "object": "stove", "style": "coworker", "source": "b-stove+scenefix"}
+{"text": "Pretty sure the heating element is getting tired, it seemed slow to warm yesterday.", "object": "stove", "style": "coworker", "source": "b-stove+scenefix"}
+{"text": "It's lighter than it looks, I was surprised the first time I picked it up.", "object": "stove", "style": "coworker", "source": "b-stove"}
+{"text": "Not a fan of the bright orange knob but whatever, it works.", "object": "stove", "style": "coworker", "source": "b-stove"}
+{"text": "FYI the rubber feet leave faint marks on the table.", "object": "stove", "style": "coworker", "source": "b-stove+scenefix"}
+{"text": "Ran it on Sunday and the heat runs a little uneven toward the back.", "object": "stove", "style": "coworker", "source": "b-stove+scenefix"}
+{"text": "Casing gets hotter than you'd expect on the knob side.", "object": "stove", "style": "coworker", "source": "b-stove"}
+{"text": "Whoever cleaned the drip tray last did a great job, looks brand new.", "object": "stove", "style": "coworker", "source": "b-stove"}
+{"text": "Kind of a tiny thing for how much we lean on it, but it holds up.", "object": "stove", "style": "coworker", "source": "b-stove"}
+{"text": "Grip the stove by its side edges rather than the pan support, which can bend under load.", "object": "stove", "style": "care", "source": "b-stove"}
+{"text": "Allow at least 20 minutes after use before handling the burner area bare-handed.", "object": "stove", "style": "care", "source": "b-stove"}
+{"text": "Abrasive pads scratch the enamel; a soft cloth keeps the finish intact.", "object": "stove", "style": "care", "source": "b-stove"}
+{"text": "The cream cheese wrapper can scorch if left near the burner while it is still warm.", "object": "stove", "style": "care", "source": "b-stove+scenefix"}
+{"text": "Support the base from underneath when lifting, since the casing flexes slightly at the corners.", "object": "stove", "style": "care", "source": "b-stove"}
+{"text": "Treat the casing as hot whenever recent use is uncertain.", "object": "stove", "style": "care", "source": "b-stove"}
+{"text": "Water sprayed into the control housing can short the element, so keep cleaning liquids away from it.", "object": "stove", "style": "care", "source": "b-stove+scenefix"}
+{"text": "The pan support is not designed to bear heavy loads beyond ordinary cookware.", "object": "stove", "style": "care", "source": "b-stove"}
+{"text": "Dry hands give a safer grip near the control knob.", "object": "stove", "style": "care", "source": "b-stove+scenefix"}
+{"text": "A light touch is enough on the knob; forcing it can strip the switch.", "object": "stove", "style": "care", "source": "b-stove+scenefix"}
+{"text": "Check for dents near the heating plate before handling, as a deformed plate can heat unevenly.", "object": "stove", "style": "care", "source": "b-stove+scenefix"}
+{"text": "The cabinet frame is solid birch plywood with a clear water-based lacquer finish.", "object": "cabinet", "style": "manual", "source": "b-cabinet"}
+{"text": "Overall dimensions are 30 cm wide, 22 cm deep and 28 cm tall, with three drawers of equal height.", "object": "cabinet", "style": "manual", "source": "b-cabinet+scenefix"}
+{"text": "Each drawer runs on ball-bearing slides rated for a maximum load of 8 kg.", "object": "cabinet", "style": "manual", "source": "b-cabinet"}
+{"text": "Wipe surfaces with a soft, slightly damp cloth, because abrasive cleaners may dull the finish.", "object": "cabinet", "style": "manual", "source": "b-cabinet"}
+{"text": "Not intended for outdoor use or for spaces where humidity stays above 70 percent.", "object": "cabinet", "style": "manual", "source": "b-cabinet+scenefix"}
+{"text": "Drawer fronts have soft-close dampers that engage in the last 3 cm of travel.", "object": "cabinet", "style": "manual", "source": "b-cabinet"}
+{"text": "Assembled weight is about 4.2 kg without contents.", "object": "cabinet", "style": "manual", "source": "b-cabinet+scenefix"}
+{"text": "Rated top-surface load: 25 kg, evenly distributed.", "object": "cabinet", "style": "manual", "source": "b-cabinet"}
+{"text": "Hardware includes brushed nickel knobs secured with M4 machine screws.", "object": "cabinet", "style": "manual", "source": "b-cabinet"}
+{"text": "Minor variations in wood grain and color are natural and are not considered defects.", "object": "cabinet", "style": "manual", "source": "b-cabinet"}
+{"text": "Felt pads on all four feet help protect the tabletop from scratches.", "object": "cabinet", "style": "manual", "source": "b-cabinet+scenefix"}
+{"text": "2026-03-14 09:20: Cabinet received, no shipping damage noted. RK", "object": "cabinet", "style": "log", "source": "b-cabinet+scenefix"}
+{"text": "Mar 22: Top drawer slide squeaking slightly, lubricated with silicone spray. JT", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "Quarterly check 06/01/26: finish intact, knobs tight, felt pads secure. MP", "object": "cabinet", "style": "log", "source": "b-cabinet+scenefix"}
+{"text": "2026-07-09 14:45: Small water ring found on top surface near back left corner, buffed out. RK", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "Inventory count: all three drawers recorded as empty. AL", "object": "cabinet", "style": "log", "source": "b-cabinet+scenefix"}
+{"text": "Aug 3, 11:10: Middle drawer knob was loose, screw retightened. JT", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "2026-08-30: Felt pad missing from front right foot, replacement applied. MP", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "2026-09-18: Bottom drawer found sticking on its slide, freed and rechecked. RK", "object": "cabinet", "style": "log", "source": "b-cabinet+scenefix"}
+{"text": "Condition check 10/12/26 16:05: no warping, drawers align evenly. AL", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "Asset tag CAB-0217 relabeled after the old sticker peeled off. JT 11/02", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "Nov 15 2026 08:30: Dusted, no issues. MP", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "Annual review: cabinet in good condition, rated 4/5 overall, next review due Nov 2027. AL", "object": "cabinet", "style": "log", "source": "b-cabinet"}
+{"text": "OBJ_ID cab_0217 | class: small_cabinet | conf 0.94", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Drawer positions: top 0.0 cm, middle 0.0 cm, bottom extended 1.8 cm.", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Est. mass 4.2 kg (frame 4.2 + contents 0.0), confidence 0.81.", "object": "cabinet", "style": "readout", "source": "b-cabinet+scenefix"}
+{"text": "Top panel surface temp 21.3 °C, ambient 21.0 °C.", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Pose: x 0.42 m, y 0.31 m, yaw 92°, tabletop contact detected: yes.", "object": "cabinet", "style": "readout", "source": "b-cabinet+scenefix"}
+{"text": "Tilt sensor: 0.4° forward lean, within tolerance.", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Humidity near unit 46% RH, nominal.", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Handle detection: 3/3 knobs found, mean conf 0.89.", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Top surface: 0 items detected, occupancy 0%.", "object": "cabinet", "style": "readout", "source": "b-cabinet+scenefix"}
+{"text": "Last seen 2026-11-24 07:52:13 via table_cam_01.", "object": "cabinet", "style": "readout", "source": "b-cabinet+scenefix"}
+{"text": "D2 slide friction index 0.12 (baseline 0.10).", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Material classifier: wood/laminate 0.77, metal 0.15, other 0.08.", "object": "cabinet", "style": "readout", "source": "b-cabinet"}
+{"text": "Honestly that little cabinet is sturdier than it looks.", "object": "cabinet", "style": "coworker", "source": "b-cabinet"}
+{"text": "Bottom drawer sticks a bit when it's humid, just so you know.", "object": "cabinet", "style": "coworker", "source": "b-cabinet"}
+{"text": "I like the knobs, they're kind of retro.", "object": "cabinet", "style": "coworker", "source": "b-cabinet"}
+{"text": "Pretty sure the middle drawer is mostly empty at this point.", "object": "cabinet", "style": "coworker", "source": "b-cabinet+scenefix"}
+{"text": "It wobbled a little before Jen leveled the feet last month.", "object": "cabinet", "style": "coworker", "source": "b-cabinet+scenefix"}
+{"text": "Not my favorite color, but it fits the back of the table nicely.", "object": "cabinet", "style": "coworker", "source": "b-cabinet+scenefix"}
+{"text": "FYI, the top drawer is completely empty.", "object": "cabinet", "style": "coworker", "source": "b-cabinet+scenefix"}
+{"text": "Smells faintly of cedar up close, which is nice.", "object": "cabinet", "style": "coworker", "source": "b-cabinet"}
+{"text": "Weirdly satisfying, that soft-close thing on it.", "object": "cabinet", "style": "coworker", "source": "b-cabinet"}
+{"text": "Kid's stickers are still on the side panel and I'm leaving them, they're cute.", "object": "cabinet", "style": "coworker", "source": "b-cabinet"}
+{"text": "That cabinet's been here longer than I have, I think.", "object": "cabinet", "style": "coworker", "source": "b-cabinet"}
+{"text": "Grip the cabinet by its base frame rather than the knobs when lifting, since the knobs are not load-bearing.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Avoid heat sources near the lacquered top, because heat above 60 °C can leave white marks.", "object": "cabinet", "style": "care", "source": "b-cabinet+scenefix"}
+{"text": "Use only a soft cloth on the finish, since scouring pads will scratch it.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Avoid leaning on an extended drawer, because the slides can bend under body weight.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Watch your fingers near the drawer gaps, because the soft-close mechanism can still pinch.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Don't load any single drawer past 8 kg.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Treat the corners gently, because the veneer edges chip easily if knocked.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Dry spills promptly so liquid doesn't seep into the plywood seams.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Avoid direct heat on the cabinet, because heat can warp the side panels.", "object": "cabinet", "style": "care", "source": "b-cabinet+scenefix"}
+{"text": "Support a removed drawer with both hands, since it is heaviest at the front and the slides can twist.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Stick to mild soap and water, because solvent-based cleaners can soften the lacquer.", "object": "cabinet", "style": "care", "source": "b-cabinet"}
+{"text": "Never climb on or hang from the cabinet, even though it feels sturdy.", "object": "cabinet", "style": "care", "source": "b-cabinet+scenefix"}
+{"text": "The single-bottle tabletop rack is made of kiln-dried pine with a clear lacquer finish and measures 14 cm wide by 28 cm deep.", "object": "wine rack", "style": "manual", "source": "b-wine-rack+scenefix"}
+{"text": "Maximum load for the single cradle is 1.8 kg, which covers a standard 750 ml bottle.", "object": "wine rack", "style": "manual", "source": "b-wine-rack+scenefix"}
+{"text": "Sealed wooden slats resist warping in kitchens with normal humidity levels of 40 to 70 percent.", "object": "wine rack", "style": "manual", "source": "b-wine-rack+scenefix"}
+{"text": "Avoid ammonia-based cleaners, as they can dull the walnut stain over time.", "object": "wine rack", "style": "manual", "source": "b-wine-rack"}
+{"text": "Assembled height: 18 cm; weight empty: 0.6 kg.", "object": "wine rack", "style": "manual", "source": "b-wine-rack+scenefix"}
+{"text": "The single cradle holds one bottle laid horizontally.", "object": "wine rack", "style": "manual", "source": "b-wine-rack+scenefix"}
+{"text": "The rack is not designed for direct sunlight, since UV exposure can warp the slats and affect stored wine.", "object": "wine rack", "style": "manual", "source": "b-wine-rack"}
+{"text": "Solid wood construction gives the frame natural flex, so slight wobble under full load is expected and within tolerance.", "object": "wine rack", "style": "manual", "source": "b-wine-rack+scenefix"}
+{"text": "Rubberized end caps on the lower feet protect the tabletop from scratches.", "object": "wine rack", "style": "manual", "source": "b-wine-rack+scenefix"}
+{"text": "Warranty coverage excludes damage from standing water or temperatures above 35 °C.", "object": "wine rack", "style": "manual", "source": "b-wine-rack"}
+{"text": "2026-11-03 09:14 — Rack on kitchen table checked, cradle empty, no visible damage. JR", "object": "wine rack", "style": "log", "source": "b-wine-rack+scenefix"}
+{"text": "Oct 28: loose screw noted on top-left joint of the kitchen wine rack; tightened by maintenance. Initials: MP.", "object": "wine rack", "style": "log", "source": "b-wine-rack"}
+{"text": "Quarterly inventory, 11/15/2026: cradle empty on the kitchen table rack. —AK", "object": "wine rack", "style": "log", "source": "b-wine-rack+scenefix"}
+{"text": "14:42 humidity reading near rack logged at 58%, within normal range.", "object": "wine rack", "style": "log", "source": "b-wine-rack"}
+{"text": "Hairline crack found on lower rail, 2026-09-19; flagged for monitoring, no repair yet. DL", "object": "wine rack", "style": "log", "source": "b-wine-rack"}
+{"text": "Rack relocated to the back left of the kitchen table on 2026-08-02 per homeowner request. TS", "object": "wine rack", "style": "log", "source": "b-wine-rack+scenefix"}
+{"text": "Condition check passed. Finish intact, feet level. 11/20 07:55, BW.", "object": "wine rack", "style": "log", "source": "b-wine-rack"}
+{"text": "Bottle removed from the cradle on 11/08; cradle now empty. CR", "object": "wine rack", "style": "log", "source": "b-wine-rack+scenefix"}
+{"text": "Dust buildup observed on top rail during weekly sweep, cleaned 2026-10-12. —NH", "object": "wine rack", "style": "log", "source": "b-wine-rack+scenefix"}
+{"text": "Leveling shim added under rear-right foot after slight table unevenness, Sept 30. JR", "object": "wine rack", "style": "log", "source": "b-wine-rack+scenefix"}
+{"text": "Annual inspection: no pest activity, no mold, wood moisture 11%. Signed MP, 2026-07-01.", "object": "wine rack", "style": "log", "source": "b-wine-rack"}
+{"text": "18:20, a spilled-wine stain on the cradle recorded; spot treated same day. AK", "object": "wine rack", "style": "log", "source": "b-wine-rack+scenefix"}
+{"text": "RACK_ID: WR-03 | slots_occupied: 0/1 | total_load: 0.0 kg", "object": "wine rack", "style": "readout", "source": "b-wine-rack+scenefix"}
+{"text": "Ambient temp 13.8 °C, rel. humidity 62%, status nominal.", "object": "wine rack", "style": "readout", "source": "b-wine-rack"}
+{"text": "Object detected: wine_rack (confidence 0.94), position x=2.31 m, y=0.87 m, heading 178°.", "object": "wine rack", "style": "readout", "source": "b-wine-rack"}
+{"text": "Load cell L1 reading 0.00 kg (empty cradle).", "object": "wine rack", "style": "readout", "source": "b-wine-rack+scenefix"}
+{"text": "Tilt sensor: 0.6° forward lean, threshold 3.0°.", "object": "wine rack", "style": "readout", "source": "b-wine-rack"}
+{"text": "Vibration RMS 0.02 g over last 10 min — stable.", "object": "wine rack", "style": "readout", "source": "b-wine-rack"}
+{"text": "Bottle count estimate 0 ± 1; partial occlusion of the cradle lowered confidence to 0.71.", "object": "wine rack", "style": "readout", "source": "b-wine-rack+scenefix"}
+{"text": "WR-01 surface temp 19.4 °C; nearest heat source 0.8 m away.", "object": "wine rack", "style": "readout", "source": "b-wine-rack+scenefix"}
+{"text": "Last seen 2026-11-24 08:02:17 in zone KITCHEN_B.", "object": "wine rack", "style": "readout", "source": "b-wine-rack"}
+{"text": "Light exposure 34 lux, below UV caution threshold.", "object": "wine rack", "style": "readout", "source": "b-wine-rack"}
+{"text": "Cradle deflection 0.1 mm, spec limit 4 mm.", "object": "wine rack", "style": "readout", "source": "b-wine-rack+scenefix"}
+{"text": "That wooden rack on the table rattles a little whenever someone bumps the table, kind of charming honestly.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "fyi the pine rack smells like a cabin when the stove's been running", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "Not a fan of the plain wooden design, it looks a bit unfinished to me.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "Someone stuck a little chalk label on the cradle that just says \"SAVE.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "The little table rack is way sturdier than it looks, I bumped it by accident last week and nothing budged.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "Heads up, the left side has a slight lean but it's been like that forever.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack"}
+{"text": "Honestly the wooden rack is the nicest thing on that table.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "Noticed the varnish is a bit sticky on the back corner, probably from humidity.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "Whoever assembled this one did a great job, perfectly level.", "object": "wine rack", "style": "coworker", "source": "b-wine-rack+scenefix"}
+{"text": "Grip bottles by the body rather than the neck when handling them near the rack, since necks can slip through the cradle gaps.", "object": "wine rack", "style": "care", "source": "b-wine-rack"}
+{"text": "Heat-generating devices close to the wooden frame can cause drying and cracking.", "object": "wine rack", "style": "care", "source": "b-wine-rack+scenefix"}
+{"text": "Only a soft, dry cloth is safe on the lacquered surface; abrasive pads will scratch it.", "object": "wine rack", "style": "care", "source": "b-wine-rack"}
+{"text": "Treat the thin wooden cradle as fragile, because cracking it even slightly can let a bottle roll.", "object": "wine rack", "style": "care", "source": "b-wine-rack+scenefix"}
+{"text": "Watch for splinters along the unfinished back edge of the pine slats.", "object": "wine rack", "style": "care", "source": "b-wine-rack"}
+{"text": "When touching the top rail, support it from below, as the joints are not glued.", "object": "wine rack", "style": "care", "source": "b-wine-rack+scenefix"}
+{"text": "Avoid hanging any weight off the side rails; they are rated for downward load only.", "object": "wine rack", "style": "care", "source": "b-wine-rack"}
+{"text": "Hard glass contact with the wooden cradle can chip labels and bottles, so slow, gentle contact is best.", "object": "wine rack", "style": "care", "source": "b-wine-rack+scenefix"}
+{"text": "Damp cloths left on the walnut can cause water rings, so any moisture should be dried quickly.", "object": "wine rack", "style": "care", "source": "b-wine-rack"}
+{"text": "Keep fingers clear of the narrow gap in the cradle where a bottle can pinch.", "object": "wine rack", "style": "care", "source": "b-wine-rack+scenefix"}
+{"text": "A cracked rail should not bear extra load until it has been inspected.", "object": "wine rack", "style": "care", "source": "b-wine-rack"}
+{"text": "Use a light touch around the joints, since repeated stress can loosen them.", "object": "wine rack", "style": "care", "source": "b-wine-rack+scenefix"}
+{"text": "The 14 cm matte black ceramic bowl is glazed inside and out and is rated safe for both the dishwasher and the microwave.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "This dark green glass wine bottle can handle temperature changes of up to 40 °C, but it may crack if it strikes a hard edge.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "Made from end-grain acacia, the small wine rack ships with a food-safe mineral oil finish.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "Maximum load for the oak kitchen table is 60 kg, spread evenly across the top surface.", "object": "workspace", "style": "manual", "source": "b-workspace"}
+{"text": "Compact single-burner electric cooktop, rated for cookware up to 260 °C.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "Not suitable for oven use: the flat white plate may warp above 70 °C.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "Per the spec sheet, the cabinet's drawer pulls are 18/10 stainless steel, 21 mm long, with rounded ends and no sharp edges.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "The wine bottle's glass varies slightly in wall thickness, and the neck is the thinnest part of the piece.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "The foot ring of the ceramic bowl is unglazed and porous, so moisture can soak through to the surface underneath.", "object": "workspace", "style": "manual", "source": "b-workspace+scenefix"}
+{"text": "Dimensions are 120 cm long, 75 cm wide and 74 cm tall, with a matte polyurethane top coat that resists light scratches.", "object": "workspace", "style": "manual", "source": "b-workspace"}
+{"text": "2026-11-18 07:42: plate checked, small chip on rim noted, still in service. JR", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Wine bottle inspected 11/20, no cracks found, seal intact. Initials: MK.", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "2026-11-21 14:05: wine rack re-oiled by staff, surface dry by 16:30. AT", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Inventory count 11/22: 1 bowl, 1 plate, 1 wine bottle, 1 cream cheese (unopened). LP", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Cream cheese reported missing from the table on 11/15 and found behind the bowl later that afternoon. JR", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "23 Nov, 09:10: table surface wiped and dried after a spill, no staining observed. SK", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Stove burner wiped 2026-11-19 at 08:00, two scorch marks removed. MK", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Stove condition check passed with no damage to the cord, logged 11/23 by AT.", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Plate replaced 11/10 after a crack was found, old unit discarded. LP", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Weekly audit, week 47: all seven tabletop items accounted for, no issues noted. SK", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "11/24 06:55: plate wiped and dried, no marks left. JR", "object": "workspace", "style": "log", "source": "b-workspace+scenefix"}
+{"text": "Table leg wobble reported 11/12, shim installed under rear-left leg, rechecked 11/16 and found stable. AT", "object": "workspace", "style": "log", "source": "b-workspace"}
+{"text": "obj_id=bowl_01 | pos=(0.42, 0.18, 0.76) m | conf=0.94 | surface_temp=22.4 C", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Wine bottle weight 1.32 kg (about 750 ml of wine), fill level 96%.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Plate detected at table front, yaw 12°, confidence 0.89.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Cream cheese right of bowl: 1 (conf 0.81), one edge partly hidden by the bowl rim.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Stove surface: 22.1 °C, same as room temperature.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "wine_bottle: 1.214 kg, upright, tilt 1.8 deg; cream_cheese: not detected this frame.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Estimated clear table area: 0.38 m², with the largest free patch near the front-right edge.", "object": "workspace", "style": "readout", "source": "b-workspace"}
+{"text": "Wine bottle ID wb_01, neck detected, glare off the glass adding ±6 mm of depth noise.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Cream cheese box weight 0.23 kg, wrapper intact.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Plate tag pl_01: flat near the table front, rim intact, conf 0.77.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Scene objects tracked: 7 / last update 08:14:32 / mean pose conf 0.88.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "Plate height 2.4 cm, rim about 1 cm wide.", "object": "workspace", "style": "readout", "source": "b-workspace+scenefix"}
+{"text": "That wine bottle always ends up on the left side of the table, no idea who keeps leaving it there.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "Honestly the stove looks way nicer than it cooks, it heats a little unevenly every time.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "FYI the cream cheese is getting close to its date, probably a day or two left in it.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "Someone left a coffee ring next to the plate this morning, I already wiped it.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "The new wine rack still smells faintly of oil, not in a bad way though.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "Pretty sure the cream cheese is nearly empty, it felt light when I picked it up yesterday.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "The cream cheese looks much better since it's been away from the stove.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "That wine bottle is gorgeous but I get nervous every time it is near the edge.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "The table still wobbles a tiny bit if you lean on the front corner, but the shim helped.", "object": "workspace", "style": "coworker", "source": "b-workspace"}
+{"text": "The stove is heavier than it looks, I nearly dropped it on my foot last week.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "Not a fan of the wooden cabinet, the drawers stick if you look at them wrong.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "The kids drew on the cream cheese wrapper and left it next to the bowl, kind of cute actually.", "object": "workspace", "style": "coworker", "source": "b-workspace+scenefix"}
+{"text": "Grip the ceramic bowl around its body rather than by the rim, because the rim can be weaker than it looks.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Hold the wine bottle by its body near the base rather than by the neck, which can slip easily.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Handle the wine bottle with dry grippers, since wet glass is slippery and most of the weight sits in the base.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Let the stove cool before touching it with bare hands, as the burner holds heat for a long time.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Keep contact with the plate to the rim.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Avoid soaking the wine rack, because long exposure to water warps the wood and loosens the grain.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Watch for condensation around the wine bottle, which can leave rings on the table finish.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Use only light pressure on the cream cheese box, which dents much more easily than the plate.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Be gentle with the cream cheese near anything hot, since it softens and can melt.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Treat any chipped plate rim as a cut hazard and keep fingers clear of that edge.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}
+{"text": "Blot liquids on the polyurethane finish instead of scrubbing, because rubbing dulls the coating.", "object": "workspace", "style": "care", "source": "b-workspace"}
+{"text": "The glass wine bottle gets slick once it is greasy, so a firm, even grasp holds better than a pinch.", "object": "workspace", "style": "care", "source": "b-workspace+scenefix"}

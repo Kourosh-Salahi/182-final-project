@@ -1,0 +1,60 @@
+manual| Standard 750 ml Bordeaux-style bottle in dark green soda-lime glass, 300 mm tall with a 76 mm base diameter.
+manual| The punt at the base is 18 mm deep and is part of the mold design, not a defect.
+manual| Glass wall thickness ranges from 3.2 to 4.1 mm, with the thinnest section at the shoulder.
+manual| Empty weight is approximately 520 g; a filled bottle comes to roughly 1.27 kg.
+manual| Closure is a natural cork, 44 mm long, sealed under a tin-free polylaminate capsule.
+manual| The front label is printed on uncoated cotton paper and may smudge if it gets wet.
+manual| Recommended cellar conditions are 12 to 14 °C with 60 to 70 percent relative humidity.
+manual| This vessel is not rated for thermal shock; temperature swings above 40 °C can cause cracking.
+manual| Contents are a 2018 Rioja Reserva, 14% ABV, bottled at the estate.
+manual| UV-filtering tint blocks most light below 450 nm, which helps protect the wine from light damage.
+manual| Dishwasher cleaning is not supported, since high heat and detergent will lift the label adhesive.
+manual| Per the producer's spec sheet, the shoulder can withstand a static side load of up to 25 kg.
+log| 2026-11-02 09:14: Bottle checked in from supplier crate B-7, seal intact, label clean. —JM
+log| Nov 5, condition check: no sediment visible through the glass, cork flush with the lip. RK
+log| Cellar rack 3, slot 12. Logged as present during the weekly count on 11/09.
+log| 11/11 18:40: Small scuff found on the back label, probably from the crate divider. No action taken. —TS
+log| Humidity on the rack held at 64% all week, so no cork shrinkage is expected for this unit.
+log| 2026-11-15, inventory reconciliation: 1 of 1 accounted for. Initialed AL.
+log| Capsule showed slight wrinkling at the neck when inspected Nov 17; cosmetic only.
+log| Moved from the kitchen counter back to the cellar at 22:05 on 11/18 after dinner prep. —JM
+log| Fill level recorded as "into neck," consistent with a young bottle. RK, 11/20.
+log| No temperature excursions above 16 °C were recorded near this item between 11/01 and 11/21.
+log| 11/22 07:30: Dust wiped from the shoulder during routine shelf cleaning. TS
+log| Insurance appraisal entered at $48 on Nov 23; receipt filed under household/wine.
+readout| OBJ_ID wine_bottle_0417 | mass 1.268 kg | conf 0.97
+readout| Surface temp 13.6 °C, ambient 14.1 °C, delta stable.
+readout| Pose estimate: upright, tilt 1.8°, centroid x=0.42 y=-0.15 z=0.88 m.
+readout| Label OCR: "RESERVA 2018", match confidence 0.91.
+readout| Liquid level sensor: 97% fill, no movement detected.
+readout| Glass integrity scan: no fractures, 2 minor surface abrasions flagged.
+readout| Grip zone detected at 110–180 mm from the base; friction coefficient est. 0.38.
+readout| RFID tag 0x3F9A21 read OK, last seen 4 min ago.
+readout| Color classification: dark green, opacity high, contents not visually resolvable.
+readout| Shelf load cell 3-12 reads 1.27 kg, nominal.
+readout| Depth camera bbox 76 x 76 x 301 mm, occlusion 12%.
+readout| Cork protrusion: 0.0 mm. Capsule status: sealed.
+coworker| This one's the nice Rioja, honestly too good for a Tuesday.
+coworker| Heads up, the label's a little smudged on the back, wasn't me.
+coworker| I think Dana's saving that bottle for her parents' visit, so it's kind of spoken for.
+coworker| The glass on these is weirdly heavy. I almost dropped one last month.
+coworker| Somebody wrote "DO NOT DRINK" on a sticky note and stuck it to this bottle, lol.
+coworker| Smells faintly of the cardboard crate it came in, but the cork looks fine.
+coworker| Not a big red wine person myself, but people keep saying this vintage is great.
+coworker| FYI it sat on the counter near the stove for a while yesterday, felt fine to the touch though.
+coworker| Pretty sure this is the last one from that case we got at the farmers market.
+coworker| The capsule is that annoying kind that doesn't tear cleanly.
+coworker| Saw a little dust on the shoulder earlier, nothing major.
+coworker| Gotta say, the label design on this one is really sharp.
+care| Support the base with one hand when lifting, since the neck is the weakest point of the bottle.
+care| Avoid gripping it with wet or oily fingers; the glass gets very slippery.
+care| Keep it away from stovetops, radiators, and direct sunlight, because heat can push the cork out and spoil the wine.
+care| Handle it gently and avoid shaking, which stirs up sediment in older reds.
+care| A dry, soft cloth works best for wiping the glass without damaging the paper label.
+care| Never knock it against hard surfaces; even a light tap at the shoulder can start a hairline crack.
+care| Use a firm but moderate grip, as too much pressure on the capsule can tear it.
+care| Sudden cold, such as from a freezer, can cause the glass to fracture.
+care| If the glass is chipped, watch for sharp edges near the lip before touching it.
+care| Keep the label dry, since moisture makes the ink run and the paper peel.
+care| Lift with a smooth, steady motion, keeping the bottle mostly vertical to limit sloshing.
+care| Should it break, treat every shard as sharp and keep bare skin away from spilled glass.

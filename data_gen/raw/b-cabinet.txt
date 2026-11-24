@@ -1,0 +1,60 @@
+manual| The cabinet frame is solid birch plywood with a clear water-based lacquer finish.
+manual| Overall dimensions are 45 cm wide, 38 cm deep and 62 cm tall, with three drawers of equal height.
+manual| Each drawer runs on ball-bearing slides rated for a maximum load of 8 kg.
+manual| Wipe surfaces with a soft, slightly damp cloth, because abrasive cleaners may dull the finish.
+manual| Not intended for outdoor use or for rooms where humidity stays above 70 percent.
+manual| Drawer fronts have soft-close dampers that engage in the last 3 cm of travel.
+manual| Assembled weight is about 14.2 kg without contents.
+manual| Rated top-surface load: 25 kg, evenly distributed.
+manual| Hardware includes brushed nickel knobs secured with M4 machine screws.
+manual| Minor variations in wood grain and color are natural and are not considered defects.
+manual| An anti-tip wall strap is included and recommended for households with young children.
+manual| Felt pads on all four feet help protect hardwood and tile floors from scratches.
+log| 2026-03-14 09:20: Cabinet received in hallway, no shipping damage noted. RK
+log| Mar 22: Top drawer slide squeaking slightly, lubricated with silicone spray. JT
+log| Quarterly check 06/01/26: finish intact, knobs tight, anti-tip strap secure. MP
+log| 2026-07-09 14:45: Small water ring found on top surface near back left corner, buffed out. RK
+log| Inventory count, bedroom 2: contents recorded as socks, chargers and two notebooks. AL
+log| Aug 3, 11:10: Middle drawer knob was loose, screw retightened. JT
+log| 2026-08-30: Felt pad missing from front right foot, replacement applied. MP
+log| 2026-09-18: Bottom drawer found jammed by a folded sweater, cleared and rechecked. RK
+log| Condition check 10/12/26 16:05: no warping, drawers align evenly. AL
+log| Asset tag CAB-0217 relabeled after the old sticker peeled off. JT 11/02
+log| Nov 15 2026 08:30: Dusted, no issues. MP
+log| Annual review: cabinet in good condition, rated 4/5 overall, next review due Nov 2027. AL
+readout| OBJ_ID cab_0217 | class: small_cabinet | conf 0.94
+readout| Drawer positions: top 0.0 cm, middle 0.0 cm, bottom extended 1.8 cm.
+readout| Est. mass 17.6 kg (frame 14.2 + contents 3.4), confidence 0.81.
+readout| Top panel surface temp 21.3 °C, ambient 21.0 °C.
+readout| Pose: x 2.41 m, y -0.87 m, yaw 92°, wall anchor detected: yes.
+readout| Tilt sensor: 0.4° forward lean, within tolerance.
+readout| Humidity near unit 46% RH, nominal.
+readout| Handle detection: 3/3 knobs found, mean conf 0.89.
+readout| Top surface: 2 items detected (lamp, mug), occupancy 31%.
+readout| Last seen 2026-11-24 07:52:13 via hall_cam_02.
+readout| D2 slide friction index 0.12 (baseline 0.10).
+readout| Material classifier: wood/laminate 0.77, metal 0.15, other 0.08.
+coworker| Honestly that little cabinet is sturdier than it looks.
+coworker| Bottom drawer sticks a bit when it's humid, just so you know.
+coworker| Somebody keeps leaving coffee mugs on top of it, hence the ring marks.
+coworker| I like the knobs, they're kind of retro.
+coworker| Pretty sure the middle drawer is mostly tangled cables at this point.
+coworker| It wobbled a little before Jen tightened the wall strap last month.
+coworker| Not my favorite color, but it fits the corner nicely.
+coworker| FYI, the spare batteries ended up in the top drawer.
+coworker| Smells faintly of cedar up close, which is nice.
+coworker| Weirdly satisfying, that soft-close thing on it.
+coworker| Kid's stickers are still on the side panel and I'm leaving them, they're cute.
+coworker| That cabinet's been here longer than I have, I think.
+care| Grip the cabinet by its base frame rather than the knobs when lifting, since the knobs are not load-bearing.
+care| Keep hot pans and mugs off the lacquered top, because heat above 60 °C can leave white marks.
+care| Use only a soft cloth on the finish, since scouring pads will scratch it.
+care| Avoid leaning on an extended drawer, because the slides can bend under body weight.
+care| Watch your fingers near the drawer gaps, because the soft-close mechanism can still pinch.
+care| Don't load any single drawer past 8 kg.
+care| Treat the corners gently, because the veneer edges chip easily if knocked.
+care| Dry spills promptly so liquid doesn't seep into the plywood seams.
+care| Keep the cabinet well away from radiators and vents, because heat can warp the side panels.
+care| Support a removed drawer with both hands, since it is heaviest at the front and the slides can twist.
+care| Stick to mild soap and water, because solvent-based cleaners can soften the lacquer.
+care| Never climb on or hang from the cabinet, even with the anti-tip strap attached.

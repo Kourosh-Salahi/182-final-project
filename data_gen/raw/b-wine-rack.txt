@@ -1,0 +1,60 @@
+manual| The 12-bottle countertop rack is made of kiln-dried pine with a clear lacquer finish and measures 46 cm wide by 28 cm deep.
+manual| Maximum load per cradle is 1.8 kg, which covers standard 750 ml bottles but not magnums.
+manual| Powder-coated steel rods resist rust in kitchens with normal humidity levels of 40 to 70 percent.
+manual| This modular unit stacks up to four tiers high when the included interlocking pegs are used.
+manual| Avoid ammonia-based cleaners, as they can dull the walnut stain over time.
+manual| Assembled height: 92 cm; weight empty: 6.4 kg.
+manual| Each diamond-cube bin holds roughly 25 bottles laid horizontally.
+manual| Wall-mount models ship with two 8 mm anchors rated for drywall and masonry.
+manual| The rack is not designed for direct sunlight, since UV exposure can warp the slats and affect stored wine.
+manual| Bamboo construction gives the frame natural flex, so slight wobble under full load is expected and within tolerance.
+manual| Rubberized end caps on the lower feet protect hardwood floors from scratches.
+manual| Warranty coverage excludes damage from standing water or temperatures above 35 °C.
+log| 2026-11-03 09:14 — Rack in pantry checked, 9 of 12 slots occupied, no visible damage. JR
+log| Oct 28: loose screw noted on top-left joint of the kitchen wine rack; tightened by maintenance. Initials: MP.
+log| Quarterly inventory, 11/15/2026: 7 reds, 3 whites, 1 rosé on the dining room rack. —AK
+log| 14:42 humidity reading near rack logged at 58%, within normal range.
+log| Hairline crack found on lower rail, 2026-09-19; flagged for monitoring, no repair yet. DL
+log| Rack relocated from garage to basement on 2026-08-02 per homeowner request. TS
+log| Condition check passed. Finish intact, feet level. 11/20 07:55, BW.
+log| Two bottles removed for dinner party on 11/08; count now 10. CR
+log| Dust buildup observed on top shelf during weekly sweep, cleaned 2026-10-12. —NH
+log| Leveling shim added under rear-right foot after floor settling, Sept 30. JR
+log| Annual inspection: no pest activity, no mold, wood moisture 11%. Signed MP, 2026-07-01.
+log| 18:20, a spilled-wine stain on slot 4 recorded; spot treated same day. AK
+readout| RACK_ID: WR-03 | slots_occupied: 9/12 | total_load: 13.6 kg
+readout| Ambient temp 13.8 °C, rel. humidity 62%, status nominal.
+readout| Object detected: wine_rack (confidence 0.94), position x=2.31 m, y=0.87 m, heading 178°.
+readout| Load cell L2 reading 1.42 kg; L5 reading 0.00 kg (empty slot).
+readout| Tilt sensor: 0.6° forward lean, threshold 3.0°.
+readout| Vibration RMS 0.02 g over last 10 min — stable.
+readout| Bottle count estimate 11 ± 1; occlusion on bottom row lowered confidence to 0.71.
+readout| WR-01 surface temp 19.4 °C; nearest heat source 1.9 m away.
+readout| Frame segmentation complete: 4 shelves, 24 cradles, mesh ID rack_mesh_07.
+readout| Last seen 2026-11-24 08:02:17 in zone KITCHEN_B.
+readout| Light exposure 34 lux, below UV caution threshold.
+readout| Shelf 3 deflection 1.1 mm under load, spec limit 4 mm.
+coworker| That metal rack in the hallway rattles a little whenever someone walks by, kind of charming honestly.
+coworker| Pretty sure the bottom row is all the cheap stuff nobody touches.
+coworker| fyi the pine one smells like a cabin when the heat's been running
+coworker| Not a fan of the black wire design, it looks like a dish drainer to me.
+coworker| Someone stuck a little chalk label on slot 6 that just says "SAVE."
+coworker| The basement rack is way sturdier than it looks, I leaned on it by accident last week and nothing budged.
+coworker| Heads up, the left side has a slight lean but it's been like that forever.
+coworker| Honestly the bamboo rack is the nicest thing in that kitchen.
+coworker| Cat likes sleeping on top of the rack, so there's always fur up there.
+coworker| Noticed the varnish is a bit sticky on the corner near the window, probably from the sun.
+coworker| I counted twice and got different numbers, those cubbies are deep.
+coworker| Whoever assembled the wall one did a great job, perfectly level.
+care| Grip bottles by the body rather than the neck when handling them near the rack, since necks can slip through the cradle gaps.
+care| Keep heat-generating devices at least a meter from the wooden frame to avoid drying and cracking.
+care| Only a soft, dry cloth is safe on the lacquered surface; abrasive pads will scratch it.
+care| Treat the thin wire cradles as fragile, because bending them even slightly can let a bottle roll.
+care| Watch for splinters along the unfinished back edge of the pine slats.
+care| When touching the top tier, support it from below, as the stacking pegs are not glued.
+care| Avoid hanging any weight off the side rails; they are rated for downward load only.
+care| Glass contact with the steel rods can chip labels and bottles, so slow, gentle contact is best.
+care| Damp cloths left on the walnut can cause water rings, so any moisture should be dried quickly.
+care| Keep fingers clear of the narrow gap between cradles where bottles can pinch.
+care| A cracked rail should not bear extra load until it has been inspected.
+care| Use a light touch around the wall anchors, since repeated stress can loosen them from the drywall.

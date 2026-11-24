@@ -1,0 +1,60 @@
+0| fix| The 14 cm matte black ceramic bowl is glazed inside and out and is rated safe for both the dishwasher and the microwave.
+1| fix| This dark green glass wine bottle can handle temperature changes of up to 40 °C, but it may crack if it strikes a hard edge.
+2| fix| Made from end-grain acacia, the small wine rack ships with a food-safe mineral oil finish.
+3| keep
+4| fix| Compact single-burner electric cooktop, rated for cookware up to 260 °C.
+5| fix| The cream cheese comes in a small rectangular box with a silver and blue wrapper and holds roughly 90 g.
+6| fix| Not suitable for oven use: the flat white plate may warp above 70 °C.
+7| fix| Per the spec sheet, the cabinet's drawer pulls are 18/10 stainless steel, 21 mm long, with rounded ends and no sharp edges.
+8| drop
+9| fix| The wine bottle's glass varies slightly in wall thickness, and the neck is the thinnest part of the piece.
+10| fix| The foot ring of the ceramic bowl is unglazed and porous, so moisture can soak through to the surface underneath.
+11| keep
+12| fix| 2026-11-18 07:42: plate checked, small chip on rim noted, still in service. JR
+13| fix| Wine bottle inspected 11/20, no cracks found, seal intact. Initials: MK.
+14| fix| 2026-11-21 14:05: wine rack re-oiled by staff, surface dry by 16:30. AT
+15| fix| Inventory count 11/22: 1 bowl, 1 plate, 1 wine bottle, 1 cream cheese (unopened). LP
+16| fix| Cream cheese reported missing from the table on 11/15 and found behind the bowl later that afternoon. JR
+17| fix| 23 Nov, 09:10: table surface wiped and dried after a spill, no staining observed. SK
+18| fix| Stove burner wiped 2026-11-19 at 08:00, two scorch marks removed. MK
+19| fix| Stove condition check passed with no damage to the cord, logged 11/23 by AT.
+20| fix| Plate replaced 11/10 after a crack was found, old unit discarded. LP
+21| fix| Weekly audit, week 47: all seven tabletop items accounted for, no issues noted. SK
+22| fix| 11/24 06:55: plate wiped and dried, no marks left. JR
+23| keep
+24| fix| obj_id=bowl_01 | pos=(0.42, 0.18, 0.76) m | conf=0.94 | surface_temp=22.4 C
+25| fix| Wine bottle weight 1.32 kg (about 750 ml of wine), fill level 96%.
+26| fix| Plate detected at table front, yaw 12°, confidence 0.89.
+27| fix| Cream cheese right of bowl: 1 (conf 0.81), one edge partly hidden by the bowl rim.
+28| fix| Stove surface: 22.1 °C, same as room temperature.
+29| fix| wine_bottle: 1.214 kg, upright, tilt 1.8 deg; cream_cheese: not detected this frame.
+30| keep
+31| fix| Wine bottle ID wb_01, neck detected, glare off the glass adding ±6 mm of depth noise.
+32| fix| Cream cheese box weight 0.23 kg, wrapper intact.
+33| fix| Plate tag pl_01: flat near the table front, rim intact, conf 0.77.
+34| fix| Scene objects tracked: 7 / last update 08:14:32 / mean pose conf 0.88.
+35| fix| Plate height 2.4 cm, rim about 1 cm wide.
+36| fix| That wine bottle always ends up on the left side of the table, no idea who keeps leaving it there.
+37| fix| Honestly the stove looks way nicer than it cooks, it heats a little unevenly every time.
+38| fix| FYI the cream cheese is getting close to its date, probably a day or two left in it.
+39| fix| Someone left a coffee ring next to the plate this morning, I already wiped it.
+40| fix| The new wine rack still smells faintly of oil, not in a bad way though.
+41| fix| Pretty sure the cream cheese is nearly empty, it felt light when I picked it up yesterday.
+42| fix| The cream cheese looks much better since it's been away from the stove.
+43| fix| That wine bottle is gorgeous but I get nervous every time it is near the edge.
+44| keep
+45| fix| The stove is heavier than it looks, I nearly dropped it on my foot last week.
+46| fix| Not a fan of the wooden cabinet, the drawers stick if you look at them wrong.
+47| fix| The kids drew on the cream cheese wrapper and left it next to the bowl, kind of cute actually.
+48| fix| Grip the ceramic bowl around its body rather than by the rim, because the rim can be weaker than it looks.
+49| fix| Hold the wine bottle by its body near the base rather than by the neck, which can slip easily.
+50| fix| Handle the wine bottle with dry grippers, since wet glass is slippery and most of the weight sits in the base.
+51| fix| Let the stove cool before touching it with bare hands, as the burner holds heat for a long time.
+52| fix| Keep contact with the plate to the rim.
+53| fix| Avoid soaking the wine rack, because long exposure to water warps the wood and loosens the grain.
+54| fix| Watch for condensation around the wine bottle, which can leave rings on the table finish.
+55| fix| Use only light pressure on the cream cheese box, which dents much more easily than the plate.
+56| fix| Be gentle with the cream cheese near anything hot, since it softens and can melt.
+57| fix| Treat any chipped plate rim as a cut hazard and keep fingers clear of that edge.
+58| keep
+59| fix| The glass wine bottle gets slick once it is greasy, so a firm, even grasp holds better than a pinch.

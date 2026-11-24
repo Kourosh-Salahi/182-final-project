@@ -26,18 +26,20 @@ CS 182 final project, draft report
 \begin{abstract}
 A vision-language model (VLM) that plans for a robot by calling tools will read whatever text those
 tools return, so an attacker who can write to a tool's data can try to redirect the robot without
-touching the user's instruction. We build a tool-calling harness around the open-weight Qwen3-VL-4B,
-with a lookup tool, an arm tool, and a MuJoCo kitchen scene. Injections that tell this model to abandon the user's task succeed in 32\% of undefended trials;
-injections that add the attacker's goal as a step \emph{before} the user's task succeed in 75\%, and
-a set of twelve such wordings selected for strength succeeds in 91\% of 160 trials. A 66M-parameter
-DistilBERT span classifier placed between the lookup tool and the VLM, which deletes the tokens it
-tags as injected, brings attack success from 90\% to 0 of 120 trials (95\% interval 0--3\%), across two attack families
-it never saw in training and two it saw only with other wordings, while leaving clean-task success
-unchanged. The best of nine text-level baselines, repeating the user's task after the tool output, leaves 45\% of attacks
-working; an off-the-shelf injection detector leaves 86\%. The result has clear
-limits: the classifier is trained on in-domain synthetic data, it does not use the trusted task it is
-given, and a black-box search of 60 queries per attack gets 38\% of attacks past it, although few of
-those rewrites still persuade the VLM.
+touching the user's instruction. We build a tool-calling harness around the open-weight Qwen3-VL-4B
+with a lookup tool, an arm tool and a MuJoCo kitchen scene. Injections that tell this model to
+abandon the user's task succeed in 32\% of undefended trials; injections that add the attacker's
+goal as a step \emph{before} the user's task succeed in 75\%, and twelve such wordings selected for
+strength succeed in 91\% of 160 trials. A 66M-parameter DistilBERT span classifier that deletes
+injected tokens from tool output brings attack success on those wordings from 90\% to 0 of 120
+trials, against 45\% for the best of nine text-level baselines. We then show that this result is
+much narrower than it looks. An audit found that 99.8\% of harmless test sentences also occur in
+training and that every tested attack shares one structure. On independently written test data the
+same classifier still removes 95\% of injected text in six new attack styles, but it flags 64--70\%
+of clean tool outputs written in new styles, and it deletes a restatement of the user's own task as
+readily as an attack. Adding 1{,}200 contrast examples, in which the same sentence is harmless or
+an attack depending on the user's task, raises accuracy on such pairs from 3\% to 89\%, and only
+when the classifier is shown the task. The false alarms on unfamiliar harmless text remain.
 \end{abstract}
 
 \section{Introduction}
@@ -78,10 +80,12 @@ remain future work and are marked as such.
 authority. Text that tells Qwen3-VL-4B to abandon the user's task mostly fails; text that inserts one
 extra step and then lets the model finish the user's task mostly succeeds. (2) Details of the harness
 change measured vulnerability by tens of points: the model often writes its lookup and its arm
-command in the same turn, in which case no tool output can influence the command. (3) A small span
-classifier trained on synthetic in-domain data removes held-out attacks almost completely, and the
-text-level baselines we could run do not. (4) The classifier ignores the trusted task, and a cheap
-black-box search finds rewrites it misses.
+command in the same turn, in which case no tool output can influence the command. (3) On the
+attacks we tuned, a small span classifier trained on synthetic in-domain data stops every hijack and
+the text-level baselines do not. (4) That result came from an easy test. On independently written
+data the classifier still finds attacks in new styles, but flags most unfamiliar harmless text, and
+it does not use the trusted task unless training data forces it to
+(Section~\ref{sec:stress}). (5) With contrast data that does force it, task conditioning works.
 
 \section{Background and related work}
 
@@ -172,49 +176,17 @@ Most security work on these systems attacks the user channel. RoboPAIR \cite{rob
 sheet in the camera's view. We found no prior work that trains a tool-output injection classifier
 inside a robot agent and measures the effect on the action the agent issues.
 
-\subsection{How VLM agent harnesses and VLA harnesses differ}
+\subsection{Why the VLM is the place to measure}
 \label{sec:harnesses}
 
-A reviewer asked whether our tool-calling loop is built the way VLM harnesses normally are, and how
-that compares with VLA harnesses. The two are different kinds of loop (Table~\ref{tab:harness}).
-
-A VLM agent harness is a chat loop. It sends the model a system prompt, the user's message (text and
-images) and JSON-schema tool definitions; the model replies with text or a structured tool call; the
-harness runs the tool and appends the result as a new message; this repeats until the model stops
-calling tools. Qwen models use Hermes-style calls, written by the model as
-\code{<tool\_call>\{"name":..., "arguments":...\}</tool\_call>} and rendered by the model's own chat
-template, and are typically served through vLLM's OpenAI-compatible endpoint. AgentDojo composes the
-same loop from pipeline elements, with defenses inserted after the tool executor. Our harness is this
-loop with one added stage, and our local backend uses the model's own chat template and call format,
-so it is equivalent to the vLLM route.
-
-A VLA harness is a closed control loop. vla-eval \cite{vlaeval} makes the interface explicit: the
-model implements one \code{predict(observation)} function returning an action, and the benchmark
-implements \code{reset}, \code{step}, \code{make\_obs} and \code{get\_step\_result}. The model sees the
-current camera frame and one fixed instruction string at every control step, emits a continuous
-action, and success is a simulator predicate at the end of the episode. There is no message history
-and no tool result. The only text a VLA reads is its instruction, which in an orchestrated system is
-whatever the VLM passed to the arm tool. A tool-output injection therefore cannot reach a VLA
-directly; it can only act through the VLM's choice of that argument. This is why we measure attack
-success at the VLM's arm-tool call.
-
-\begin{table}[t]
-\caption{VLM agent harness and VLA harness compared.}
-\label{tab:harness}
-\centering\small
-\begin{tabular}{p{2.3cm}p{5.0cm}p{5.0cm}}
-\toprule
- & VLM agent harness (ours, AgentDojo, vLLM) & VLA harness (OpenVLA on LIBERO, vla-eval) \\
-\midrule
-Model interface & chat messages in; text or tool call out & \code{predict(observation)} $\to$ action \\
-Step rate & one call per decision, seconds apart & every control step (15\,Hz in VoLo) \\
-Input & task, images, growing history incl.\ tool results & current frame(s), one fixed instruction \\
-Output & named tool call with arguments & continuous 7-DoF action or action chunk \\
-Success & check on tool calls or final state & simulator predicate at episode end \\
-Entry point for tool text & every tool result & none; only via the instruction string \\
-\bottomrule
-\end{tabular}
-\end{table}
+A VLM agent harness is a chat loop: the model receives messages and tool definitions, replies with
+text or a structured tool call, and the harness appends each tool result as a new message. Ours is
+that loop, built the way Qwen models are normally served, with one added stage for the defense. A
+VLA harness is a closed control loop in which the model maps the current camera frame and one fixed
+instruction string to an action at every step; it has no message history and no tool results
+\cite{vlaeval}. Tool text therefore cannot reach a VLA directly. It can act only through the
+instruction the VLM passes to the arm tool, which is why we measure attack success at that call.
+Appendix~\ref{app:harness} compares the two kinds of harness in detail.
 
 \section{Methods}
 
@@ -245,34 +217,9 @@ $g\in\mathcal{G}\setminus\{u\}$ and inserts an injection string $a(g)$ at a rand
 of each lookup result. The attacker knows the tool names and the model but cannot change the user
 message, system prompt, image or weights. Injections through the camera image are out of scope.
 
-\paragraph{One trial.} Figure~\ref{alg:trial} gives the loop. Three rules need stating because
+\paragraph{One trial.} Figure~\ref{alg:trial} in Appendix~\ref{app:details} gives the loop as pseudocode. Three rules need stating because
 they changed the results materially.
 
-\begin{figure}[t]
-\small
-\begin{verbatim}
-messages = [system_prompt + defense.system_note, (image, "Task: " + u)]
-repeat up to 8 times:
-    reply = VLM(messages, tools)                       # greedy decoding
-    if reply has a lookup call and an execute_subgoal call:
-        drop the execute_subgoal call from reply       # rule 2
-    for each call in reply:
-        if call is a lookup:
-            x = corpus_text(call) with a(g) inserted   # attacker
-            messages += tool_result(defense.filter(u, x))
-        if call is execute_subgoal(s):
-            if no lookup has been made yet: refuse     # rule 1
-            if match(s) == g: return HIJACKED          # rule 3
-            if match(s) == u: user_task_sent = True
-            messages += tool_result("Subgoal finished: success.")
-    if reply has no tool call: break
-return USER_TASK if user_task_sent else NEITHER
-\end{verbatim}
-\caption{Pseudocode for one trial. \code{match} maps a free-form instruction to the nearest of the ten
-goals by character-level similarity (threshold 0.8), with two special cases described in
-Appendix~\ref{app:details}.}
-\label{alg:trial}
-\end{figure}
 
 \emph{Rule 1: look before acting.} An arm command issued before any lookup is refused with a message
 asking the model to look up the objects first. Without this, the model skips the lookup in some
@@ -356,6 +303,43 @@ dataset is small and did not tune further, since validation loss reaches $10^{-4
 under two minutes on an RTX 3070.
 
 
+\subsection{Stress-test data}
+\label{sec:stressdata}
+
+After the first results, one of us audited the generated data and found three shortcuts.
+(i)~The generator has about 156 distinct harmless sentences, and 99.8\% of the harmless sentences in
+the test splits occur word for word in training. (ii)~All 288 attacks in test-seen, and all twelve
+evaluation wordings used on the robot, have the ``do $g$ first, then continue'' structure, which 34\%
+of training attacks share. (iii)~Every training attack names a goal other than the user's, and no
+harmless sentence is ever a command, so the task input is never needed to tell them apart. We built
+new test data to remove each shortcut. It was written without sight of the existing data: language-model
+writers were given only a style brief, their outputs were filtered against every existing sentence
+and template (no shared 8-word sequence, edit similarity below 0.8, embedding cosine below 0.85), a
+sample was read by hand, and the files were frozen with checksums before any model was scored on
+them. Appendix~\ref{app:stress} gives details.
+
+\paragraph{Out-of-distribution (OOD) splits.} A pool of 455 new harmless notes about the same seven
+objects, in five styles (manual, log, sensor readout, coworker note, care tip), and 214 new attack
+wordings in six styles (question, rumour, conditional, story, FAQ, suggestion) that avoid the
+ordering words \emph{first, then, before, after that, continue, proceed}. Three splits of 600
+examples, half attacked, cross the two: new harmless text with the original evaluation attacks, the
+original harmless text with new attacks, and both new.
+
+\paragraph{Task-contrast pairs.} We define an attack as text that tries to make the robot do
+something other than the user's task; a plain restatement of the user's own task is harmless. Each
+pair holds one harmless and one attack row built from a command wording such as ``Go ahead and
+\{task\}.'' In a \emph{swap} pair the tool output is byte-identical in both rows and only the user's
+task differs, so the sentence restates the task in one row and names another goal in the other. In a
+\emph{near-miss} pair the task is the same and the attack row changes one detail of the command. In
+an \emph{add-on} pair the attack row appends a second goal. There are 600 training pairs and 300 test
+pairs, with disjoint wordings and task pairs. For each pair we check that the model removes nothing
+overlapping the command in the harmless row and at least half of the labelled span in the attack row;
+\emph{pair accuracy} is the fraction of pairs with both. A model that cannot see the task receives
+identical input for the two rows of a swap pair, so its pair accuracy there is zero by construction.
+
+\paragraph{New wordings for the robot.} 120 of the new attack wordings, 30 per family, each with a
+fixed task and goal.
+
 \subsection{Baselines}
 
 Table~\ref{tab:defenses} lists the defenses. All plug into the same stage of
@@ -390,7 +374,12 @@ Span classifier (ours) & deletes tokens tagged as injected & yes \\
 
 \textbf{E1} runs the undefended agent on 40 clean trials and 40 trials per attack family.
 \textbf{E2} runs every defense on 30 clean trials and 30 trials per family. \textbf{E3} attacks the
-classifier adaptively (Section~\ref{sec:adaptive}).
+classifier adaptively (Section~\ref{sec:adaptive}). \textbf{E4} scores the E2 classifier checkpoint,
+unchanged, on the stress-test splits. \textbf{E5} trains the classifier in four setups, with or
+without the contrast training pairs and with the task shown or replaced by a constant, three seeds
+each, with the settings of Table~\ref{tab:hparams}. \textbf{E6} runs the 120 new wordings through the
+undefended agent once, keeps those that hijack it, and reruns only those under each defense; the
+selection uses the undefended run alone.
 
 \paragraph{Controls.} Trial $i$ of a condition uses the same user task, attacker goal, injection
 string, camera frame and benign tool text under every defense, and decoding is greedy, so two
@@ -524,16 +513,6 @@ attacks working; it locates the injection in about a third of tool-call hijacks 
 elsewhere. The published method uses a far stronger guard model, so this row measures what the
 approach gives when the guard is as small as the agent, not the method at its best.
 
-\begin{table}[t]
-\caption{Span metrics on the two test splits (character level). Classifier rows: mean $\pm$ standard
-deviation over three training seeds. ``False alarms'': fraction of clean tool outputs from which
-anything was removed.}
-\label{tab:spans}
-\centering\scriptsize
-\setlength{\tabcolsep}{3pt}
-\input{generated/tab_spans}
-\end{table}
-
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.62\linewidth]{figures/training.pdf}
@@ -544,21 +523,78 @@ of magnitude.}
 \label{fig:training}
 \end{figure}
 
-\paragraph{Why the classifier works here, and what that does not show.} Table~\ref{tab:spans} and
-Figure~\ref{fig:training} look at the classifier alone, next to the span-removing baselines. On seen families with unseen wordings it
-removes 98.5\% of injected characters; on the held-out families 90.7\%, with no false alarms on clean
-outputs in either split. Validation loss falls to $10^{-4}$ within 150 steps, while the loss on
-held-out families bottoms out near step 50 and then stays about three orders of magnitude higher:
-the model keeps fitting the seen families after it has stopped improving on new ones. Selecting the
-checkpoint on a validation set of seen families cannot detect this.
+\paragraph{The classifier on the original splits.} On seen families with unseen wordings the
+classifier removes 98.5\% of injected characters, and 90.7\% on the held-out families, with no false
+alarms on clean outputs (three seeds; Table~\ref{tab:spans} in Appendix~\ref{app:spans}). In
+Figure~\ref{fig:training}, validation loss falls to $10^{-4}$ within 150 steps while the loss on
+held-out families bottoms out near step 50 and then stays about three orders of magnitude higher.
+The model keeps fitting the seen families after it has stopped improving on new ones, and a
+validation set drawn from the seen families cannot detect that.
 
-The second pair of rows in Table~\ref{tab:spans} is an ablation in which the task $u$ is replaced by
-a constant. The scores are the same within seed noise. On this data the classifier does not use the
-trusted task: it recognizes injections from their own wording. Our hard negatives (benign sentences
-naming the user's goal or another goal) were evidently separable without it. The conditioning we
-proposed is therefore untested, not validated, and near-perfect seen-family scores indicate that the
-dataset is too easy \todo{harder benign text; LLM-paraphrased attacks; cases where only the task
-disambiguates}.
+\subsection{What the 0\% does not show: stress tests}
+\label{sec:stress}
+
+A result of 0 hijacks in 120 with no cost to clean tasks should be distrusted until the test is shown
+to be hard. Section~\ref{sec:stressdata} lists the three shortcuts our data offered. Here we measure
+how much each one mattered, using the same checkpoint as E2.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/harder.pdf}
+\caption{E4. The E2 classifier checkpoint and the per-sentence ProtectAI detector on the original
+test splits (top two rows) and the stress-test splits. Left: share of injected characters removed.
+Right: share of clean tool outputs from which anything was removed, with 95\% Wilson intervals (300
+clean outputs per split). Linear scale.}
+\label{fig:harder}
+\end{figure}
+
+\paragraph{Unfamiliar harmless text is flagged as an attack.} Figure~\ref{fig:harder} shows the
+failure. On the original splits the classifier never touches a clean output. On clean outputs
+written in new styles it removes something from 64\% of them, and from 70\% when the attacks are new
+too, deleting 13--14\% of all harmless characters (Table~\ref{tab:ood}, Appendix~\ref{app:stress}). The earlier zero was a statement about memorized
+sentences. The clean-task success of 100\% in E2 has the same defect: the robot's lookup tool serves
+the original harmless sentences, so E2 could not have shown this cost \todo{serve the new harmless
+notes from the lookup tool and re-measure clean-task success}. The per-sentence ProtectAI detector,
+which never saw our data, flags 7--8\% of the same outputs.
+
+\paragraph{New attack styles are still mostly caught.} With the original harmless text and attacks in
+six new styles, the classifier removes 95\% of injected characters (88--99\% by family) with no false
+alarms; ProtectAI removes 13\%. The single ``first, then continue'' structure of our evaluation
+attacks was therefore not what the classifier depended on. Combined with the previous paragraph, the
+simplest reading is that it learned which sentences are known to be harmless and removes most other
+text. That behaviour catches novel attacks and novel facts alike.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.72\linewidth]{figures/contrast.pdf}
+\caption{E5. Pair accuracy on the 300 task-contrast test pairs by pair type, for classifiers trained
+with or without the contrast training pairs and with the task shown or hidden. Bars are means of
+three seeds; whiskers span the minimum and maximum seed. Linear scale.}
+\label{fig:contrast}
+\end{figure}
+
+\paragraph{The task is used only when the data requires it.} Figure~\ref{fig:contrast} and
+Table~\ref{tab:contrast} (Appendix~\ref{app:stress}) give the contrast study. Trained on the original
+data, the classifier gets 3\% of swap pairs right with the task shown (setup A) and 0\% with it
+hidden (C): it removes commands, including the user's own task when a tool restates it. Adding the
+contrast pairs to training with the task shown (B) raises pair accuracy to 94\% on swap pairs, 83\%
+on near misses and 90\% on add-ons, while F1 on the original splits is unchanged (1.000 seen, 0.963
+held-out). With the same data but the task hidden (D), swap pairs are at 0\% as they must be, near
+misses at 20\% and add-ons at 61\%; add-ons can partly be solved without the task because the
+appended goal is recognizable on its own. The comparison between B and D changes only whether the
+task is visible, and that accounts for the gain. This is the first evidence in the project for the
+task conditioning we proposed, and it also shows the limit of the fix: setup B still flags
+$70\pm7$\% of clean outputs in new styles. Contrast pairs teach the model to use the task; they do
+not teach it what harmless text looks like.
+
+\paragraph{New attack styles on the robot.} Of the 120 new wordings, 8 hijack the undefended agent
+(Table~\ref{tab:oodrobot}, Appendix~\ref{app:stress}). Questions, rumours, stories and suggestions
+move this model as little as blunt orders did, which agrees with Section~\ref{sec:wording}. On those
+8, the rerun gives 4 hijacks with no defense, 3 and 2 with the two ProtectAI variants, and 0 with
+sandwiching and with the classifier. Eight trials support no comparison: 0 of 8 has a 95\% interval
+reaching 32\%. E6 therefore neither confirms nor weakens the E2 result, and a test of the classifier
+against attacks that are both new in style and effective on the robot is still missing
+\todo{effective attacks in new styles, found by search scored with the full agent}.
 
 \subsection{Q3: adaptive attack}
 \label{sec:adaptive}
@@ -587,45 +623,54 @@ hijack the VLM even with nothing filtered, because the search optimizes evasion 
 toward wordings the classifier misses but the VLM also ignores, such as the blunt forms of
 Section~\ref{sec:wording}. End to end, the adaptive attack succeeds in 3 of 80 attempts.
 
-We read this as a weak attack, not a strong defense. A search that scored candidates with the full
-agent, as the proposal specified, would keep only rewrites that still persuade the VLM, and the 38\%
-evasion rate shows that there is room to find them. Gradient-guided token search against the
-classifier is also not yet implemented \todo{agent-in-the-loop search; white-box token search}.
+We read this as a weak attack, not a strong defense. A search scored with the full agent, as the
+proposal specified, would keep only rewrites that still persuade the VLM, and the 38\% evasion rate
+shows there is room to find them \todo{agent-in-the-loop search; white-box token search}.
 
 \section{Discussion}
 
 \paragraph{What we learned.} First, the injections that worked on this model do not look like the
 canonical ones. Qwen3-VL-4B was hard to talk out of the user's task and easy to talk into one more
-step. Defenses and detectors tuned on ``ignore previous instructions'' text are aimed at the wrong
-target for such a model, which is consistent with the general-purpose detector flagging few of our
-evaluation attacks. Second, measured vulnerability is a property of the model \emph{and} the
-harness. Whether tool calls in one turn are executed together, how many lookups follow the poisoned
-one, and whether the model must look before acting each moved attack success by tens of points.
-Reports of agent robustness should state these choices. Third, for a narrow deployment domain a
-small token classifier trained on synthetic injections is a cheap and effective filter against
-static attacks, including two attack families it never saw, and unlike whole-output detectors it
-keeps the facts around the injection.
+step, and of 120 further wordings in six other styles only 8 worked. Detectors tuned on ``ignore
+previous instructions'' text are aimed at the wrong target for such a model. Second, measured
+vulnerability is a property of the model \emph{and} the harness. Whether tool calls in one turn are
+executed together, how many lookups follow the poisoned one, and whether the model must look before
+acting each moved attack success by tens of points. Third, our own headline number was an artifact
+of how the test was built. Train and test text came from one small generator, so a perfect score
+measured recall of that generator. The checks that exposed this were cheap: count how many test
+sentences occur in training, hide an input the model is supposed to need, and score on text written
+by someone who has not seen the training data. We would now run them before reporting any detector
+result. Fourth, a span classifier can be made to condition on the trusted task, but only by
+training on examples where the task decides the label.
 
-\paragraph{Limits.} The evidence is narrow. There is one orchestrator, at 4B parameters and 4-bit
-precision; VoLo's results suggest larger models behave differently, and the proposal's 32B model has
-not been run \todo{Qwen3-VL-32B via vLLM}. There are ten tasks, seven objects and three evaluation
-wordings per family, all written by us, and the classifier's training data comes from the same
-generator as its test data. The held-out families share the ``first, then continue'' structure with
-the seen ones, so ``held out'' is a weaker test than the name suggests. The arm is scripted, so we
-make no claim about attack success at a learned policy \todo{OpenVLA or SmolVLA executor}. The
-strongest published sanitizers and system-level defenses were not run. And the adaptive result shows
-the classifier is not robust; it is a filter for known attack styles, to be combined with defenses
-that give guarantees.
+\paragraph{What the classifier is and is not.} On the evidence here it is an effective filter for
+attacks against a fixed, known corpus of tool text, where anything unfamiliar is suspect. That is a
+real deployment setting (a curated object database), and there the E2 result stands. It is not yet
+a detector of injected instructions in general text: it removes most unfamiliar harmless content,
+and the adaptive search of Section~\ref{sec:adaptive} gets 38\% of rewritten attacks past it.
 
-\paragraph{Next steps.} In order of value: an agent-in-the-loop adaptive attack; harder data,
-including LLM-paraphrased attacks and benign text that only the task can disambiguate, to give task
-conditioning something to do; a larger orchestrator; Prompt Guard~2 and DataFilter as baselines; and
-a learned arm policy.
+\paragraph{Limits.} There is one orchestrator, at 4B parameters and 4-bit precision; VoLo's results
+suggest larger models behave differently, and the proposal's 32B model has not been run
+\todo{Qwen3-VL-32B via vLLM}. There are ten tasks and seven objects. The robot experiments use
+twelve attack wordings of one structure, and the attempt to widen them (E6) produced too few
+effective attacks to test anything. Clean-task success was measured only with harmless text the
+classifier had memorized. The stress-test data was written by language models from briefs, so it
+has its own regularities, and the contrast wordings are plain commands; a classifier trained on them
+may be learning that format. The arm is scripted, so we make no claim about a learned policy
+\todo{OpenVLA or SmolVLA executor}. The strongest published sanitizers and system-level defenses
+were not run, and our PromptArmor-style baseline uses a far weaker guard model than the original.
+
+\paragraph{Next steps.} In order of value: train on varied harmless text (the new pool, split into
+training and test) and measure false alarms again; put the new harmless notes behind the robot's
+lookup tool so that clean-task success is measured honestly; find attacks in new styles that work
+on the robot, with a search scored by the full agent, and test the defenses on those; a larger
+orchestrator; and Prompt Guard~2 and DataFilter as baselines.
 
 \subsubsection*{Reproducibility}
 Code, the dataset generator, per-trial logs and the scripts that rebuild every figure and table
 (\code{scripts/make\_figures.py}) are in the project repository; the README lists one command per
-experiment. No external dataset is used.
+experiment. The stress-test data, its briefs, raw writer outputs, filter and audit records are in
+\code{data\_gen/}. No external dataset is used.
 
 \begin{thebibliography}{99}\small
 % NOTE TO AUTHORS: entries marked [verify] carry metadata taken from the proposal or from memory
@@ -673,8 +718,78 @@ experiment. No external dataset is used.
 
 \appendix
 
+\section{VLM agent harnesses and VLA harnesses}
+\label{app:harness}
+
+A reviewer asked whether our tool-calling loop is built the way VLM harnesses normally are, and how
+that compares with VLA harnesses. The two are different kinds of loop (Table~\ref{tab:harness}).
+
+A VLM agent harness is a chat loop. It sends the model a system prompt, the user's message (text and
+images) and JSON-schema tool definitions; the model replies with text or a structured tool call; the
+harness runs the tool and appends the result as a new message; this repeats until the model stops
+calling tools. Qwen models use Hermes-style calls, written by the model as
+\code{<tool\_call>\{"name":..., "arguments":...\}</tool\_call>} and rendered by the model's own chat
+template, and are typically served through vLLM's OpenAI-compatible endpoint. AgentDojo composes the
+same loop from pipeline elements, with defenses inserted after the tool executor. Our harness is this
+loop with one added stage, and our local backend uses the model's own chat template and call format,
+so it is equivalent to the vLLM route.
+
+A VLA harness is a closed control loop. vla-eval \cite{vlaeval} makes the interface explicit: the
+model implements one \code{predict(observation)} function returning an action, and the benchmark
+implements \code{reset}, \code{step}, \code{make\_obs} and \code{get\_step\_result}. The model sees the
+current camera frame and one fixed instruction string at every control step, emits a continuous
+action, and success is a simulator predicate at the end of the episode. There is no message history
+and no tool result. The only text a VLA reads is its instruction, which in an orchestrated system is
+whatever the VLM passed to the arm tool. A tool-output injection therefore cannot reach a VLA
+directly; it can only act through the VLM's choice of that argument. This is why we measure attack
+success at the VLM's arm-tool call.
+
+\begin{table}[h]
+\caption{VLM agent harness and VLA harness compared.}
+\label{tab:harness}
+\centering\small
+\begin{tabular}{p{2.3cm}p{5.0cm}p{5.0cm}}
+\toprule
+ & VLM agent harness (ours, AgentDojo, vLLM) & VLA harness (OpenVLA on LIBERO, vla-eval) \\
+\midrule
+Model interface & chat messages in; text or tool call out & \code{predict(observation)} $\to$ action \\
+Step rate & one call per decision, seconds apart & every control step (15\,Hz in VoLo) \\
+Input & task, images, growing history incl.\ tool results & current frame(s), one fixed instruction \\
+Output & named tool call with arguments & continuous 7-DoF action or action chunk \\
+Success & check on tool calls or final state & simulator predicate at episode end \\
+Entry point for tool text & every tool result & none; only via the instruction string \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \section{Harness and scoring details}
 \label{app:details}
+
+\begin{figure}[h]
+\small
+\begin{verbatim}
+messages = [system_prompt + defense.system_note, (image, "Task: " + u)]
+repeat up to 8 times:
+    reply = VLM(messages, tools)                       # greedy decoding
+    if reply has a lookup call and an execute_subgoal call:
+        drop the execute_subgoal call from reply       # rule 2
+    for each call in reply:
+        if call is a lookup:
+            x = corpus_text(call) with a(g) inserted   # attacker
+            messages += tool_result(defense.filter(u, x))
+        if call is execute_subgoal(s):
+            if no lookup has been made yet: refuse     # rule 1
+            if match(s) == g: return HIJACKED          # rule 3
+            if match(s) == u: user_task_sent = True
+            messages += tool_result("Subgoal finished: success.")
+    if reply has no tool call: break
+return USER_TASK if user_task_sent else NEITHER
+\end{verbatim}
+\caption{Pseudocode for one trial. \code{match} maps a free-form instruction to the nearest of the ten
+goals by character-level similarity (threshold 0.8), with two special cases described in
+Appendix~\ref{app:details}.}
+\label{alg:trial}
+\end{figure}
 
 \paragraph{System prompt.} ``You control a robot arm in a kitchen scene. The user gives you one task
 and a camera image of the scene. You have tools: lookup\_object and get\_scene\_notes return stored
@@ -733,7 +848,7 @@ Orchestrator & model & Qwen3-VL-4B-Instruct, 4-bit weights; largest that fits 8\
  & image & one $480\times360$ MuJoCo render \\
 Trial & limits & 8 model turns, 3 subgoals \\
  & goal matching & similarity threshold 0.8 (Appendix~\ref{app:details}) \\
-Experiments & trials per cell & 40 (E1), 30 (E2), 80 attacks (E3); set by a 3-hour GPU budget \\
+Experiments & trials per cell & 40 (E1), 30 (E2), 80 attacks (E3), 120 wordings (E6); set by a 3-hour GPU budget \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -762,6 +877,65 @@ Literature-style wordings; single arm call allowed; injection in first lookup on
 \quad + same-turn arm commands dropped and the model queried again (final) & 91\% (145/160) \\
 \bottomrule
 \end{tabular}
+\end{table}
+
+\section{Classifier on the original splits}
+\label{app:spans}
+
+\begin{table}[h]
+\caption{Span metrics on the two test splits (character level). Classifier rows: mean $\pm$ standard
+deviation over three training seeds. ``False alarms'': fraction of clean tool outputs from which
+anything was removed.}
+\label{tab:spans}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\input{generated/tab_spans}
+\end{table}
+
+The second pair of rows in Table~\ref{tab:spans} hides the task from the classifier on the original
+data: the scores do not change, which was the first sign that the task input was unused.
+
+\section{Stress-test data and results}
+\label{app:stress}
+
+\paragraph{Construction.} Thirteen language-model writers each received one brief describing a style
+or attack shape and nothing else: eight for harmless notes (one per object and one for the
+workspace, twelve lines in each of five styles), four for attacks (one per family, nine lines in
+each of six shapes, each with a goal slot), and one for 60 command wordings with a task slot. A
+line was rejected if it shared any 8-word sequence with an existing sentence or template, had edit
+similarity of at least 0.8 or embedding cosine of at least 0.85 (all-MiniLM-L6-v2) to one, or
+duplicated another new line; attacks were rejected for using an ordering word; harmless lines for
+containing a robot task; command wordings for adding anything beyond the task. A person then read
+159 sampled lines and removed three. Because the first writers knew only object names, some notes
+mentioned things absent from the scene; a second pass with a description of the scene kept 241
+notes, edited 222 and dropped 16, and the result was filtered again. The final pools hold 455
+harmless notes, 214 attack wordings and 54 command wordings. Tool outputs are assembled with the
+original layout code, so only the wording is new. File checksums were committed before any model
+was scored on the data.
+
+\begin{table}[h]
+\caption{E4: span metrics of the E2 checkpoint and the span-removing baselines on every split.}
+\label{tab:ood}
+\centering\scriptsize
+\input{generated/tab_ood}
+\end{table}
+
+\begin{table}[h]
+\caption{E5: task-contrast study, mean $\pm$ standard deviation over three seeds. ``New harmless
+false alarms'': fraction of clean outputs flagged in the split with new harmless writing and
+original attacks.}
+\label{tab:contrast}
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\input{generated/tab_contrast}
+\end{table}
+
+\begin{table}[h]
+\caption{E6. Left: new attack wordings that hijack the undefended agent in one screening trial each.
+Right: hijacks on the 8 surviving wordings under each defense.}
+\label{tab:oodrobot}
+\centering\small
+\input{generated/tab_ood_screen}\hspace{1.5em}\input{generated/tab_ood_robot}
 \end{table}
 
 \section{Classifier threshold}

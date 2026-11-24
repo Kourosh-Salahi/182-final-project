@@ -1,0 +1,60 @@
+0| fix| The single-burner electric tabletop stove measures 34 x 28 x 11 cm and weighs 2.1 kg.
+1| fix| Housing is powder-coated steel, paired with a stainless burner plate and an enamel-coated pan support.
+2| keep
+3| keep
+4| fix| The pan support ring spans between 12 cm and 26 cm in diameter.
+5| keep
+6| fix| A built-in thermal cutoff shuts off power automatically if the burner overheats.
+7| fix| The heating element is resistive and requires no batteries.
+8| keep
+9| fix| Rated supply: 230 V, 50 Hz, conforming to EN 60335.
+10| fix| Rubber feet provide grip on smooth tabletops and should be inspected yearly for cracking.
+11| fix| Warranty covers manufacturing defects for 24 months and excludes damage caused by misuse.
+12| fix| 2026-11-03 08:15 — Tabletop stove TS-02 inspected, heating element clean, no rust. Initials: MK.
+13| fix| 11/07: knob swapped, old one had a cracked grip, logged for recycling. RJ
+14| keep
+15| keep
+16| fix| Indicator light flickered twice before staying on during the 10/12 check; flagged for monitoring. JS
+17| fix| Received 2026-06-14, serial TS-4471-B, entered into kitchen inventory as item B3.
+18| fix| 10/28 17:05 — unit found warm to the touch two hours after last recorded use; staff confirmed it was used late in the evening. MK
+19| fix| Quarterly electrical safety test passed on 2026-08-02. TP
+20| fix| One rubber foot missing as of 11/15; unit still sits level on the table. RJ
+21| keep
+22| keep
+23| fix| Back from repair shop 2026-07-09 with a new thermostat installed. JS
+24| keep
+25| keep
+26| fix| Mass estimate 2.38 kg; estimate confidence 61%.
+27| keep
+28| fix| Burner plate IR 148 °C, cooling at ~3 °C/min.
+29| fix| Camera smoke check near stove: none detected.
+30| fix| Orientation yaw 12.5°, pitch 0.3°, resting on table_segment_C.
+31| keep
+32| keep
+33| keep
+34| keep
+35| fix| Proximity flag: cream cheese box detected 9 cm from burner edge, conf 0.72.
+36| fix| That little stove takes a minute or two to warm up some mornings, honestly kind of charming.
+37| keep
+38| fix| I like this one a lot, it heats up so much faster than you'd think.
+39| fix| Someone spilled cream cheese on it last week and the smell hung around for a day or two.
+40| fix| Pretty sure the heating element is getting tired, it seemed slow to warm yesterday.
+41| keep
+42| keep
+43| fix| FYI the rubber feet leave faint marks on the table.
+44| fix| Ran it on Sunday and the heat runs a little uneven toward the back.
+45| keep
+46| keep
+47| keep
+48| keep
+49| keep
+50| keep
+51| fix| The cream cheese wrapper can scorch if left near the burner while it is still warm.
+52| drop
+53| keep
+54| keep
+55| fix| Water sprayed into the control housing can short the element, so keep cleaning liquids away from it.
+56| keep
+57| fix| Dry hands give a safer grip near the control knob.
+58| fix| A light touch is enough on the knob; forcing it can strip the switch.
+59| fix| Check for dents near the heating plate before handling, as a deformed plate can heat unevenly.

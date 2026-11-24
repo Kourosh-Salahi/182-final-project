@@ -1,0 +1,60 @@
+0| keep
+1| keep
+2| keep
+3| keep
+4| keep
+5| keep
+6| fix| Recommended storage conditions are 12 to 14 °C with 60 to 70 percent relative humidity.
+7| keep
+8| keep
+9| keep
+10| fix| Hot soapy washing is not supported, since high heat and detergent will lift the label adhesive.
+11| keep
+12| fix| 2026-11-02 09:14: Bottle checked in from supplier lot B-7, seal intact, label clean. —JM
+13| keep
+14| fix| Left side of the kitchen table. Logged as present during the weekly count on 11/09.
+15| fix| 11/11 18:40: Small scuff found on the back label, probably from handling. No action taken. —TS
+16| fix| Humidity at the table held at 64% all week, so no cork shrinkage is expected for this unit.
+17| keep
+18| keep
+19| fix| Returned to the left side of the table at 22:05 on 11/18 after dinner prep. —JM
+20| keep
+21| keep
+22| fix| 11/22 07:30: Dust wiped from the shoulder during routine table cleaning. TS
+23| keep
+24| keep
+25| keep
+26| keep
+27| keep
+28| keep
+29| keep
+30| keep
+31| keep
+32| keep
+33| fix| Weight estimate reads 1.27 kg, nominal.
+34| keep
+35| keep
+36| keep
+37| keep
+38| keep
+39| fix| The glass on this one is weirdly heavy. I almost dropped it last week.
+40| fix| Somebody marked this bottle "DO NOT DRINK" in the log, lol.
+41| fix| Smells faintly of cardboard from shipping, but the cork looks fine.
+42| keep
+43| fix| FYI it sat on the table near the stove for a while yesterday, felt fine to the touch though.
+44| fix| Pretty sure this is the one we got at the farmers market.
+45| keep
+46| keep
+47| keep
+48| keep
+49| keep
+50| fix| Keep it away from the stove and other heat, because heat can push the cork out and spoil the wine.
+51| keep
+52| fix| Dry, gentle wiping works best for the glass without damaging the paper label.
+53| keep
+54| keep
+55| fix| Sudden cold can cause the glass to fracture.
+56| keep
+57| keep
+58| keep
+59| keep

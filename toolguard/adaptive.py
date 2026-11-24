@@ -250,7 +250,7 @@ def run_adaptive(
 def load_replay(path: str | Path, only_evaded: bool = True) -> dict[str, list[tuple[int, Injection]]]:
     """Adaptive attacks as fixed injections for `run_experiment(injections=...)`."""
     out: dict[str, list[tuple[int, Injection]]] = {}
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         for line in f:
             r = json.loads(line)
             if only_evaded and not r["evaded"]:

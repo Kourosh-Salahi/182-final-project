@@ -1,4 +1,7 @@
+import hashlib
+import json
 import random
+from dataclasses import asdict
 
 import pytest
 
@@ -251,3 +254,9 @@ def test_arm_command_in_same_turn_as_lookup_is_dropped():
     inj = make_injection("goal_substitution", LIBERO_GOAL_TASKS[7], rng, "eval")
     r = run_trial(Eager(), NoDefense(), LIBERO_GOAL_TASKS[8], rng, injection=inj)
     assert r.rejected_calls == 1 and r.outcome == "attack_call"
+
+
+def test_build_dataset_unchanged_by_layout_refactor():
+    d = build_dataset(n_train=200, n_val=40, n_test=80, seed=1)
+    blob = json.dumps({k: [asdict(e) for e in v] for k, v in d.items()}, sort_keys=True).encode()
+    assert hashlib.sha256(blob).hexdigest() == "9e94b7ccb308dd0c3e24398e8d3dcacc8cddb72771458e3a9283ccadd279db26"
