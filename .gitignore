@@ -18,3 +18,8 @@ runs/*
 !runs/span_eval.json
 !runs/template_asr.json
 !runs/gen_cache.jsonl
+!runs/ood_eval.json
+!runs/contrast_study.json
+!runs/ood_screen/
+!runs/ood_e2/
+!runs/ood_replay_screened.jsonl

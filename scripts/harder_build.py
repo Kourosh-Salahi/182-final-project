@@ -48,7 +48,7 @@ def build(root: Path) -> dict:
 
 def write_manifest(root: Path) -> dict:
     files = sorted(p for p in root.rglob("*") if p.is_file() and p.name not in UNHASHED)
-    manifest = {"seed": SEED, "files": {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
+    manifest = {"seed": SEED, "files": {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
                                         for p in files}}
     (root / "MANIFEST.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     return manifest
