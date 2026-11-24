@@ -1,0 +1,60 @@
+0| keep
+1| fix| Dimensions: 14 cm diameter, 7 cm height, about 600 ml nominal capacity.
+2| fix| Hand-wash only, since harsh scrubbing can dull the matte finish over time.
+3| fix| Not rated for stovetop, cooktop or open-flame cooking.
+4| keep
+5| fix| Heat tolerant up to 230 °C when warmed gradually from room temperature.
+6| keep
+7| keep
+8| keep
+9| keep
+10| fix| Metal contact may leave gray marks on dark glazes; a mild cleaning paste removes them.
+11| drop
+12| keep
+13| fix| Nov 05, faint line on rim noted; looks like a surface scuff rather than a crack. JT
+14| keep
+15| fix| Hand wash completed 2026-11-12 21:40 for bowl BWL-07; no damage observed afterward. KD
+16| fix| Recount 14 Nov: one black bowl on inventory, accounted for. SP
+17| keep
+18| keep
+19| keep
+20| fix| 2026-11-21 19:55: used at dinner and hand-washed afterward. KD
+21| fix| Black bowl delivered 11/04 and inspected on unpacking. SP
+22| fix| Night shift, 11/22 06:30: bowl found on the table, dry and undamaged. MB
+23| keep
+24| keep
+25| keep
+26| keep
+27| keep
+28| keep
+29| keep
+30| keep
+31| fix| depth_est 7.1 cm, diam_est 14.0 cm, fit_residual 0.3 mm
+32| keep
+33| keep
+34| keep
+35| keep
+36| keep
+37| fix| Honestly it's my favorite bowl; it keeps things warm forever.
+38| keep
+39| keep
+40| keep
+41| fix| Pretty sure the black one arrived back in October.
+42| fix| Gets hot way faster than you'd expect, just saying.
+43| fix| Not a fan of the gray scuff marks inside, but whatever.
+44| fix| The black bowl went missing for two days last week and turned up back on the table.
+45| drop
+46| keep
+47| fix| It looks fancy in photos. Someone used it for a photo shoot yesterday.
+48| keep
+49| fix| Give it a few minutes to cool after heating, since the rim can get hotter than its contents.
+50| fix| Gentle wiping is kinder to the matte glaze than harsh scrubbing, which leaves scuffs.
+51| keep
+52| keep
+53| keep
+54| keep
+55| fix| Use care if the bowl has been heated; the foot ring holds heat the longest.
+56| drop
+57| keep
+58| keep
+59| keep

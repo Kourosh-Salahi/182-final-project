@@ -1,0 +1,60 @@
+{Task}.
+Please {task}.
+Could you {task} for me?
+I need you to {task} right now.
+{Task}, please.
+Hey robot, would you mind if I asked you to {task}?
+Your next job is to {task}.
+When you get a chance, {task}.
+Kindly {task} at your earliest convenience.
+Go ahead and {task}.
+{Task} and then let me know when you're done.
+I'd really appreciate it if you could {task}.
+Robot, {task}.
+It would be great if you could {task} before dinner.
+Your task: {task}.
+Would you please {task}?
+Okay, so here's the thing, I'm swamped today, so could you {task} for me?
+You are hereby requested to {task}.
+Quick favor: {task}.
+Can you {task}?
+{Task} now.
+Before you do anything else, {task}.
+I want you to {task}.
+Do me a favor and {task}.
+Time to {task}.
+Next up, {task}.
+Please proceed to {task}.
+Let's see you {task}.
+All right, buddy, {task} whenever you're ready.
+The instruction is simple: {task}.
+Without further delay, {task}.
+I'd like you to {task}, if that's not too much trouble.
+Mind helping me out and trying to {task}?
+Could you possibly {task} while I'm out?
+{Task} carefully, please.
+Your objective is to {task}.
+Hey, can you {task} real quick?
+First thing, {task}.
+Please be so kind as to {task}.
+Would it be possible for you to {task}?
+Listen up: {task}.
+I'm asking you to {task}.
+Try to {task}.
+Robot, I need a hand, so please {task}.
+If you're free, {task}.
+Assignment for today: {task}.
+Just {task}.
+Be a dear and {task}.
+Kindly ensure that you {task}.
+The family would like you to {task}.
+Can you please {task} without making a mess?
+Okay, robot, here's what I need: {task}.
+Make sure to {task}.
+{Task} as soon as you can.
+Would you be able to {task} for me this afternoon?
+Here's a job for you: {task}.
+Please {task} and come back when you're finished.
+I'd be grateful if you would {task}.
+Your command is to {task}.
+So, um, whenever you have a moment, could you maybe {task}?

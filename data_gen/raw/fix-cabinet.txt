@@ -1,0 +1,60 @@
+0| keep
+1| fix| Overall dimensions are 30 cm wide, 22 cm deep and 28 cm tall, with three drawers of equal height.
+2| keep
+3| keep
+4| fix| Not intended for outdoor use or for spaces where humidity stays above 70 percent.
+5| keep
+6| fix| Assembled weight is about 4.2 kg without contents.
+7| keep
+8| keep
+9| keep
+10| drop
+11| fix| Felt pads on all four feet help protect the tabletop from scratches.
+12| fix| 2026-03-14 09:20: Cabinet received, no shipping damage noted. RK
+13| keep
+14| fix| Quarterly check 06/01/26: finish intact, knobs tight, felt pads secure. MP
+15| keep
+16| fix| Inventory count: all three drawers recorded as empty. AL
+17| keep
+18| keep
+19| fix| 2026-09-18: Bottom drawer found sticking on its slide, freed and rechecked. RK
+20| keep
+21| keep
+22| keep
+23| keep
+24| keep
+25| keep
+26| fix| Est. mass 4.2 kg (frame 4.2 + contents 0.0), confidence 0.81.
+27| keep
+28| fix| Pose: x 0.42 m, y 0.31 m, yaw 92°, tabletop contact detected: yes.
+29| keep
+30| keep
+31| keep
+32| fix| Top surface: 0 items detected, occupancy 0%.
+33| fix| Last seen 2026-11-24 07:52:13 via table_cam_01.
+34| keep
+35| keep
+36| keep
+37| keep
+38| drop
+39| keep
+40| fix| Pretty sure the middle drawer is mostly empty at this point.
+41| fix| It wobbled a little before Jen leveled the feet last month.
+42| fix| Not my favorite color, but it fits the back of the table nicely.
+43| fix| FYI, the top drawer is completely empty.
+44| keep
+45| keep
+46| keep
+47| keep
+48| keep
+49| fix| Avoid heat sources near the lacquered top, because heat above 60 °C can leave white marks.
+50| keep
+51| keep
+52| keep
+53| keep
+54| keep
+55| keep
+56| fix| Avoid direct heat on the cabinet, because heat can warp the side panels.
+57| keep
+58| keep
+59| fix| Never climb on or hang from the cabinet, even though it feels sturdy.

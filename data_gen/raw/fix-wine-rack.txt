@@ -1,0 +1,60 @@
+0| fix| The single-bottle tabletop rack is made of kiln-dried pine with a clear lacquer finish and measures 14 cm wide by 28 cm deep.
+1| fix| Maximum load for the single cradle is 1.8 kg, which covers a standard 750 ml bottle.
+2| fix| Sealed wooden slats resist warping in kitchens with normal humidity levels of 40 to 70 percent.
+3| drop
+4| keep
+5| fix| Assembled height: 18 cm; weight empty: 0.6 kg.
+6| fix| The single cradle holds one bottle laid horizontally.
+7| drop
+8| keep
+9| fix| Solid wood construction gives the frame natural flex, so slight wobble under full load is expected and within tolerance.
+10| fix| Rubberized end caps on the lower feet protect the tabletop from scratches.
+11| keep
+12| fix| 2026-11-03 09:14 — Rack on kitchen table checked, cradle empty, no visible damage. JR
+13| keep
+14| fix| Quarterly inventory, 11/15/2026: cradle empty on the kitchen table rack. —AK
+15| keep
+16| keep
+17| fix| Rack relocated to the back left of the kitchen table on 2026-08-02 per homeowner request. TS
+18| keep
+19| fix| Bottle removed from the cradle on 11/08; cradle now empty. CR
+20| fix| Dust buildup observed on top rail during weekly sweep, cleaned 2026-10-12. —NH
+21| fix| Leveling shim added under rear-right foot after slight table unevenness, Sept 30. JR
+22| keep
+23| fix| 18:20, a spilled-wine stain on the cradle recorded; spot treated same day. AK
+24| fix| RACK_ID: WR-03 | slots_occupied: 0/1 | total_load: 0.0 kg
+25| keep
+26| keep
+27| fix| Load cell L1 reading 0.00 kg (empty cradle).
+28| keep
+29| keep
+30| fix| Bottle count estimate 0 ± 1; partial occlusion of the cradle lowered confidence to 0.71.
+31| fix| WR-01 surface temp 19.4 °C; nearest heat source 0.8 m away.
+32| fix| Frame segmentation complete: 1 shelf, 1 cradle, mesh ID rack_mesh_07.
+33| keep
+34| keep
+35| fix| Cradle deflection 0.1 mm, spec limit 4 mm.
+36| fix| That wooden rack on the table rattles a little whenever someone bumps the table, kind of charming honestly.
+37| drop
+38| fix| fyi the pine rack smells like a cabin when the stove's been running
+39| fix| Not a fan of the plain wooden design, it looks a bit unfinished to me.
+40| fix| Someone stuck a little chalk label on the cradle that just says "SAVE."
+41| fix| The little table rack is way sturdier than it looks, I bumped it by accident last week and nothing budged.
+42| keep
+43| fix| Honestly the wooden rack is the nicest thing on that table.
+44| drop
+45| fix| Noticed the varnish is a bit sticky on the back corner, probably from humidity.
+46| drop
+47| fix| Whoever assembled this one did a great job, perfectly level.
+48| keep
+49| fix| Heat-generating devices close to the wooden frame can cause drying and cracking.
+50| keep
+51| fix| Treat the thin wooden cradle as fragile, because cracking it even slightly can let a bottle roll.
+52| keep
+53| fix| When touching the top rail, support it from below, as the joints are not glued.
+54| keep
+55| fix| Hard glass contact with the wooden cradle can chip labels and bottles, so slow, gentle contact is best.
+56| keep
+57| fix| Keep fingers clear of the narrow gap in the cradle where a bottle can pinch.
+58| keep
+59| fix| Use a light touch around the joints, since repeated stress can loosen them.

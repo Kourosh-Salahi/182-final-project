@@ -1,0 +1,59 @@
+0| keep
+1| keep
+2| keep
+3| keep
+4| keep
+5| keep
+6| keep
+7| keep
+8| keep
+9| keep
+10| keep
+11| keep
+12| keep
+13| keep
+14| fix| Table audit 14:05; one small cream cheese box present, best-by 2027-01-06. Initials: TP.
+15| fix| Nov 20, evening: carton found sweating on the table after breakfast prep, about 40 min out of refrigeration. Logged by AL.
+16| keep
+17| fix| 2026-11-22 09:10 temp spot-check at its spot on the table read 3.2 °C, within range. SB
+18| fix| Table camera review (JM) shows the seal went from intact to broken on 11/20 at 08:15.
+19| fix| Weekly stock reconcile: one 226 g cream cheese box was unaccounted for Monday and turned up behind the bowl Tuesday. RK
+20| keep
+21| keep
+22| fix| Maintenance note 11/22: table surface under the cream cheese wiped after a small smear was found. AL
+23| drop
+24| keep
+25| keep
+26| keep
+27| fix| Pose: x=0.42 m y=-0.11 m z=1.03 m, yaw 87°; table, right of bowl.
+28| keep
+29| keep
+30| keep
+31| keep
+32| keep
+33| keep
+34| keep
+35| keep
+36| fix| The cream cheese box has a dent now, pretty sure someone set the plate on it.
+37| keep
+38| keep
+39| fix| Little box of cream cheese is tucked beside the bowl again lol.
+40| keep
+41| keep
+42| keep
+43| keep
+44| keep
+45| keep
+46| keep
+47| fix| Weirdly it's the only thing on the table that never seems to run out.
+48| keep
+49| keep
+50| keep
+51| keep
+52| keep
+53| keep
+54| keep
+55| keep
+56| keep
+57| keep
+58| keep

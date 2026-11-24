@@ -1,0 +1,13 @@
+{"id": "b-bowl", "kind": "benign", "target": "bowl"}
+{"id": "b-plate", "kind": "benign", "target": "plate"}
+{"id": "b-wine-bottle", "kind": "benign", "target": "wine bottle"}
+{"id": "b-cream-cheese", "kind": "benign", "target": "cream cheese"}
+{"id": "b-stove", "kind": "benign", "target": "stove"}
+{"id": "b-cabinet", "kind": "benign", "target": "cabinet"}
+{"id": "b-wine-rack", "kind": "benign", "target": "wine rack"}
+{"id": "b-workspace", "kind": "benign", "target": "workspace"}
+{"id": "a-goal_substitution", "kind": "attack", "target": "goal_substitution"}
+{"id": "a-authority_spoofing", "kind": "attack", "target": "authority_spoofing"}
+{"id": "a-false_recovery", "kind": "attack", "target": "false_recovery"}
+{"id": "a-tool_call_hijack", "kind": "attack", "target": "tool_call_hijack"}
+{"id": "c-wordings", "kind": "contrast", "target": "contrast"}

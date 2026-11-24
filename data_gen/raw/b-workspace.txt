@@ -1,0 +1,60 @@
+manual| The 350 ml stoneware mug is glazed inside and out and is rated safe for both the dishwasher and the microwave.
+manual| This borosilicate carafe can handle temperature changes of up to 120 °C, but it may crack if it strikes a hard edge.
+manual| Made from end-grain acacia, the 40 x 28 cm cutting board ships with a food-safe mineral oil finish.
+manual| Maximum load for the oak kitchen table is 60 kg, spread evenly across the top surface.
+manual| Cast-iron trivet, 18 cm diameter, rated for cookware up to 260 °C.
+manual| Salt and pepper shakers in the Linea set are made of frosted glass with brushed stainless caps and hold roughly 90 g each.
+manual| Not suitable for oven use: the melamine fruit bowl may warp above 70 °C.
+manual| Per the spec sheet, the butter knife is 18/10 stainless steel, 21 cm long, with a rounded tip and no serrations.
+manual| Linen placemats should be washed at 40 °C or below to limit shrinkage, which the manufacturer puts at under 3 percent.
+manual| Each hand-blown wine glass varies slightly in wall thickness, and the stem is the thinnest part of the piece.
+manual| The terracotta pot holding the basil is unglazed and porous, so moisture can soak through to the surface underneath.
+manual| Dimensions are 120 cm long, 75 cm wide and 74 cm tall, with a matte polyurethane top coat that resists light scratches.
+log| 2026-11-18 07:42: mug #3 checked, small chip on rim noted, still in service. JR
+log| Carafe inspected 11/20, no cracks found, light mineral film at the base. Initials: MK.
+log| 2026-11-21 14:05: cutting board re-oiled by staff, surface dry by 16:30. AT
+log| Inventory count 11/22: 2 shakers, 1 trivet, 4 placemats, 1 fruit bowl (5 apples, 2 bananas). LP
+log| Wine glass B reported missing from the set on 11/15 and found in the dish rack later that afternoon. JR
+log| 23 Nov, 09:10: table surface wiped and dried after a juice spill, no staining observed. SK
+log| Basil plant watered 2026-11-19 at 08:00, two yellow leaves removed. MK
+log| Trivet condition check passed with no rust spots, logged 11/23 by AT.
+log| Butter knife replaced 11/10 after a bent tip was found, old unit discarded. LP
+log| Weekly audit, week 47: all tabletop items accounted for except one napkin ring. SK
+log| 11/24 06:55: placemat 2 sent to laundry and swapped for a spare. JR
+log| Table leg wobble reported 11/12, shim installed under rear-left leg, rechecked 11/16 and found stable. AT
+readout| obj_id=mug_03 | pos=(0.42, 0.18, 0.76) m | conf=0.94 | surface_temp=48.6 C
+readout| Carafe weight 1.12 kg (about 720 ml of water), fill level 61%.
+readout| Cutting board detected at table center-left, yaw 12°, confidence 0.89.
+readout| Apples in bowl: 5 (conf 0.81), one partly hidden behind a banana.
+readout| Trivet surface: 22.1 °C, same as room temperature.
+readout| salt_shaker: 0.214 kg, upright, tilt 1.8 deg; pepper_shaker: not detected this frame.
+readout| Estimated clear table area: 0.38 m², with the largest free patch near the front-right edge.
+readout| Wine glass ID wg_B, stem detected, glare off the rim adding ±6 mm of depth noise.
+readout| Basil pot soil moisture 34%, weight 0.86 kg.
+readout| Knife tag kn_01: flat on placemat 1, blade facing away from the table edge, conf 0.77.
+readout| Scene objects tracked: 9 / last update 08:14:32 / mean pose conf 0.88.
+readout| Napkin stack height 2.4 cm, about 18 sheets.
+coworker| That blue mug always ends up on the left side of the table, no idea who keeps using it.
+coworker| Honestly the carafe looks way nicer than it pours, it dribbles a little every time.
+coworker| FYI the bananas in the bowl are getting spotty, probably a day or two left in them.
+coworker| Someone left a coffee ring next to the placemats this morning, I already wiped it.
+coworker| The new cutting board still smells faintly of oil, not in a bad way though.
+coworker| Pretty sure the pepper shaker is nearly empty, it sounded hollow when I picked it up yesterday.
+coworker| Basil looks much happier since it's been away from the radiator.
+coworker| Those wine glasses are gorgeous but I get nervous every time one is near the edge.
+coworker| The table still wobbles a tiny bit if you lean on the front corner, but the shim helped.
+coworker| The trivet is heavier than it looks, I nearly dropped it on my foot last week.
+coworker| Not a fan of the linen placemats, they wrinkle if you look at them wrong.
+coworker| The kids drew on a napkin and left it under the fruit bowl, kind of cute actually.
+care| Grip the stoneware mug around its body when it holds a hot drink, because the joint where the handle meets the mug can be weaker than it looks.
+care| Hold the wine glasses by the bowl near its base rather than by the stem, which snaps easily.
+care| Handle the carafe with dry grippers, since wet glass is slippery and most of the weight sits in the base.
+care| Let the trivet cool before touching it with bare hands, as cast iron holds heat for a long time.
+care| Keep contact with the butter knife to the handle end.
+care| Avoid soaking the cutting board, because long exposure to water warps the wood and loosens the grain.
+care| Watch for damp soil around the terracotta pot, which can leave rings on the table finish.
+care| Use only light pressure on the bananas, which bruise much more easily than the apples.
+care| Be gentle with the melamine bowl near anything hot, since it softens and can warp.
+care| Treat the chipped mug rim as a cut hazard and keep fingers clear of that edge.
+care| Blot liquids on the polyurethane finish instead of scrubbing, because rubbing dulls the coating.
+care| Frosted glass shakers get slick once they are greasy, so a firm, even grasp holds better than a pinch.

@@ -1,0 +1,60 @@
+manual| The single-burner tabletop stove measures 34 x 28 x 11 cm and weighs 2.1 kg without a fuel canister.
+manual| Housing is powder-coated steel, paired with a stainless burner cap and an enamel-coated pan support.
+manual| Maximum rated output is 2.3 kW, and continuous operation beyond 90 minutes is not recommended.
+manual| This model is rated for indoor use on a level, non-combustible surface with at least 30 cm of overhead clearance.
+manual| Pan supports accommodate cookware between 12 cm and 26 cm in diameter.
+manual| The drip tray is not dishwasher safe and is best cleaned with a damp cloth once cool.
+manual| A built-in pressure-sensing device cuts gas flow automatically if the canister overheats.
+manual| Ignition is piezoelectric and requires no batteries.
+manual| Outer casing temperatures can exceed 60 °C during operation.
+manual| Compatible fuel: 220 g butane cartridges conforming to EN 417.
+manual| Rubber feet provide grip on smooth countertops and should be inspected yearly for cracking.
+manual| Warranty covers manufacturing defects for 24 months and excludes damage caused by oversized cookware.
+log| 2026-11-03 08:15 — Tabletop stove TS-02 inspected, burner ports clear, no rust. Initials: MK.
+log| 11/07: canister swapped, old one had roughly 40 g remaining, logged for recycling. RJ
+log| Condition of TS-02 rated good; small cosmetic scratch noted on left side panel. — DP 2026-10-21
+log| 2026-09-30 14:42 drip tray cleaned, moderate grease buildup. AL
+log| Ignitor clicked twice before lighting during the 10/12 check; flagged for monitoring. JS
+log| Received 2026-06-14, serial TS-4471-B, entered into kitchen inventory under shelf B3.
+log| 10/28 17:05 — unit found warm to the touch two hours after last recorded use; staff confirmed it was used for late tea. MK
+log| Quarterly soap-bubble leak test passed on 2026-08-02. TP
+log| One rubber foot missing as of 11/15; unit still sits level on counter. RJ
+log| 2026-11-19: pan support was found slightly askew and re-seated by staff. DP
+log| October usage tally: 23 sessions, average duration 18 min. AL
+log| Back from repair shop 2026-07-09 with a new valve O-ring installed. JS
+readout| obj_id=stove_tabletop_01 | conf=0.94 | pos=(0.42, -0.17, 0.91) m
+readout| Surface temp 23.4 °C (ambient). Burner state: inactive.
+readout| Mass estimate 2.38 kg incl. canister; canister fill est. 61%.
+readout| Detection: small_stove, bbox 312x208 px, confidence 0.87.
+readout| Burner cap IR 148 °C, cooling at ~3 °C/min.
+readout| Gas sensor adjacent to stove: 0 ppm butane equivalent.
+readout| Orientation yaw 12.5°, pitch 0.3°, resting on counter_segment_C.
+readout| Thermal cam: casing max 41 °C at front-right corner.
+readout| Tag scan TS-4471-B matched, last seen 09:52:10.
+readout| Knob state classifier: zero position, p=0.98.
+readout| Point cloud fit: box 0.34 x 0.28 x 0.11 m, residual 4 mm.
+readout| Proximity flag: towel detected 9 cm from burner edge, conf 0.72.
+coworker| That little stove takes three or four clicks to catch some mornings, honestly kind of charming.
+coworker| Heads up, the left pan support wobbles a bit, not broken, just loose-feeling.
+coworker| I like this one way better than the old induction plate, boils water so much faster.
+coworker| Someone spilled miso on it last week and the smell hung around for a day or two.
+coworker| Pretty sure the canister is getting low, the flame looked weak yesterday.
+coworker| It's lighter than it looks, I was surprised the first time I picked it up.
+coworker| Not a fan of the bright orange knob but whatever, it works.
+coworker| FYI the rubber feet leave faint marks on the white counter.
+coworker| Made pancakes on it Sunday and the heat runs a little uneven toward the back.
+coworker| Casing gets hotter than you'd expect on the knob side.
+coworker| Whoever cleaned the drip tray last did a great job, looks brand new.
+coworker| Kind of a tiny thing for how much we lean on it, but it holds up.
+care| Grip the stove by its side edges rather than the pan support, which can bend under load.
+care| Allow at least 20 minutes after use before handling the burner area bare-handed.
+care| Abrasive pads scratch the enamel; a soft cloth keeps the finish intact.
+care| Keep paper towels and cloth well clear of the burner while it is still warm.
+care| Handle the fuel canister gently and never expose it to direct heat.
+care| Support the base from underneath when lifting, since the casing flexes slightly at the corners.
+care| Treat the casing as hot whenever recent use is uncertain.
+care| Water sprayed into the burner ports can block ignition, so keep cleaning liquids away from them.
+care| The pan support is not designed to bear heavy loads beyond ordinary cookware.
+care| Dry hands give a safer grip near the ignition knob.
+care| A light touch is enough on the knob; forcing it can strip the valve.
+care| Check for dents near the canister bay before handling, as a deformed bay can leak.
