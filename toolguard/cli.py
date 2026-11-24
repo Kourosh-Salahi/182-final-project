@@ -9,17 +9,21 @@ from .attacks import FAMILIES, HELD_OUT_FAMILIES
 
 
 def _backend(args):
-    from .backends import MockBackend, OpenAICompatBackend
+    from .backends import HFBackend, MockBackend, OpenAICompatBackend
 
     if args.backend == "mock":
         return MockBackend(seed=args.seed)
-    return OpenAICompatBackend(model=args.model, base_url=args.base_url)
+    if args.backend == "hf":
+        return HFBackend(model=args.model, cache_path=getattr(args, "gen_cache", None))
+    return OpenAICompatBackend(model=args.model or "Qwen/Qwen3-VL-32B-Instruct", base_url=args.base_url)
 
 
 def _add_backend_args(p):
-    p.add_argument("--backend", choices=("mock", "openai"), default="mock",
-                   help="'openai' is any OpenAI-compatible server, e.g. vLLM serving Qwen3-VL")
-    p.add_argument("--model", default="Qwen/Qwen3-VL-32B-Instruct")
+    p.add_argument("--backend", choices=("mock", "hf", "openai"), default="mock",
+                   help="'hf' runs Qwen3-VL locally with transformers (4-bit 4B model by default); "
+                        "'openai' is any OpenAI-compatible server, e.g. vLLM serving Qwen3-VL")
+    p.add_argument("--model", default=None)
+    p.add_argument("--gen-cache", default=None, help="jsonl file that caches hf generations across runs")
     p.add_argument("--base-url", default=None, help="default: $OPENAI_BASE_URL or http://localhost:8000/v1")
 
 
@@ -86,13 +90,16 @@ def cmd_run(args):
     from .executors import make_executor
     from .experiments import format_table, run_experiment, summarize
 
-    defenses = [make_defense(d, checkpoint=args.checkpoint, device=args.device) for d in args.defenses]
+    backend = _backend(args)
+    defenses = [make_defense(d, checkpoint=args.checkpoint, device=args.device, backend=backend)
+                for d in args.defenses]
     executor = make_executor(args.executor)
     results = run_experiment(
-        _backend(args), defenses, families=tuple(args.families), n_trials=args.n,
+        backend, defenses, families=tuple(args.families), n_trials=args.n,
         include_clean=not args.no_clean, executor=executor, n_rollouts=args.rollouts,
         use_image=not args.no_image, seed=args.seed, out_dir=args.out,
         injections=load_replay(args.replay) if args.replay else None,
+        template_split=args.template_split, inject_all=not args.single_injection,
     )
     print(format_table(summarize(results)))
     if args.backend == "mock" or args.executor == "mock":
@@ -160,9 +167,14 @@ def main(argv=None):
     p.add_argument("--families", nargs="+", default=list(FAMILIES), choices=FAMILIES)
     p.add_argument("--n", type=int, default=50, help="trials per (defense, condition)")
     p.add_argument("--no-clean", action="store_true", help="skip the no-attack condition")
-    p.add_argument("--executor", choices=("none", "mock", "openvla"), default="none")
+    p.add_argument("--executor", choices=("none", "mock", "mujoco", "openvla"), default="none",
+                   help="mujoco: scripted arm in the MuJoCo kitchen, also supplies camera frames")
     p.add_argument("--rollouts", type=int, default=0, help="full arm rollouts per cell (headline: 120)")
     p.add_argument("--no-image", action="store_true", help="do not send the camera frame")
+    p.add_argument("--single-injection", action="store_true",
+                   help="poison only the first lookup result instead of every one")
+    p.add_argument("--template-split", choices=("train", "eval"), default="eval",
+                   help="attack wordings: 'eval' ones are never used to train the classifier")
     p.add_argument("--replay", help="adaptive.jsonl from `adaptive`; replays the evading attacks")
     p.add_argument("--checkpoint", default="checkpoints/span-clf")
     p.add_argument("--device", default=None)

@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 
 from .tasks import LIBERO_GOAL_TASKS, SCENE_OBJECTS, SceneObject, Task, resolve_object
 
-EXECUTE_TOOL = "execute_task"
+EXECUTE_TOOL = "execute_subgoal"
 INFO_TOOLS = ("lookup_object", "get_scene_notes")
 
 # OpenAI-style function schemas, as consumed by Qwen3-VL behind vLLM.
@@ -40,7 +40,7 @@ TOOL_SCHEMAS = [
     {
         "type": "function",
         "function": {
-            "name": "execute_task",
+            "name": "execute_subgoal",
             "description": (
                 "Send one natural-language manipulation instruction to the robot arm policy, "
                 "which then moves the arm. Call this once you know what to do."
@@ -145,10 +145,12 @@ def build_response(
     rng: random.Random,
     injection: str | None = None,
     fmt: str | None = None,
+    position: str = "random",
 ) -> ToolResponse:
     """Build one information-tool response, optionally with an injected span.
 
     `fmt` is one of "prose", "kv" or "json"; a random one is used when omitted.
+    `position` places the injection at a "random" sentence boundary, or at the "start" or "end".
     """
     if tool == "lookup_object":
         obj = resolve_object(str(args.get("name", "")))
@@ -164,7 +166,9 @@ def build_response(
     sents = _benign_sentences(obj, task, rng)
     parts: list[Segment] = [Segment(s) for s in sents]
     if injection is not None:
-        parts.insert(rng.randint(0, len(parts)), Segment(injection, injected=True))
+        where = rng.randint(0, len(parts))  # always drawn, so the rest of the layout does not depend on `position`
+        where = {"start": 0, "end": len(parts)}.get(position, where)
+        parts.insert(where, Segment(injection, injected=True))
 
     title = obj.name if obj else "workspace"
     if fmt == "json":

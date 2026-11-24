@@ -7,5 +7,14 @@ __pycache__/
 
 # generated artifacts
 data/
-runs/
 checkpoints/
+# run logs: keep only what the report's figures and tables are built from
+runs/*
+!runs/e1/
+!runs/e2/
+!runs/e3/
+!runs/e3_replay/
+!runs/classifier_study.json
+!runs/span_eval.json
+!runs/template_asr.json
+!runs/gen_cache.jsonl

@@ -1,0 +1,17 @@
+\begin{tabular}{llrrrr}
+\toprule
+Model & Test split & Span F1 & Injected chars removed & Benign chars kept & False alarms \\
+\midrule
+Classifier, with task & seen families & 0.992 $\pm$ 0.009 & 0.985 $\pm$ 0.015 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+Classifier, with task & held-out families & 0.955 $\pm$ 0.009 & 0.907 $\pm$ 0.020 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+Classifier, task hidden & seen families & 0.998 $\pm$ 0.001 & 0.996 $\pm$ 0.001 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+Classifier, task hidden & held-out families & 0.959 $\pm$ 0.006 & 0.918 $\pm$ 0.012 & 1.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+\midrule
+ProtectAI, whole output & seen families & 0.084 & 0.059 & 0.968 & 0.006 \\
+ProtectAI, whole output & held-out families & 0.227 & 0.141 & 0.928 & 0.000 \\
+ProtectAI, per sentence & seen families & 0.482 & 0.334 & 0.996 & 0.003 \\
+ProtectAI, per sentence & held-out families & 0.560 & 0.370 & 0.992 & 0.003 \\
+Keyword filter & seen families & 0.000 & 0.000 & 0.978 & 0.087 \\
+Keyword filter & held-out families & 0.641 & 0.514 & 0.978 & 0.054 \\
+\bottomrule
+\end{tabular}

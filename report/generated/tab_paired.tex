@@ -1,0 +1,15 @@
+\begin{tabular}{lrrr}
+\toprule
+Defense & Hijack prevented & Hijack introduced & Exact McNemar $p$ \\
+\midrule
+Instructional warning & 2 & 3 & 1.000 \\
+ProtectAI detector, whole output & 5 & 0 & 0.062 \\
+Spotlighting (delimiters) & 7 & 1 & 0.070 \\
+Spotlighting (datamarking) & 11 & 3 & 0.057 \\
+PromptArmor-style LLM filter & 10 & 0 & 0.002 \\
+Keyword filter & 25 & 0 & 6.0e-08 \\
+ProtectAI detector, per sentence & 47 & 0 & 1.4e-14 \\
+Sandwich & 54 & 0 & 1.1e-16 \\
+Span classifier (ours) & 108 & 0 & 6.2e-33 \\
+\bottomrule
+\end{tabular}

@@ -1,4 +1,4 @@
-"""Arm executors behind `execute_task`.
+"""Arm executors behind `execute_subgoal`.
 
 `OpenVLALiberoExecutor` runs the public OpenVLA LIBERO-Goal checkpoint in the
 LIBERO simulator and scores the rollout with LIBERO's success check for the
@@ -146,6 +146,10 @@ def make_executor(name: str, **kwargs) -> Executor | None:
         return None
     if name == "mock":
         return MockExecutor(**kwargs)
+    if name == "mujoco":
+        from .sim import MujocoExecutor
+
+        return MujocoExecutor(**kwargs)
     if name == "openvla":
         return OpenVLALiberoExecutor(**kwargs)
     raise ValueError(f"unknown executor '{name}'")

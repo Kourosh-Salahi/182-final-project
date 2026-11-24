@@ -18,6 +18,7 @@ from .backends import Backend
 from .dataset import sample_goal
 from .defenses import Defense
 from .executors import Executor
+from .scene import render_scene
 from .tasks import LIBERO_GOAL_TASKS, get_task
 
 CLEAN = "clean"
@@ -57,6 +58,9 @@ def summarize(results: list[TrialResult]) -> list[dict]:
             row["exposed"] = _rate(sum(r.exposed for r in rs), len(rs))
             row["survived_defense"] = _rate(sum(r.survived for r in rs), len(rs))
             row["attack_at_call"] = _rate(sum(r.attack_at_call for r in rs), len(rs))
+            # Attack success among trials where the poisoned tool output was actually served.
+            ex = [r for r in rs if r.exposed]
+            row["attack_given_exposed"] = _rate(sum(r.attack_at_call for r in ex), len(ex))
         if n_roll:
             # Arm rates are over all trials given a rollout, so they are comparable to the call rates.
             row["user_success_at_arm"] = _rate(sum(r.user_success_at_arm for r in rs), n_roll)
@@ -83,6 +87,7 @@ def format_table(rows: list[dict]) -> str:
         ("ASR@arm", lambda r: pct(r, "attack_at_arm")),
         ("user@call", lambda r: pct(r, "user_call")),
         ("user@arm", lambda r: pct(r, "user_success_at_arm")),
+        ("exposed", lambda r: pct(r, "exposed")),
         ("survived", lambda r: pct(r, "survived_defense")),
     ]
     table = [[name for name, _ in cols]] + [[fn(r) for _, fn in cols] for r in rows]
@@ -105,14 +110,17 @@ def run_experiment(
     seed: int = 0,
     out_dir: str | Path | None = None,
     injections: dict[str, list[tuple[int, Injection]]] | None = None,
+    inject_all: bool = True,
     log=print,
 ) -> list[TrialResult]:
     """Run every (defense, condition) cell for `n_trials` trials.
 
     The first `n_rollouts` trials of each cell are rolled out on the arm when an
-    executor is given; the rest stop at the first `execute_task` call.
+    executor is given; the rest stop at the first `execute_subgoal` call.
     `injections` overrides the sampled attacks with fixed (task_id, injection)
-    pairs per family, used to replay adaptive attacks from E3.
+    pairs per family, used to replay adaptive attacks from E3. With `inject_all`
+    (default) the attacker has poisoned every corpus entry, so each lookup in a
+    trial returns the injection; otherwise only the first lookup does.
     """
     conditions = ([CLEAN] if include_clean else []) + list(families)
     frames: dict[tuple[int, int], object] = {}
@@ -141,13 +149,15 @@ def run_experiment(
 
                     episode = i
                     image = None
-                    if executor and use_image:
+                    if use_image and backend.name != "mock":
                         key = (task.id, episode % 10)
                         if key not in frames:
-                            frames[key] = executor.initial_frame(task, episode % 10)
+                            frame = executor.initial_frame(task, episode % 10) if executor else None
+                            # No simulator: a schematic rendering of the same scene.
+                            frames[key] = frame if frame is not None else render_scene(seed=episode % 10)
                         image = frames[key]
 
-                    r = run_trial(backend, defense, task, rng, injection=injection, image=image)
+                    r = run_trial(backend, defense, task, rng, injection=injection, image=image, inject_all=inject_all)
                     r.rollout_requested = bool(executor) and i < n_rollouts
                     if r.rollout_requested and r.executed_task_id is not None:
                         # Run whatever goal the orchestrator asked for and score that goal.

@@ -1,0 +1,17 @@
+\begin{tabular}{lrrrrrrr}
+\toprule
+Defense & Goal subst. & Authority & False recovery$^*$ & Tool-call hijack$^*$ & All attacks & Injection readable & Clean \\
+\midrule
+No defense & 90 \,{\scriptsize[74,97]} & 97 \,{\scriptsize[83,99]} & 93 \,{\scriptsize[79,98]} & 80 \,{\scriptsize[63,90]} & 90 \,{\scriptsize[83,94]} & 100 \,{\scriptsize[97,100]} & 100 \,{\scriptsize[89,100]} \\
+\midrule
+Instructional warning & 90 \,{\scriptsize[74,97]} & 93 \,{\scriptsize[79,98]} & 90 \,{\scriptsize[74,97]} & 90 \,{\scriptsize[74,97]} & 91 \,{\scriptsize[84,95]} & 100 \,{\scriptsize[97,100]} & 100 \,{\scriptsize[89,100]} \\
+ProtectAI detector, whole output & 83 \,{\scriptsize[66,93]} & 97 \,{\scriptsize[83,99]} & 87 \,{\scriptsize[70,95]} & 77 \,{\scriptsize[59,88]} & 86 \,{\scriptsize[78,91]} & 95 \,{\scriptsize[90,98]} & 100 \,{\scriptsize[89,100]} \\
+Spotlighting (delimiters) & 80 \,{\scriptsize[63,90]} & 87 \,{\scriptsize[70,95]} & 93 \,{\scriptsize[79,98]} & 80 \,{\scriptsize[63,90]} & 85 \,{\scriptsize[78,90]} & 100 \,{\scriptsize[97,100]} & 90 \,{\scriptsize[74,97]} \\
+Spotlighting (datamarking) & 73 \,{\scriptsize[56,86]} & 90 \,{\scriptsize[74,97]} & 97 \,{\scriptsize[83,99]} & 73 \,{\scriptsize[56,86]} & 83 \,{\scriptsize[76,89]} & 100 \,{\scriptsize[97,100]} & 100 \,{\scriptsize[89,100]} \\
+PromptArmor-style LLM filter & 87 \,{\scriptsize[70,95]} & 93 \,{\scriptsize[79,98]} & 93 \,{\scriptsize[79,98]} & 53 \,{\scriptsize[36,70]} & 82 \,{\scriptsize[74,88]} & 90 \,{\scriptsize[83,94]} & 100 \,{\scriptsize[89,100]} \\
+Keyword filter & 90 \,{\scriptsize[74,97]} & 93 \,{\scriptsize[79,98]} & 93 \,{\scriptsize[79,98]} & 0 \,{\scriptsize[0,11]} & 69 \,{\scriptsize[60,77]} & 75 \,{\scriptsize[67,82]} & 100 \,{\scriptsize[89,100]} \\
+ProtectAI detector, per sentence & 67 \,{\scriptsize[49,81]} & 87 \,{\scriptsize[70,95]} & 50 \,{\scriptsize[33,67]} & 0 \,{\scriptsize[0,11]} & 51 \,{\scriptsize[42,60]} & 62 \,{\scriptsize[53,70]} & 100 \,{\scriptsize[89,100]} \\
+Sandwich & 23 \,{\scriptsize[12,41]} & 67 \,{\scriptsize[49,81]} & 50 \,{\scriptsize[33,67]} & 40 \,{\scriptsize[25,58]} & 45 \,{\scriptsize[36,54]} & 100 \,{\scriptsize[97,100]} & 100 \,{\scriptsize[89,100]} \\
+Span classifier (ours) & 0 \,{\scriptsize[0,11]} & 0 \,{\scriptsize[0,11]} & 0 \,{\scriptsize[0,11]} & 0 \,{\scriptsize[0,11]} & 0 \,{\scriptsize[0,3]} & 0 \,{\scriptsize[0,3]} & 100 \,{\scriptsize[89,100]} \\
+\bottomrule
+\end{tabular}
