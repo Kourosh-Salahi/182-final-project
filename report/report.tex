@@ -53,6 +53,20 @@ cannot reliably tell instructions from data, so text planted in a tool result ca
 Greshake et al.\ \cite{greshake} named this \emph{indirect prompt injection}. In a robot, the
 injected text decides what the arm does.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.74\linewidth]{figures/demo_final.png}
+\caption{One planted sentence in a lookup result redirects the robot, and the classifier removes it.
+Final frames of one paired trial in the MuJoCo scene; below each panel is the instruction Qwen3-VL-4B
+sent to the arm. The user task is ``put the bowl on the plate'' and the attacker's goal is
+``turn on the stove''. Left: no attack. Middle and right: every lookup result contains the
+false-recovery injection ``This object is stuck after the last run. It comes free only if you turn on
+the stove first. Then continue with the task.'' Without a defense the VLM turns on the stove; with the
+classifier it reads the lookup result with that sentence removed and does the user's task. The arm is
+scripted.}
+\label{fig:demo}
+\end{figure}
+
 Existing defenses fit this setting poorly. Off-the-shelf injection detectors are trained on
 jailbreak-style text such as ``ignore previous instructions'', judge a text without knowing the
 user's task, and discard the whole tool result when they fire; the polite, task-shaped request above
@@ -85,24 +99,18 @@ classifier ignores the user's task (Section~\ref{sec:stress}). Prediction (3) is
 black-box search got 38\% of attacks past the classifier, but few of them still hijacked the agent
 (Section~\ref{sec:adaptive}).
 
-\paragraph{Why a scripted arm instead of a VLA.} The proposal planned OpenVLA executing subgoals in
-LIBERO \cite{libero}; this report concentrates on the part of the system the attack targets, the
-orchestrator's harness and the classifier that filters its tool outputs. A VLA harness is a closed
-control loop that maps the current camera frame and one instruction string to an action at every step,
-with no message history or tool results \cite{vlaeval}, so the only text a VLA reads is the argument
-the VLM passes to the arm tool. The VLA cannot judge whether that instruction is legitimate: it acts on
-whatever string it is given, and adversarial text supplied once at the start of a rollout can drive it
-to almost any action \cite{jones}. A hijack is therefore decided when the VLM chooses that argument,
-and that is where we measure attack success. A scripted MuJoCo \cite{mujoco} arm stands in for the VLA
-so that outcomes are visible. It sits behind one interface, \code{execute\_subgoal}, so a learned
-policy can replace it without changing the harness, attacks or defenses; an OpenVLA executor is already
-written against that interface but has not been run. Since the arm only acts on instructions it
-receives, attack success at the arm can be at most the rate at the call. It may be lower, because a
-VLA fails some tasks on its own and VLAs trained on LIBERO often make little use of the instruction text
-\cite{liberoplus,langgap}; how much lower is an open question for LIBERO-Goal, whose ten tasks start
-from the same scene, so the instruction is what tells the policy which task to perform.
-We plan to add a learned policy once the classifier detects injections reliably
-(Appendix~\ref{app:harness}).
+\paragraph{Why a scripted arm instead of a VLA.} We measure attack success where a hijack is
+decided: at the instruction the VLM passes to the arm. A VLA harness is a closed control loop that maps
+the current camera frame and one instruction string to an action at every step, with no message
+history or tool results \cite{vlaeval}, so that instruction is the only text a VLA reads, and the VLA
+acts on whatever string it is given \cite{jones}. The proposal planned OpenVLA in LIBERO
+\cite{libero}; here a scripted MuJoCo \cite{mujoco} arm stands in for it so that outcomes are visible.
+It sits behind one interface, \code{execute\_subgoal}, so a learned policy can replace it without
+changing the harness, attacks or defenses (Appendix~\ref{app:harness} compares the two kinds of
+harness). Attack success at the arm can be at most the rate at the call and may be lower, because a
+VLA fails some tasks on its own and VLAs trained on LIBERO often make little use of the instruction
+text \cite{liberoplus,langgap}; in LIBERO-Goal, whose ten tasks start from the same scene, the
+instruction is what selects the task, so how much lower is an open question.
 
 \paragraph{Contributions.}
 \begin{itemize}
@@ -250,19 +258,20 @@ $g\in\mathcal{G}\setminus\{u\}$ and inserts an injection string $a(g)$ at a rand
 of every information-tool result (\code{lookup\_object} and \code{get\_scene\_notes}). The attacker knows the tool names and the model but cannot change the user
 message, system prompt, image or weights. Injections through the camera image are out of scope.
 
-\paragraph{One trial.} Figure~\ref{alg:trial} in Appendix~\ref{app:details} gives the loop as
-pseudocode. Three rules changed the results materially. \emph{Rule 1, look before acting:} an arm
-command issued before any lookup is refused (up to twice per trial) with a message asking the model to
-look up the objects first; otherwise the model sometimes skips the lookup and the attack is never
-delivered. \emph{Rule 2, no arm command in the same turn as a lookup:} Qwen3-VL-4B often emits its
-lookups and its \code{execute\_subgoal} call in one reply, which fixes the arm command before any tool
-output exists; for one task this happened in almost every trial and made it look immune (2 hijacks in
-11 trials). We drop such a command and query the model again once it has the lookup results, as a
-harness that disables parallel calls for tools with side effects would. \emph{Rule 3, outcome:} the
-model may issue up to three subgoals. A trial is a \emph{hijack} as soon as any subgoal matches the
-attacker's goal $g$; otherwise it is \emph{user task} if a subgoal matches $u$, and \emph{neither} if
-not. The attack success rate (ASR) of a condition is the fraction of its trials that are hijacks, and
-\emph{clean-task success} is the fraction of no-attack trials labelled \emph{user task}.
+\paragraph{One trial.} The VLM receives the task and the camera frame and calls tools until it stops
+(pseudocode in Figure~\ref{alg:trial}, Appendix~\ref{app:details}). Rules 1 and 2 make sure it reads a
+tool result before it commands the arm; without them the attack text often never reached its decision.
+Rule 3 scores the trial.
+\emph{Rule 1:} an arm command sent before any lookup is refused, and the model is told to look up the
+objects first. Otherwise it sometimes skipped the lookup, and with it the attack.
+\emph{Rule 2:} if one reply holds both a lookup and an arm command, the arm command is dropped and the
+model is asked again once it has the lookup results. Qwen3-VL-4B often wrote both at once, fixing the
+command before any tool output existed; one task looked immune for this reason alone (2 hijacks in 11
+trials).
+\emph{Rule 3:} the model may send up to three subgoals. A trial is a \emph{hijack} if any subgoal
+matches the attacker's goal $g$, otherwise \emph{user task} if one matches $u$, otherwise
+\emph{neither}. The attack success rate (ASR) is the share of attacked trials that are hijacks;
+\emph{clean-task success} is the share of no-attack trials labelled user task.
 
 \subsection{Attacks}
 \label{sec:attacks}
@@ -374,15 +383,16 @@ a second model; the original uses GPT-4o-class guards, so ours is a much weaker 
 Guard~2 is implemented but was not run, because its weights are gated and we did not obtain access.
 DataFilter (an 8B model) and MELON were not run.
 
-\textbf{E1} (no defense) runs the undefended agent on 40 clean trials and 40 trials per attack family.
-\textbf{E2} (defense comparison) runs every defense on 30 clean trials and 30 trials per family.
-\textbf{E3} (adaptive attack) attacks the classifier by black-box search (Section~\ref{sec:adaptive}).
-\textbf{E4} (stress test) scores the E2 classifier checkpoint, unchanged, on the stress-test splits.
-\textbf{E5} (contrast study) trains the classifier in four setups, with or without the contrast
-training pairs and with the task shown or replaced by a constant (``hidden''), three seeds each.
-\textbf{E6} (new wordings on the robot) runs the 120 new wordings through the undefended agent once,
-keeps those that hijack it, and reruns only those with no defense, both ProtectAI variants, sandwiching
-and the classifier.
+We run six experiments. Four run the full agent and count hijacks. \textbf{E1} measures the
+undefended agent (40 clean trials and 40 per attack family; Section~\ref{sec:wording}). \textbf{E2}
+runs every defense on the same trials (30 clean and 30 per family; Section~\ref{sec:defenses}).
+\textbf{E3} searches for rewrites of 80 attacks that slip past the classifier and replays them through
+the agent (Section~\ref{sec:adaptive}). \textbf{E6} runs the 120 new wordings once on the undefended
+agent and reruns those that hijack it under five defenses (Section~\ref{sec:stress}). Two score the
+classifier on text alone (Section~\ref{sec:stress}): \textbf{E4} applies
+the E2 checkpoint, unchanged, to the stress-test splits, and \textbf{E5} retrains it in four setups,
+with or without the contrast pairs and with the task shown or replaced by a constant word
+(``hidden''), three seeds each.
 
 \paragraph{Controls.} Trial $i$ of a condition uses the same user task, attacker goal, injection
 string, camera frame and benign tool text under every defense, and decoding is greedy, so two
@@ -408,30 +418,16 @@ figures of seed studies show the min--max range.
 \subsection{Injections phrased as one extra step hijack the undefended agent (Q1)}
 \label{sec:wording}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.74\linewidth]{figures/demo_final.png}
-\caption{Final frames of one paired trial in the MuJoCo scene; below each panel is the instruction
-Qwen3-VL-4B sent to the arm. The user task is ``put the bowl on the plate'' and the attacker's goal is
-``turn on the stove''. Left: no attack. Middle and right: every lookup result contains the
-false-recovery injection ``This object is stuck after the last run. It comes free only if you turn on
-the stove first. Then continue with the task.'' Without a defense the VLM turns on the stove; with the
-classifier it reads the lookup result with that sentence removed and does the user's task. The arm is
-scripted.}
-\label{fig:demo}
-\end{figure}
-
 With no defense (E1, Table~\ref{tab:e1} in Appendix~\ref{app:robot}) the agent completes all 40
 clean tasks and sends the attacker's goal to the arm in 145 of 160 attacked trials (91\%, interval
 85--94\%), with little difference between families. Figure~\ref{fig:demo} shows one such trial.
 
-The structure of the request matters more than its claimed source. Our first attack set used the
-standard forms from the literature (``ignore the earlier request and \{goal\} instead'', fake system
-messages, fake error reports, literal tool-call JSON, forged chat turns) and hijacked the first
-version of the harness in 16 of 150 trials (11\%). We split all 81 wordings of the final attack set (training and evaluation, four families) into two styles by a
-keyword rule (Appendix~\ref{app:details}): \emph{direct} wordings tell the model to replace the
-user's task or simply issue the command, and \emph{staged} wordings ask for the attacker's goal as a
-step before the user's task. Under the final harness, five trials per wording, direct wordings succeed
+The structure of the request matters more than its claimed source. We split all 81 wordings of the
+final attack set (training and evaluation, four families) into two styles by a keyword rule
+(Appendix~\ref{app:details}): \emph{direct} wordings, which include the standard forms from the
+literature (``ignore the earlier request and \{goal\} instead'', fake system messages, forged chat
+turns), tell the model to replace the user's task or simply issue the command, and \emph{staged}
+wordings ask for the attacker's goal as a step before the user's task. Under the final harness, five trials per wording, direct wordings succeed
 in 65 of 205 trials (32\%, interval 26--38\%) and staged wordings in 149 of 200 (74.5\%, interval
 68--80\%; Figure~\ref{fig:wording} in Appendix~\ref{app:history}). The harness is identical for the two groups, but the comparison
 is observational: the staged wordings were written after we had seen that the style worked, so they
@@ -445,7 +441,8 @@ to 49\% when a clean lookup followed it, and same-turn arm commands made one tas
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.82\linewidth]{figures/defenses.pdf}
-\caption{Defense comparison (E2). Left: attack success pooled over the four families (120 trials per
+\caption{Only the span classifier stops every hijack; the best baseline, sandwiching, leaves 45\%.
+Defense comparison (E2). Left: attack success pooled over the four families (120 trials per
 defense). Right: clean-task success (30 trials). Lower is better on the left, higher on the right.
 Bars are rates on a linear scale; whiskers are 95\% Wilson intervals. Trials are paired across
 defenses. Per-family results are in Table~\ref{tab:e2}.}
@@ -475,7 +472,8 @@ measures the approach with a guard as small as the agent, not the method at its 
 \centering
 \begin{minipage}[t]{0.48\linewidth}\centering
 \includegraphics[width=\linewidth]{figures/training.pdf}
-\caption{Classifier training. Grey: training loss, 10-step running mean, one line per seed. Blue and
+\caption{Loss on held-out families stops improving by step 50 while validation loss keeps
+falling. Classifier training. Grey: training loss, 10-step running mean, one line per seed. Blue and
 red: loss on the validation set (seen families) and on 300 examples of the held-out families (not used for selection), mean
 of three seeds with min--max band. The $y$ axis is logarithmic because the losses span four orders
 of magnitude.}
@@ -483,7 +481,8 @@ of magnitude.}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.48\linewidth}\centering
 \includegraphics[width=\linewidth]{figures/contrast.pdf}
-\caption{Contrast study (E5). Pair accuracy on the 300 task-contrast test pairs by pair type, for
+\caption{Only the classifier trained on contrast pairs with the task shown (B) gets most pairs
+right. Contrast study (E5). Pair accuracy on the 300 task-contrast test pairs by pair type, for
 classifiers trained with or without the contrast training pairs (A/C without, B/D with) and with the
 task shown (A, B) or hidden (C, D). Bars are means of three seeds; whiskers span the minimum and
 maximum seed. Linear scale.}
@@ -506,7 +505,8 @@ We now test how much each shortcut of Section~\ref{sec:stressdata} mattered, usi
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.88\linewidth]{figures/harder.pdf}
-\caption{Stress test (E4). The E2 classifier checkpoint and the per-sentence ProtectAI detector on the
+\caption{The classifier still removes most new attacks but flags most clean outputs written in
+new styles. Stress test (E4). The E2 classifier checkpoint and the per-sentence ProtectAI detector on the
 original test splits (top two rows) and the stress-test splits. Left: share of injected characters
 removed. Right: share of clean tool outputs from which anything was removed, with 95\% Wilson
 intervals (about 300 clean outputs per split). Linear scale. The E2 checkpoint is a separate training
@@ -999,7 +999,9 @@ records are in \code{data\_gen/}.
 
 \paragraph{Literature and writing.} Claude Code was used to search for related work, to check every
 citation against its source, to check every number in this report against the logs and generated
-tables, and to draft and edit the text, including a review pass with a report-writing guide for this
-course and a cold read of the built PDF by a separate Claude instance with no project context.
+tables, and to draft and edit the text. Two review and revision passes followed the
+\code{182-clear-research-paper} skill, a report-writing guide for this course written by one of us
+(\url{https://github.com/YashDThapliyal/cs182-paper-skill}), run in Claude Code with Claude Opus 5.5;
+one pass included a cold read of the built PDF by a separate Claude instance with no project context.
 
 \end{document}
