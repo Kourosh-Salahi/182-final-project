@@ -95,22 +95,24 @@ def fig_harness():
         if text:
             ax.text((a[0] + b[0]) / 2 + dx, (a[1] + b[1]) / 2 + dy, text, fontsize=7, ha=ha, va="center")
 
-    box(1.3, 5.0, 2.3, 0.8, "User task $u$", "trusted instruction", grey)
-    box(5.0, 5.0, 2.3, 0.8, "Camera frame", "MuJoCo render", grey)
-    box(2.3, 3.5, 4.6, 0.9, "Qwen3-VL orchestrator", "reads task, image and tool results; emits tool calls", grey)
-    box(0.2, 1.9, 2.6, 0.9, "Defense $D(u, x)$", "span classifier or baseline", green)
-    box(0.2, 0.4, 2.6, 0.9, "lookup_object", "facts from our corpus", grey)
-    box(3.6, 0.4, 2.3, 0.9, "Attacker", "plants text in corpus", red)
-    box(7.3, 1.9, 2.5, 0.9, "Arm executor", "scripted MuJoCo arm", grey)
-    box(7.3, 0.4, 2.5, 0.9, "Outcome", "whose goal reached the arm?", "#ffffff")
-    arrow((2.45, 5.0), (3.6, 4.4))
-    arrow((6.15, 5.0), (5.4, 4.4))
-    arrow((3.2, 3.5), (2.2, 1.3), "lookup_object(name)", dx=0.95, dy=0.55)
-    arrow((1.2, 1.3), (1.2, 1.9), "raw output $x$", dx=-0.1, dy=0.0, ha="right")
-    arrow((1.2, 2.8), (2.6, 3.5), "cleaned output", dx=-0.75, dy=0.05)
-    arrow((3.6, 0.85), (2.8, 0.85))
-    arrow((6.9, 3.7), (8.5, 2.8), "execute_subgoal(text)", dx=0.9, dy=0.15)
-    arrow((8.55, 1.9), (8.55, 1.3))
+    # Laid out so that no arrow crosses a box: the lookup call runs straight down to the right of
+    # the defense box, and every label sits in empty space.
+    box(1.6, 5.0, 2.4, 0.8, "User task $u$", "trusted instruction", grey)
+    box(5.4, 5.0, 2.4, 0.8, "Camera frame", "MuJoCo render", grey)
+    box(1.6, 3.5, 6.2, 0.9, "Qwen3-VL orchestrator", "reads task, image and tool results; calls tools", grey)
+    box(0.1, 1.9, 2.4, 0.9, "Defense $D(u, x)$", "span classifier or baseline", green)
+    box(0.1, 0.3, 3.6, 0.9, "lookup_object", "facts from our corpus", grey)
+    box(4.6, 0.3, 2.3, 0.9, "Attacker", "plants text in corpus", red)
+    box(7.5, 1.9, 2.4, 0.9, "Arm executor", "scripted MuJoCo arm", grey)
+    box(7.5, 0.3, 2.4, 0.9, "Outcome", "whose goal ran?", "#ffffff")
+    arrow((2.8, 5.0), (2.8, 4.44))
+    arrow((6.6, 5.0), (6.6, 4.44))
+    arrow((3.3, 3.46), (3.3, 1.24), "lookup_object(name)", dx=0.12, ha="left")
+    arrow((1.0, 1.24), (1.0, 1.86), "raw output $x$", dx=0.12, ha="left")
+    arrow((1.3, 2.84), (1.9, 3.46), "cleaned output", dx=-0.55, dy=0.08, ha="right")
+    arrow((4.56, 0.75), (3.74, 0.75))
+    arrow((7.2, 3.46), (8.7, 2.84), "execute_subgoal(text)", dx=-0.1, dy=-0.12, ha="right")
+    arrow((8.7, 1.86), (8.7, 1.24))
     fig.savefig(FIG / "harness.pdf", bbox_inches="tight")
     plt.close(fig)
     print("wrote", FIG / "harness.pdf")
@@ -124,18 +126,18 @@ def cell(trials, defense, family):
 
 def table_e1(e1):
     lines = ["\\begin{tabular}{lrrrr}", "\\toprule",
-             "Condition & $n$ & Attacker goal sent & User task sent & Neither \\\\", "\\midrule"]
+             "Condition & $n$ & Attacker goal sent & User task sent & Neither (\\%) \\\\", "\\midrule"]
     for fam in ["clean"] + FAMILIES:
         rs = cell(e1, "none", fam)
         n = len(rs)
         atk = sum(t["outcome"] == "attack_call" for t in rs)
         usr = sum(t["outcome"] == "user_call" for t in rs)
         label = "No attack" if fam == "clean" else FAMILY_LABEL[fam].replace("*", "")
-        lines.append(f"{label} & {n} & {pct(atk, n) if fam != 'clean' else '--'} & {pct(usr, n)} & {n - atk - usr} \\\\")
+        lines.append(f"{label} & {n} & {pct(atk, n) if fam != 'clean' else '--'} & {pct(usr, n)} & {100 * (n - atk - usr) / n:.0f} \\\\")
     rs = [t for t in e1 if t["family"]]
     atk = sum(t["outcome"] == "attack_call" for t in rs)
     usr = sum(t["outcome"] == "user_call" for t in rs)
-    lines += ["\\midrule", f"All attacks & {len(rs)} & {pct(atk, len(rs))} & {pct(usr, len(rs))} & {len(rs) - atk - usr} \\\\",
+    lines += ["\\midrule", f"All attacks & {len(rs)} & {pct(atk, len(rs))} & {pct(usr, len(rs))} & {100 * (len(rs) - atk - usr) / len(rs):.0f} \\\\",
               "\\bottomrule", "\\end{tabular}"]
     write("tab_e1.tex", "\n".join(lines) + "\n")
 

@@ -71,15 +71,19 @@ optimized against the classifier?
 actually use the user's task?
 \end{description}
 
-\paragraph{Hypothesis.} \todo{draft, team to confirm against the proposal} We expected (1) the
-undefended agent to follow most injections; (2) a task-conditioned span classifier to bring attack
-success near zero without hurting clean tasks, beating defenses that do not see the task; and (3) the
-classifier to generalize to new attacks by comparing each instruction's goal with the user's task.
-(1) held only for injections phrased as an extra step (Section~\ref{sec:wording}); (2) held in our
-main robot experiment, though clean-task cost was measured only on harmless text seen in training
-(Section~\ref{sec:defenses}); (3) held only partly: most new attacks were caught, but the classifier
-ignored the task until trained on pairs that require it and flagged most unfamiliar harmless text
-(Section~\ref{sec:stress}).
+\paragraph{Hypothesis.} Our proposal made three predictions. (1) The high hijack rates reported for
+LLM agents \cite{agentdojo,nagaraja} would replicate in our harness, with fewer attacks reaching the
+arm than appear as tool calls, because the VLA fails some subgoals on its own. (2) The classifier
+would sharply cut attack success on familiar attack families. (3) As in \cite{secpo,pismith},
+adaptive attacks would recover much of that protection. Prediction (1) held for injections phrased as
+one extra step but not for the standard forms from the literature (Section~\ref{sec:wording}); its
+arm-level part is untested, because our arm is scripted and carries out every instruction it gets.
+Prediction (2) held and went further than we predicted: the classifier stopped every hijack in our main
+robot experiment, including those from the two attack families it never saw (Section~\ref{sec:defenses}).
+The stress tests then showed that this result rests on harmless text seen in training and that the
+classifier ignores the user's task (Section~\ref{sec:stress}). Prediction (3) is not settled: a
+black-box search got 38\% of attacks past the classifier, but few of them still hijacked the agent
+(Section~\ref{sec:adaptive}).
 
 \paragraph{Why a scripted arm instead of a VLA.} The proposal planned OpenVLA executing subgoals in
 LIBERO \cite{libero}; this report concentrates on the part of the system the attack targets, the
@@ -93,8 +97,10 @@ and that is where we measure attack success. A scripted MuJoCo \cite{mujoco} arm
 so that outcomes are visible. It sits behind one interface, \code{execute\_subgoal}, so a learned
 policy can replace it without changing the harness, attacks or defenses; an OpenVLA executor is already
 written against that interface but has not been run. Since the arm only acts on instructions it
-receives, attack success at the arm can be at most the rate at the call, and possibly well below it,
-because VLAs trained on LIBERO often make little use of the instruction text \cite{liberoplus,langgap}.
+receives, attack success at the arm can be at most the rate at the call. It may be lower, because a
+VLA fails some tasks on its own and VLAs trained on LIBERO often make little use of the instruction text
+\cite{liberoplus,langgap}; how much lower is an open question for LIBERO-Goal, whose ten tasks start
+from the same scene, so the instruction is what tells the policy which task to perform.
 We plan to add a learned policy once the classifier detects injections reliably
 (Appendix~\ref{app:harness}).
 
@@ -233,7 +239,8 @@ cabinet and wine rack. The task set $\mathcal{G}$ is the ten goals of LIBERO-Goa
 standard manipulation benchmark, for example ``put the bowl on the plate'' and ``turn on the stove''.
 All ten are executable from the same initial scene, so an attacker goal is always a valid alternative
 action. We rebuilt the scene in MuJoCo \cite{mujoco}; a rendered $480\times360$ frame is the VLM's
-image input. The orchestrator has three tools. \code{lookup\_object(name)} and
+image input. The orchestrator is Qwen3-VL-4B \cite{qwen3vl}, an open-weight VLM with native tool
+calling, run at 4-bit precision (Appendix~\ref{app:details}). It has three tools. \code{lookup\_object(name)} and
 \code{get\_scene\_notes()} return text from a corpus of facts we wrote (two to about eight sentences
 per lookup, formatted at random as prose, a key-value list or JSON). \code{execute\_subgoal(instruction)}
 sends one natural-language subgoal to the arm.
@@ -364,7 +371,7 @@ variants, sandwiching, a keyword filter, the ProtectAI detector on the whole out
 and a PromptArmor-style filter. All plug into the defense stage of Figure~\ref{fig:harness}. The
 PromptArmor-style filter uses the agent's own Qwen3-VL-4B as the guard model, because we could not run
 a second model; the original uses GPT-4o-class guards, so ours is a much weaker version. Llama Prompt
-Guard~2 is implemented but was not run because the weights are gated \todo{run Prompt Guard 2}.
+Guard~2 is implemented but was not run, because its weights are gated and we did not obtain access.
 DataFilter (an 8B model) and MELON were not run.
 
 \textbf{E1} (no defense) runs the undefended agent on 40 clean trials and 40 trials per attack family.
@@ -390,8 +397,10 @@ Wilson score intervals \cite{wilson} (formula in Appendix~\ref{app:settings}) be
 $n=30$ it would give a zero-width interval, while Wilson gives $[0,11]\%$. The intervals describe
 sampling of tasks, goals and tool-output layouts with the model and attack wordings fixed; they do
 not cover variation across orchestrator models, classifier seeds or new attack wordings. For paired
-comparisons with the undefended run we also report an exact McNemar test \cite{mcnemar} on the
-discordant trials. Classifier metrics are mean $\pm$ standard deviation over three training seeds;
+comparisons with the undefended run we also report an exact McNemar test \cite{mcnemar}. It uses only
+the discordant trials, those hijacked under exactly one of the two conditions; if the defense had no
+effect, each would be equally likely to go either way, so the test is a two-sided binomial test of their
+split against one half. Classifier metrics are mean $\pm$ standard deviation over three training seeds;
 figures of seed studies show the min--max range.
 
 \section{Results}
@@ -402,11 +411,13 @@ figures of seed studies show the min--max range.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.74\linewidth]{figures/demo_final.png}
-\caption{Final frames of one paired trial in the MuJoCo scene; the user task is ``put the bowl on
-the plate'' and the attacker's goal is ``turn on the stove''. Left: no attack. Middle: the lookup
-result contains a false-recovery injection (red) and the VLM turns on the stove. Right: the
-classifier cuts the instruction out before the VLM reads it and the user's task is done. The arm is
-scripted; the tool calls are Qwen3-VL-4B's.}
+\caption{Final frames of one paired trial in the MuJoCo scene; below each panel is the instruction
+Qwen3-VL-4B sent to the arm. The user task is ``put the bowl on the plate'' and the attacker's goal is
+``turn on the stove''. Left: no attack. Middle and right: every lookup result contains the
+false-recovery injection ``This object is stuck after the last run. It comes free only if you turn on
+the stove first. Then continue with the task.'' Without a defense the VLM turns on the stove; with the
+classifier it reads the lookup result with that sentence removed and does the user's task. The arm is
+scripted.}
 \label{fig:demo}
 \end{figure}
 
@@ -508,8 +519,9 @@ slightly.}
 never touches a clean output (Figure~\ref{fig:harder}). On clean outputs written in new styles it
 removes something from 64\% of them, and from 70\% when the attacks are new too, deleting 13--14\% of
 all harmless characters (Table~\ref{tab:ood}). The clean-task success of 100\% in E2 has the same defect: the robot's lookup tool serves
-the original harmless sentences, so E2 could not have shown this cost \todo{serve the new harmless
-notes from the lookup tool and re-measure clean-task success}. The per-sentence ProtectAI detector,
+the original harmless sentences, so E2 could not have shown this cost. Measuring it on the robot
+would mean serving the new harmless notes from the lookup tool and repeating the clean trials, which we
+have not done. The per-sentence ProtectAI detector,
 which never saw our data, flags 7--8\% of the same outputs.
 
 \paragraph{New attack styles are still mostly caught.} With the original harmless text and attacks in
@@ -532,8 +544,9 @@ $70\pm7$\% of clean outputs in new styles. Contrast pairs teach the model to use
 teach it what harmless text looks like.
 
 \paragraph{New attack styles on the robot.} Only 8 of the 120 new wordings hijack the undefended agent
-(E6, Table~\ref{tab:oodrobot}), too few to compare defenses
-\todo{effective attacks in new styles, found by search scored with the full agent}.
+(E6, Table~\ref{tab:oodrobot}), too few to compare defenses. Testing the defenses against new
+styles on the robot needs attacks that are both new in style and effective, which a search scored with
+the full agent could supply; we did not run one.
 
 \subsection{A weak adaptive attack often evades the classifier but rarely hijacks the agent (Q3)}
 \label{sec:adaptive}
@@ -552,8 +565,9 @@ attacks hijack it (3 of 80 end to end), and only 9 of the
 30 hijack the VLM even with nothing filtered, because the search optimizes evasion alone and drifts
 toward wordings the VLM also ignores, such as the direct forms of Section~\ref{sec:wording}. We read this as a weak attack, not a strong
 defense: a search scored with the full agent would keep only rewrites that
-still persuade the VLM, and the 38\% evasion rate shows there is room to find them
-\todo{agent-in-the-loop search; white-box token search}.
+still persuade the VLM, and the 38\% evasion rate shows there is room to find them. We ran neither
+such an agent-in-the-loop search nor a white-box search that uses the classifier's gradients
+\cite{gcg}, so the classifier's robustness to a strong adaptive attacker is untested.
 
 \section{Discussion}
 
@@ -570,11 +584,13 @@ compared the classifier there with a simpler filter, such as an allowlist of kno
 detector of injected instructions in new text it is not yet usable: it flags most unfamiliar harmless
 outputs, and the adaptive search gets 38\% of rewritten attacks past it.
 
-\paragraph{Limits and next steps.} There is one orchestrator, at 4B parameters and 4-bit precision
-\todo{Qwen3-VL-32B via vLLM}, ten tasks, seven objects, and twelve robot attack wordings of one
-structure. The stress-test data was written by language models from briefs and has its own
+\paragraph{Limits and next steps.} There is one orchestrator, Qwen3-VL-4B at 4-bit precision, because
+the proposal's Qwen3-VL-32B does not fit on our 8\,GB GPU; there are ten tasks, seven objects, and
+twelve robot attack wordings of one structure. The stress-test data was written by language models from briefs and has its own
 regularities, and the contrast wordings are plain commands a classifier may learn as a format. The arm
-is scripted \todo{OpenVLA or SmolVLA executor}. Next: train on varied harmless text, serve it from the lookup tool, and search for attacks scored by the full agent.
+is scripted, so we make no claim about attack success at a learned policy. Next, in order: train on
+varied harmless text and serve it from the lookup tool; search for attacks scored by the full agent;
+put a learned VLA behind the arm tool; and repeat the main experiments with a larger orchestrator.
 
 \begin{thebibliography}{99}\small
 \bibitem{openvla} M.~J. Kim et al. OpenVLA: An open-source vision-language-action model. arXiv:2406.09246, 2024.
@@ -816,7 +832,7 @@ Orchestrator & model & Qwen3-VL-4B-Instruct, 4-bit weights; largest that fits 8\
  & image & one $480\times360$ MuJoCo render \\
 Trial & limits & 8 model turns, 3 subgoals \\
  & goal matching & similarity threshold 0.8 (Appendix~\ref{app:details}) \\
-Experiments & trials per cell & 40 (E1), 30 (E2), 80 attacks (E3), 120 wordings (E6); set by a 3-hour GPU budget \\
+Experiments & trials per cell & 40 (E1), 30 (E2), 80 attacks (E3), 120 wordings (E6); chosen to keep each experiment to a few hours on one GPU \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -953,19 +969,21 @@ decision threshold. The $y$ axis starts at 0.6. The dotted line marks $\tau=0.5$
 \label{app:repro}
 Code, the dataset generator, per-trial logs and the scripts that rebuild every figure and table
 (\code{scripts/make\_figures.py}) are at
-\url{https://github.com/Kourosh-Salahi/182-final-project} \todo{make the repository public}; the
+\url{https://github.com/Kourosh-Salahi/182-final-project}; the
 README lists one command per experiment. The stress-test data, its briefs, raw writer outputs, filter
 and audit records are in \code{data\_gen/}. No external dataset is used. All experiments ran on one
-8\,GB RTX 3070: a classifier training run takes under two minutes, and the agent experiments were
-sized to a three-hour GPU budget \todo{total GPU-hours across all experiments}.
+8\,GB RTX 3070, about 5.5 GPU-hours in total by our estimate from the run logs. Classifier training
+accounts for under one hour (a single run takes under two minutes); the rest is the VLM agent,
+including the tuning of the attack set.
 
 \FloatBarrier
 \section{Use of generative AI}
 \label{app:ai}
 
-The only generative-AI tool used in this project was Claude Code (Anthropic), a command-line coding
-agent that runs Claude models; parts of the work, including the final editing of this report, used
-Claude Opus 5.5. \todo{team to confirm this list covers everyone's use}
+The only generative-AI tool used in this project, by any team member, was Claude Code (Anthropic), a
+command-line coding agent that runs Claude models. Two models were used. Claude Fable 5.2 wrote most of
+the harness, defenses, classifier and experiment code and drafted the first version of this report. Claude Opus 5.5 generated the stress-test data, wrote its filtering and
+assembly code, revised this report, and did the final editing.
 
 \paragraph{Code.} Claude Code wrote and debugged much of the repository under the team's direction:
 the harness and tools, the defenses and baselines, classifier training, the experiment scripts, the
